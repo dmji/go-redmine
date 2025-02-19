@@ -28,10 +28,10 @@ func newFiles(sdkConfig sdkConfiguration) *Files {
 	}
 }
 
-// List files
+// GetFiles - List files
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Files#GET
-func (s *Files) List(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetFilesResponse, error) {
+func (s *Files) GetFiles(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetFilesResponse, error) {
 	request := operations.GetFilesRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -238,10 +238,10 @@ func (s *Files) List(ctx context.Context, format components.Format, projectID in
 
 }
 
-// Create file
+// CreateFile - Create file
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Files#POST
-func (s *Files) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateFileRequestBody, opts ...operations.Option) (*operations.CreateFileResponse, error) {
+func (s *Files) CreateFile(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateFileRequestBody, opts ...operations.Option) (*operations.CreateFileResponse, error) {
 	request := operations.CreateFileRequest{
 		Format:             format,
 		ProjectID:          projectID,

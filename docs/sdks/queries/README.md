@@ -8,9 +8,9 @@ Status: Alpha, Availablity: 1.3
 
 ### Available Operations
 
-* [List](#list) - List queries
+* [GetQueries](#getqueries) - List queries
 
-## List
+## GetQueries
 
 List queries
 
@@ -41,7 +41,7 @@ func main() {
         }),
     )
 
-    res, err := s.Queries.List(ctx, operations.GetQueriesRequest{
+    res, err := s.Queries.GetQueries(ctx, operations.GetQueriesRequest{
         Format: components.FormatXML,
         XRedmineSwitchUser: goredmine.String("jsmith"),
     })

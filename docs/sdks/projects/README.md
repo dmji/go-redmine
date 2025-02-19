@@ -8,17 +8,17 @@ Status: Stable, Availablity: 1.0
 
 ### Available Operations
 
-* [List](#list) - List projects
-* [Create](#create) - Crete project
-* [Get](#get) - Show project
-* [Update](#update) - Update project
-* [Delete](#delete) - Delete project
-* [Archive](#archive) - Archive project
-* [Unarchive](#unarchive) - Unarchive project
-* [Close](#close) - Close project
-* [Reopen](#reopen) - Reopen project
+* [GetProjects](#getprojects) - List projects
+* [CreateProject](#createproject) - Crete project
+* [GetProject](#getproject) - Show project
+* [UpdateProject](#updateproject) - Update project
+* [DeleteProject](#deleteproject) - Delete project
+* [ArchiveProject](#archiveproject) - Archive project
+* [UnarchiveProject](#unarchiveproject) - Unarchive project
+* [CloseProject](#closeproject) - Close project
+* [ReopenProject](#reopenproject) - Reopen project
 
-## List
+## GetProjects
 
 List projects
 
@@ -49,7 +49,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.List(ctx, operations.GetProjectsRequest{
+    res, err := s.Projects.GetProjects(ctx, operations.GetProjectsRequest{
         Format: components.FormatJSON,
         XRedmineSwitchUser: goredmine.String("jsmith"),
     })
@@ -80,7 +80,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateProject
 
 Crete project
 
@@ -111,7 +111,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.Create(ctx, components.FormatXML, goredmine.String("jsmith"), &operations.CreateProjectRequestBody{
+    res, err := s.Projects.CreateProject(ctx, components.FormatXML, goredmine.String("jsmith"), &operations.CreateProjectRequestBody{
         Project: operations.Project{
             Name: "<value>",
             Identifier: "<value>",
@@ -158,7 +158,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetProject
 
 Show project
 
@@ -188,7 +188,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.Get(ctx, components.FormatXML, 417180, goredmine.String("jsmith"), nil)
+    res, err := s.Projects.GetProject(ctx, components.FormatXML, 417180, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -219,7 +219,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateProject
 
 Update project
 
@@ -250,7 +250,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.Update(ctx, components.FormatXML, 304087, goredmine.String("jsmith"), &operations.UpdateProjectRequestBody{
+    res, err := s.Projects.UpdateProject(ctx, components.FormatXML, 304087, goredmine.String("jsmith"), &operations.UpdateProjectRequestBody{
         Project: &operations.UpdateProjectProject{
             CustomFields: []components.CustomFields{
                 components.CustomFields{
@@ -295,7 +295,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteProject
 
 Delete project
 
@@ -325,7 +325,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.Delete(ctx, components.FormatJSON, 695561, goredmine.String("jsmith"))
+    res, err := s.Projects.DeleteProject(ctx, components.FormatJSON, 695561, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -355,7 +355,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Archive
+## ArchiveProject
 
 Archive project
 
@@ -385,7 +385,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.Archive(ctx, components.FormatXML, 620152, goredmine.String("jsmith"))
+    res, err := s.Projects.ArchiveProject(ctx, components.FormatXML, 620152, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -415,7 +415,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Unarchive
+## UnarchiveProject
 
 Unarchive project
 
@@ -445,7 +445,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.Unarchive(ctx, components.FormatXML, 565838, goredmine.String("jsmith"))
+    res, err := s.Projects.UnarchiveProject(ctx, components.FormatXML, 565838, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -475,7 +475,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Close
+## CloseProject
 
 Close project
 
@@ -503,7 +503,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.Close(ctx, components.FormatXML, 14663, goredmine.String("jsmith"))
+    res, err := s.Projects.CloseProject(ctx, components.FormatXML, 14663, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -533,7 +533,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Reopen
+## ReopenProject
 
 Reopen project
 
@@ -561,7 +561,7 @@ func main() {
         }),
     )
 
-    res, err := s.Projects.Reopen(ctx, components.FormatXML, 227032, goredmine.String("jsmith"))
+    res, err := s.Projects.ReopenProject(ctx, components.FormatXML, 227032, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

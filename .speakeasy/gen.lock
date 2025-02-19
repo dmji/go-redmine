@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
-id: 26d2ac17-e25b-4c74-a80c-928f2c945e02
+id: ec3a2932-d0dc-470c-bf0f-9d522ad34b8d
 management:
-  docChecksum: ba2687d0d3d33089e82da8411adac6f8
+  docChecksum: 8af877935eb5e6da27d27dc64ba0c4f8
   docVersion: 0.16.0
   speakeasyVersion: 1.495.2
   generationVersion: 2.515.4
-  releaseVersion: 0.2.1
-  configChecksum: b475218e3e0120c4deb16c27d0a2fbd5
+  releaseVersion: 0.0.1
+  configChecksum: 84d16469e203fa6f9381eefad15c8f43
 features:
   go:
     additionalDependencies: 0.1.0
@@ -20,9 +20,7 @@ features:
     globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
-    groups: 2.81.2
     intellisenseMarkdownSupport: 0.1.0
-    nameOverrides: 2.81.2
     nullables: 0.1.1
     responseFormat: 0.1.2
     retries: 2.83.2
@@ -704,8 +702,7 @@ examples:
       responses:
         "201":
           application/json: {"project": {"id": 774932, "name": "<value>", "identifier": "<value>", "description": "wordy insignificant underneath deliberately male hydrolyze", "status": 671344, "is_public": false, "inherit_members": true, "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2024-07-27T10:28:50.451Z", "updated_on": "2023-11-12T19:14:45.012Z"}}
-        "422":
-          application/json: {"errors": []}
+        "422": {}
   getProject:
     speakeasy-default-get-project:
       parameters:
@@ -777,9 +774,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"memberships": [{"id": 310273, "project": {"id": 497615, "name": "<value>"}, "roles": [{"id": 768503, "name": "<value>"}]}]}
   createMembership:
     speakeasy-default-create-membership:
       parameters:
@@ -788,9 +782,6 @@ examples:
           project_id: 825309
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "201":
-          application/json: {"membership": {"id": 560223, "project": {"id": 614231, "name": "<value>"}, "roles": [{"id": 556921, "name": "<value>"}, {"id": 233899, "name": "<value>"}, {"id": 508108, "name": "<value>"}]}}
   getMembership:
     speakeasy-default-get-membership:
       parameters:
@@ -799,9 +790,6 @@ examples:
           membership_id: 551384
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"membership": {"id": 426882, "project": {"id": 330781, "name": "<value>"}, "roles": [{"id": 946446, "name": "<value>"}, {"id": 344497, "name": "<value>"}]}}
   updateMembership:
     speakeasy-default-update-membership:
       parameters:
@@ -810,9 +798,6 @@ examples:
           membership_id: 404505
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "422":
-          application/json: {"errors": ["<value>"]}
   deleteMembership:
     speakeasy-default-delete-membership:
       parameters:
@@ -844,8 +829,7 @@ examples:
       responses:
         "201":
           application/json: {"user": {"id": 563451, "login": "Kariane.Frami55", "admin": false, "firstname": "Clare", "lastname": "Blanda", "mail": "<value>", "created_on": "2023-04-17T04:55:32.790Z", "updated_on": "2023-09-26T22:23:38.323Z", "last_login_on": "2024-07-25T14:18:01.521Z", "passwd_changed_on": "2025-08-25T19:44:09.461Z", "twofa_scheme": {}, "api_key": "<value>", "status": 899857, "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
-        "422":
-          application/json: {"errors": ["<value>"]}
+        "422": {}
   getUser:
     speakeasy-default-get-user:
       parameters:
@@ -868,9 +852,6 @@ examples:
           X-Redmine-Switch-User: "jsmith"
       requestBody:
         application/json: {"user": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
-      responses:
-        "422":
-          application/json: {"errors": ["<value>"]}
   deleteUser:
     speakeasy-default-delete-user:
       parameters:
@@ -914,8 +895,7 @@ examples:
       responses:
         "201":
           application/json: {"time_entry": {"id": 850286, "user": {"id": 732305, "name": "<value>"}, "activity": {"id": 326736, "name": "<value>"}, "hours": 8458.21, "comments": "airline blah though widow rust gadzooks airman next amid likewise trim godfather instead what meaningfully phew magnificent likewise gadzooks aw", "spent_on": "2023-09-08", "created_on": "2024-10-28T09:38:10.821Z", "updated_on": "2024-08-13T04:02:55.857Z", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
-        "422":
-          application/json: {"errors": ["<value>", "<value>", "<value>"]}
+        "422": {}
   getTimeEntry:
     speakeasy-default-get-time-entry:
       parameters:
@@ -937,9 +917,6 @@ examples:
           X-Redmine-Switch-User: "jsmith"
       requestBody:
         application/json: {"time_entry": {"hours": 2836.68, "custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
-      responses:
-        "422":
-          application/json: {"errors": ["<value>", "<value>", "<value>"]}
   deleteTimeEntry:
     speakeasy-default-delete-time-entry:
       parameters:
@@ -956,9 +933,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"news": [{"id": 372086, "project": {"id": 80521, "name": "<value>"}, "author": {"id": 325013, "name": "<value>"}, "title": "<value>", "description": "phew vacantly huzzah", "created_on": "2024-12-28T06:21:29.557Z"}]}
   getNews:
     speakeasy-default-get-news:
       parameters:
@@ -968,9 +942,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"news": {"id": 499987, "project": {"id": 499243, "name": "<value>"}, "author": {"id": 616249, "name": "<value>"}, "title": "<value>", "description": "nor sheathe webbed spark overvalue declaration apt morning boo", "created_on": "2024-02-13T00:15:59.871Z"}}
   updateNews:
     speakeasy-default-update-news:
       parameters:
@@ -996,9 +967,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"news": [{"id": 174329, "project": {"id": 774349, "name": "<value>"}, "author": {"id": 151312, "name": "<value>"}, "title": "<value>", "description": "phooey amongst regarding only", "created_on": "2024-02-15T12:38:35.415Z"}, {"id": 353982, "project": {"id": 566921, "name": "<value>"}, "author": {"id": 448089, "name": "<value>"}, "title": "<value>", "description": "consequently why lava overcharge insidious beep wherever howl", "created_on": "2024-10-17T01:48:44.988Z"}, {"id": 759974, "project": {"id": 735093, "name": "<value>"}, "author": {"id": 17045, "name": "<value>"}, "title": "<value>", "description": "around camouflage pleasure censor yummy porter", "created_on": "2024-10-24T10:56:16.743Z"}]}
   createNews:
     speakeasy-default-create-news:
       parameters:
@@ -1015,9 +983,6 @@ examples:
           issue_id: 466676
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"relations": [{"id": 930766, "issue_id": 122242, "issue_to_id": 886879, "relation_type": "<value>", "delay": 15709}, {"id": 248308, "issue_id": 325849, "issue_to_id": 631611, "relation_type": "<value>", "delay": 236711}, {"id": 598639, "issue_id": 712771, "issue_to_id": 486540, "relation_type": "<value>", "delay": 527900}]}
   createIssueRelation:
     speakeasy-default-create-issue-relation:
       parameters:
@@ -1026,11 +991,6 @@ examples:
           issue_id: 929406
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "201":
-          application/json: {"relation": {"id": 89943, "issue_id": 58826, "issue_to_id": 446099, "relation_type": "<value>", "delay": 808899}}
-        "422":
-          application/json: {"errors": ["<value>", "<value>"]}
   getIssueRelation:
     speakeasy-default-get-issue-relation:
       parameters:
@@ -1039,9 +999,6 @@ examples:
           issue_relation_id: 427544
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"relation": {"id": 699710, "issue_id": 35641, "issue_to_id": 661469, "relation_type": "<value>", "delay": 120226}}
   deleteIssueRelation:
     speakeasy-default-delete-issue-relation:
       parameters:
@@ -1050,9 +1007,6 @@ examples:
           issue_relation_id: 441215
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "422":
-          application/json: {"errors": []}
   getVersionsByProject:
     speakeasy-default-get-versions-by-project:
       parameters:
@@ -1078,8 +1032,7 @@ examples:
       responses:
         "201":
           application/json: {"version": {"id": 48244, "project": {"id": 29640, "name": "<value>"}, "name": "<value>", "description": "beneath drat longingly knottily whereas atop if polyester", "status": "locked", "due_date": "2025-01-08", "sharing": "system", "wiki_page_title": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2025-07-09T05:37:32.447Z", "updated_on": "2024-04-24T02:31:15.645Z"}}
-        "422":
-          application/json: {"errors": ["<value>", "<value>"]}
+        "422": {}
   getVersions:
     speakeasy-default-get-versions:
       parameters:
@@ -1101,9 +1054,6 @@ examples:
           X-Redmine-Switch-User: "jsmith"
       requestBody:
         application/json: {"version": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
-      responses:
-        "422":
-          application/json: {"errors": ["<value>"]}
   deleteVersion:
     speakeasy-default-delete-version:
       parameters:
@@ -1112,9 +1062,6 @@ examples:
           version_id: 964250
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "422":
-          application/json: {"errors": []}
   getWikiPages:
     speakeasy-default-get-wiki-pages:
       parameters:
@@ -1123,9 +1070,6 @@ examples:
           project_id: 221236
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"wiki_pages": [{"title": 116954, "version": 85799, "created_on": "2025-05-16T07:40:15.513Z", "updated_on": "2024-04-10T03:20:03.410Z"}]}
   getWikiPage:
     speakeasy-default-get-wiki-page:
       parameters:
@@ -1136,9 +1080,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"wiki_page": {"title": "<value>", "text": "<value>", "version": 106247, "author": {"id": 864305, "name": "<value>"}, "comments": "wildly how greedily smooth knottily scamper eek bossy publicize shark ugh worth soliloquy neatly but harp er between who", "created_on": "2023-02-09T09:09:44.995Z", "updated_on": "2023-03-10T19:04:34.676Z"}}
   updateWikiPage:
     speakeasy-default-update-wiki-page:
       parameters:
@@ -1148,11 +1089,6 @@ examples:
           wiki_page_title: "<value>"
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "201":
-          application/json: {"wiki_page": {"title": "<value>", "text": "<value>", "version": 465734, "author": {"id": 28725, "name": "<value>"}, "comments": "oh inasmuch kookily near so typeface haul whenever converse huzzah as merrily notwithstanding fooey or per matter dandelion", "created_on": "2025-05-31T04:51:56.580Z", "updated_on": "2023-03-19T12:07:44.237Z"}}
-        "409":
-          application/json: {"errors": ["<value>", "<value>"]}
   deleteWikiPage:
     speakeasy-default-delete-wiki-page:
       parameters:
@@ -1173,9 +1109,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"wiki_page": {"title": "<value>", "text": "<value>", "version": 115863, "author": {"id": 387813, "name": "<value>"}, "comments": "glum wicked shy within after stealthily geez bah tattered oh for times tired scuffle impassioned violently blah", "created_on": "2025-08-25T04:02:08.351Z", "updated_on": "2025-07-10T12:03:38.153Z"}}
   getQueries:
     speakeasy-default-get-queries:
       parameters:
@@ -1184,9 +1117,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"queries": []}
   getAttachment:
     speakeasy-default-get-attachment:
       parameters:
@@ -1195,9 +1125,6 @@ examples:
           attachment_id: 4607.28
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"attachment": {"id": 309865, "filename": "example.file", "filesize": 950505, "content_type": "<value>", "description": "milestone accountability and or judicious zowie", "content_url": "https://grounded-redesign.net", "author": {"id": 211521, "name": "<value>"}, "created_on": "<value>"}}
   updateAttachment:
     speakeasy-default-update-attachment:
       parameters:
@@ -1222,9 +1149,6 @@ examples:
           filename: "example.file"
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          '*/*': "x-file: example.file"
   downloadThumbnail:
     speakeasy-default-download-thumbnail:
       parameters:
@@ -1232,9 +1156,6 @@ examples:
           attachment_id: 3780.42
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          image/png: "x-file: example.file"
   uploadAttachmentFile:
     speakeasy-default-upload-attachment-file:
       parameters:
@@ -1243,11 +1164,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "201":
-          application/json: {"upload": {"id": 200594, "token": "<value>"}}
-        "406":
-          application/json: {"errors": ["<value>", "<value>"]}
   getIssueStatuses:
     speakeasy-default-get-issue-statuses:
       parameters:
@@ -1255,9 +1171,6 @@ examples:
           format: "xml"
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"issue_statuses": [{"id": 875224, "name": "<value>", "is_closed": true}]}
   getTrackers:
     speakeasy-default-get-trackers:
       parameters:
@@ -1265,9 +1178,6 @@ examples:
           format: "json"
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"trackers": [{}]}
   getIssueCategories:
     speakeasy-default-get-issue-categories:
       parameters:
@@ -1277,9 +1187,6 @@ examples:
         query: {}
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"issue_categories": [{"id": 97999, "project": {"id": 189345, "name": "<value>"}, "name": "<value>"}]}
   createIssueCategory:
     speakeasy-default-create-issue-category:
       parameters:
@@ -1288,11 +1195,6 @@ examples:
           project_id: 714556
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "201":
-          application/json: {"issue_category": {"id": 452683, "project": {"id": 712206, "name": "<value>"}, "name": "<value>"}}
-        "422":
-          application/json: {"errors": ["<value>", "<value>"]}
   getIssueCategory:
     speakeasy-default-get-issue-category:
       parameters:
@@ -1301,9 +1203,6 @@ examples:
           issue_category_id: 735932
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"issue_category": {"id": 787170, "project": {"id": 789293, "name": "<value>"}, "name": "<value>"}}
   updateIssueCategory:
     speakeasy-default-update-issue-category:
       parameters:
@@ -1312,9 +1211,6 @@ examples:
           issue_category_id: 774678
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "422":
-          application/json: {"errors": ["<value>", "<value>", "<value>"]}
   deleteIssueCategory:
     speakeasy-default-delete-issue-category:
       parameters:
@@ -1361,9 +1257,6 @@ examples:
           format: "json"
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"roles": [{"id": 269962, "name": "<value>"}]}
   getRole:
     speakeasy-default-get-role:
       parameters:
@@ -1372,9 +1265,6 @@ examples:
           role_id: 113599
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"role": {"id": 916383, "name": "<value>", "assignable": true, "time_entries_visibility": "<value>", "users_visibility": "<value>", "permissions": ["<value>"]}}
   getGroups:
     speakeasy-default-get-groups:
       parameters:
@@ -1397,8 +1287,7 @@ examples:
       responses:
         "201":
           application/json: {"group": {"id": 835377, "name": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
-        "422":
-          application/json: {"errors": ["<value>", "<value>", "<value>"]}
+        "422": {}
   getGroup:
     speakeasy-default-get-group:
       parameters:
@@ -1453,9 +1342,6 @@ examples:
           format: "xml"
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"custom_fields": [{}]}
   search:
     speakeasy-default-search:
       parameters:
@@ -1465,9 +1351,6 @@ examples:
           q: "<value>"
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"results": [{"id": 189430, "title": "<value>", "type": "<value>", "url": "https://antique-descent.name/", "description": "reboot nice immense slather concerning what until", "datetime": "2025-07-09T19:54:43.386Z"}]}
   getFiles:
     speakeasy-default-get-files:
       parameters:
@@ -1476,9 +1359,6 @@ examples:
           project_id: 716799
         header:
           X-Redmine-Switch-User: "jsmith"
-      responses:
-        "200":
-          application/json: {"files": [{"id": 842979, "filename": "example.file", "filesize": 484046, "content_type": "<value>", "description": "inside blah although incidentally beyond", "content_url": "https://untidy-tentacle.info", "author": {"id": 478355, "name": "<value>"}, "created_on": "2023-05-28T19:24:13.297Z", "digest": "<value>", "downloads": 192888}, {"id": 892822, "filename": "example.file", "filesize": 919474, "content_type": "<value>", "description": "tennis justly the merit unbalance daily meanwhile positively bobble wherever", "content_url": "https://light-parade.com", "author": {"id": 700935, "name": "<value>"}, "created_on": "2024-10-12T05:55:54.698Z", "digest": "<value>", "downloads": 111227}]}
   createFile:
     speakeasy-default-create-file:
       parameters:
@@ -1506,9 +1386,6 @@ examples:
           X-Redmine-Switch-User: "jsmith"
       requestBody:
         application/json: {"user": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
-      responses:
-        "422":
-          application/json: {"errors": ["<value>"]}
   updateJournal:
     speakeasy-default-update-journal:
       parameters:

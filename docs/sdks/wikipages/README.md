@@ -3,15 +3,18 @@
 
 ## Overview
 
+Status: Alpha, Availablity: 2.2
+<https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages>
+
 ### Available Operations
 
-* [List](#list) - List wiki pages
-* [Get](#get) - Show wiki page
-* [Update](#update) - Create or update wiki page
-* [Delete](#delete) - Delete wiki page
-* [GetByVersion](#getbyversion) - Show wiki page by specific version
+* [GetWikiPages](#getwikipages) - List wiki pages
+* [GetWikiPage](#getwikipage) - Show wiki page
+* [UpdateWikiPage](#updatewikipage) - Create or update wiki page
+* [DeleteWikiPage](#deletewikipage) - Delete wiki page
+* [GetWikiPageByVersion](#getwikipagebyversion) - Show wiki page by specific version
 
-## List
+## GetWikiPages
 
 List wiki pages
 
@@ -41,7 +44,7 @@ func main() {
         }),
     )
 
-    res, err := s.WikiPages.List(ctx, components.FormatJSON, 221236, goredmine.String("jsmith"))
+    res, err := s.WikiPages.GetWikiPages(ctx, components.FormatJSON, 221236, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -71,7 +74,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetWikiPage
 
 Show wiki page
 
@@ -102,7 +105,7 @@ func main() {
         }),
     )
 
-    res, err := s.WikiPages.Get(ctx, operations.GetWikiPageRequest{
+    res, err := s.WikiPages.GetWikiPage(ctx, operations.GetWikiPageRequest{
         Format: components.FormatJSON,
         ProjectID: 584534,
         WikiPageTitle: "<value>",
@@ -135,7 +138,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateWikiPage
 
 Create or update wiki page
 
@@ -166,7 +169,7 @@ func main() {
         }),
     )
 
-    res, err := s.WikiPages.Update(ctx, operations.UpdateWikiPageRequest{
+    res, err := s.WikiPages.UpdateWikiPage(ctx, operations.UpdateWikiPageRequest{
         Format: components.FormatJSON,
         ProjectID: 44462,
         WikiPageTitle: "<value>",
@@ -200,7 +203,7 @@ func main() {
 | apierrors.Errors   | 409, 422           | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteWikiPage
 
 Delete wiki page
 
@@ -230,7 +233,7 @@ func main() {
         }),
     )
 
-    res, err := s.WikiPages.Delete(ctx, components.FormatJSON, 16238, "<value>", goredmine.String("jsmith"))
+    res, err := s.WikiPages.DeleteWikiPage(ctx, components.FormatJSON, 16238, "<value>", goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -261,7 +264,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## GetByVersion
+## GetWikiPageByVersion
 
 Show wiki page by specific version
 
@@ -292,7 +295,7 @@ func main() {
         }),
     )
 
-    res, err := s.WikiPages.GetByVersion(ctx, operations.GetWikiPageByVersionRequest{
+    res, err := s.WikiPages.GetWikiPageByVersion(ctx, operations.GetWikiPageByVersionRequest{
         Format: components.FormatXML,
         ProjectID: 876217,
         WikiPageTitle: "<value>",

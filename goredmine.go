@@ -78,22 +78,34 @@ type GoRedmine struct {
 	// Status: Stable, Availablity: 1.0
 	//
 	// https://www.redmine.org/projects/redmine/wiki/Rest_Projects
-	Projects           *Projects
+	Projects *Projects
+	// Status: Alpha, Availablity: 1.4
+	//
+	// https://www.redmine.org/projects/redmine/wiki/Rest_Memberships
 	ProjectMemberships *ProjectMemberships
 	// Status: Stable, Availablity: 1.1
 	//
 	// https://www.redmine.org/projects/redmine/wiki/Rest_Users
-	Users       *Users
+	Users *Users
+	// Status: Stable, Availablity: 1.1
+	//
+	// https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries
 	TimeEntries *TimeEntries
 	// Status: Prototype, Availablity: 1.1
 	//
 	// https://www.redmine.org/projects/redmine/wiki/Rest_News
-	News           *News
+	News *News
+	// Status: Alpha, Availablity: 1.3
+	//
+	// https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations
 	IssueRelations *IssueRelations
 	// Status: Alpha, Availablity: 1.3
 	//
 	// https://www.redmine.org/projects/redmine/wiki/Rest_Versions
-	Versions  *Versions
+	Versions *Versions
+	// Status: Alpha, Availablity: 2.2
+	//
+	// https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages
 	WikiPages *WikiPages
 	// Status: Alpha, Availablity: 1.3
 	//
@@ -102,12 +114,18 @@ type GoRedmine struct {
 	// Status: Beta, Availablity: 1.3
 	//
 	// https://www.redmine.org/projects/redmine/wiki/Rest_Attachments
-	Attachments   *Attachments
+	Attachments *Attachments
+	// Status: Alpha, Availablity: 1.3
+	//
+	// https://www.redmine.org/projects/redmine/wiki/Rest_IssueStatuses
 	IssueStatuses *IssueStatuses
 	// Status: Alpha, Availablity: 1.3
 	//
 	// https://www.redmine.org/projects/redmine/wiki/Rest_Trackers
-	Trackers        *Trackers
+	Trackers *Trackers
+	// Status: Alpha, Availablity: 1.3
+	//
+	// https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories
 	IssueCategories *IssueCategories
 	// Status: Alpha, Availablity: 2.2
 	//
@@ -120,7 +138,10 @@ type GoRedmine struct {
 	// Status: Alpha, Availablity: 2.1
 	//
 	// https://www.redmine.org/projects/redmine/wiki/Rest_Groups
-	Groups       *Groups
+	Groups *Groups
+	// Status: Alpha, Availablity: 2.4
+	//
+	// https://www.redmine.org/projects/redmine/wiki/Rest_CustomFields
 	CustomFields *CustomFields
 	// Status: Alpha, Availablity: 3.3
 	//
@@ -129,7 +150,10 @@ type GoRedmine struct {
 	// Status: Alpha, Availablity: 3.4
 	//
 	// https://www.redmine.org/projects/redmine/wiki/Rest_Files
-	Files     *Files
+	Files *Files
+	// Status: Alpha, Availablity: 4.1
+	//
+	// https://www.redmine.org/projects/redmine/wiki/Rest_MyAccount
 	MyAccount *MyAccount
 	// Status: Alpha, Availablity: 5.0
 	//
@@ -214,9 +238,9 @@ func New(opts ...SDKOption) *GoRedmine {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "0.16.0",
-			SDKVersion:        "0.2.1",
+			SDKVersion:        "0.0.1",
 			GenVersion:        "2.515.4",
-			UserAgent:         "speakeasy-sdk/go 0.2.1 2.515.4 0.16.0 github.com/dmji/go-redmine",
+			UserAgent:         "speakeasy-sdk/go 0.0.1 2.515.4 0.16.0 github.com/dmji/go-redmine",
 			Hooks:             hooks.New(),
 		},
 	}

@@ -8,10 +8,10 @@ Status: Alpha, Availablity: 3.4
 
 ### Available Operations
 
-* [List](#list) - List files
-* [Create](#create) - Create file
+* [GetFiles](#getfiles) - List files
+* [CreateFile](#createfile) - Create file
 
-## List
+## GetFiles
 
 List files
 
@@ -41,7 +41,7 @@ func main() {
         }),
     )
 
-    res, err := s.Files.List(ctx, components.FormatXML, 716799, goredmine.String("jsmith"))
+    res, err := s.Files.GetFiles(ctx, components.FormatXML, 716799, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -71,7 +71,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateFile
 
 Create file
 
@@ -101,7 +101,7 @@ func main() {
         }),
     )
 
-    res, err := s.Files.Create(ctx, components.FormatXML, 35242, goredmine.String("jsmith"), nil)
+    res, err := s.Files.CreateFile(ctx, components.FormatXML, 35242, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }

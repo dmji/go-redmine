@@ -15,6 +15,9 @@ import (
 	"net/http"
 )
 
+// ProjectMemberships - Status: Alpha, Availablity: 1.4
+//
+// https://www.redmine.org/projects/redmine/wiki/Rest_Memberships
 type ProjectMemberships struct {
 	sdkConfiguration sdkConfiguration
 }
@@ -25,10 +28,10 @@ func newProjectMemberships(sdkConfig sdkConfiguration) *ProjectMemberships {
 	}
 }
 
-// List memberships
+// GetMemberships - List memberships
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Memberships#GET
-func (s *ProjectMemberships) List(ctx context.Context, request operations.GetMembershipsRequest, opts ...operations.Option) (*operations.GetMembershipsResponse, error) {
+func (s *ProjectMemberships) GetMemberships(ctx context.Context, request operations.GetMembershipsRequest, opts ...operations.Option) (*operations.GetMembershipsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -233,10 +236,10 @@ func (s *ProjectMemberships) List(ctx context.Context, request operations.GetMem
 
 }
 
-// Create membership
+// CreateMembership - Create membership
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Memberships#POST
-func (s *ProjectMemberships) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateMembershipRequestBody, opts ...operations.Option) (*operations.CreateMembershipResponse, error) {
+func (s *ProjectMemberships) CreateMembership(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateMembershipRequestBody, opts ...operations.Option) (*operations.CreateMembershipResponse, error) {
 	request := operations.CreateMembershipRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -880,10 +883,10 @@ func (s *ProjectMemberships) UpdateMembership(ctx context.Context, format compon
 
 }
 
-// Delete membership
+// DeleteMembership - Delete membership
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Memberships#DELETE
-func (s *ProjectMemberships) Delete(ctx context.Context, format components.Format, membershipID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteMembershipResponse, error) {
+func (s *ProjectMemberships) DeleteMembership(ctx context.Context, format components.Format, membershipID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteMembershipResponse, error) {
 	request := operations.DeleteMembershipRequest{
 		Format:             format,
 		MembershipID:       membershipID,

@@ -28,10 +28,10 @@ func newGroups(sdkConfig sdkConfiguration) *Groups {
 	}
 }
 
-// List groups
+// GetGroups - List groups
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#GET
-func (s *Groups) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetGroupsResponse, error) {
+func (s *Groups) GetGroups(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetGroupsResponse, error) {
 	request := operations.GetGroupsRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -237,10 +237,10 @@ func (s *Groups) List(ctx context.Context, format components.Format, xRedmineSwi
 
 }
 
-// Create group
+// CreateGroup - Create group
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#POST
-func (s *Groups) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateGroupRequestBody, opts ...operations.Option) (*operations.CreateGroupResponse, error) {
+func (s *Groups) CreateGroup(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateGroupRequestBody, opts ...operations.Option) (*operations.CreateGroupResponse, error) {
 	request := operations.CreateGroupRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -475,10 +475,10 @@ func (s *Groups) Create(ctx context.Context, format components.Format, xRedmineS
 
 }
 
-// Get - Show group
+// GetGroup - Show group
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#GET-2
-func (s *Groups) Get(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, include []operations.GetGroupQueryParamInclude, opts ...operations.Option) (*operations.GetGroupResponse, error) {
+func (s *Groups) GetGroup(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, include []operations.GetGroupQueryParamInclude, opts ...operations.Option) (*operations.GetGroupResponse, error) {
 	request := operations.GetGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -690,10 +690,10 @@ func (s *Groups) Get(ctx context.Context, format components.Format, groupID int6
 
 }
 
-// Update group
+// UpdateGroup - Update group
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#PUT
-func (s *Groups) Update(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateGroupRequestBody, opts ...operations.Option) (*operations.UpdateGroupResponse, error) {
+func (s *Groups) UpdateGroup(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateGroupRequestBody, opts ...operations.Option) (*operations.UpdateGroupResponse, error) {
 	request := operations.UpdateGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -888,10 +888,10 @@ func (s *Groups) Update(ctx context.Context, format components.Format, groupID i
 
 }
 
-// Delete group
+// DeleteGroup - Delete group
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#DELETE
-func (s *Groups) Delete(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteGroupResponse, error) {
+func (s *Groups) DeleteGroup(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteGroupResponse, error) {
 	request := operations.DeleteGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -1078,10 +1078,10 @@ func (s *Groups) Delete(ctx context.Context, format components.Format, groupID i
 
 }
 
-// AddUser - Add user to group
+// AddUserToGroup - Add user to group
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#POST-2
-func (s *Groups) AddUser(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, requestBody *operations.AddUserToGroupRequestBody, opts ...operations.Option) (*operations.AddUserToGroupResponse, error) {
+func (s *Groups) AddUserToGroup(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, requestBody *operations.AddUserToGroupRequestBody, opts ...operations.Option) (*operations.AddUserToGroupResponse, error) {
 	request := operations.AddUserToGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -1276,10 +1276,10 @@ func (s *Groups) AddUser(ctx context.Context, format components.Format, groupID 
 
 }
 
-// RemoveUser - Remove user from group
+// RemoveUserFromGroup - Remove user from group
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#DELETE-2
-func (s *Groups) RemoveUser(ctx context.Context, format components.Format, groupID int64, userID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.RemoveUserFromGroupResponse, error) {
+func (s *Groups) RemoveUserFromGroup(ctx context.Context, format components.Format, groupID int64, userID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.RemoveUserFromGroupResponse, error) {
 	request := operations.RemoveUserFromGroupRequest{
 		Format:             format,
 		GroupID:            groupID,

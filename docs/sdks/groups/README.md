@@ -8,15 +8,15 @@ Status: Alpha, Availablity: 2.1
 
 ### Available Operations
 
-* [List](#list) - List groups
-* [Create](#create) - Create group
-* [Get](#get) - Show group
-* [Update](#update) - Update group
-* [Delete](#delete) - Delete group
-* [AddUser](#adduser) - Add user to group
-* [RemoveUser](#removeuser) - Remove user from group
+* [GetGroups](#getgroups) - List groups
+* [CreateGroup](#creategroup) - Create group
+* [GetGroup](#getgroup) - Show group
+* [UpdateGroup](#updategroup) - Update group
+* [DeleteGroup](#deletegroup) - Delete group
+* [AddUserToGroup](#addusertogroup) - Add user to group
+* [RemoveUserFromGroup](#removeuserfromgroup) - Remove user from group
 
-## List
+## GetGroups
 
 List groups
 
@@ -46,7 +46,7 @@ func main() {
         }),
     )
 
-    res, err := s.Groups.List(ctx, components.FormatJSON, goredmine.String("jsmith"))
+    res, err := s.Groups.GetGroups(ctx, components.FormatJSON, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -75,7 +75,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateGroup
 
 Create group
 
@@ -106,7 +106,7 @@ func main() {
         }),
     )
 
-    res, err := s.Groups.Create(ctx, components.FormatJSON, goredmine.String("jsmith"), &operations.CreateGroupRequestBody{
+    res, err := s.Groups.CreateGroup(ctx, components.FormatJSON, goredmine.String("jsmith"), &operations.CreateGroupRequestBody{
         Group: operations.Group{
             CustomFields: []components.CustomFields{
                 components.CustomFields{
@@ -151,7 +151,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetGroup
 
 Show group
 
@@ -181,7 +181,7 @@ func main() {
         }),
     )
 
-    res, err := s.Groups.Get(ctx, components.FormatXML, 797868, goredmine.String("jsmith"), nil)
+    res, err := s.Groups.GetGroup(ctx, components.FormatXML, 797868, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -212,7 +212,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateGroup
 
 Update group
 
@@ -243,7 +243,7 @@ func main() {
         }),
     )
 
-    res, err := s.Groups.Update(ctx, components.FormatJSON, 750192, goredmine.String("jsmith"), &operations.UpdateGroupRequestBody{
+    res, err := s.Groups.UpdateGroup(ctx, components.FormatJSON, 750192, goredmine.String("jsmith"), &operations.UpdateGroupRequestBody{
         Group: &operations.UpdateGroupGroup{
             CustomFields: []components.CustomFields{
                 components.CustomFields{
@@ -288,7 +288,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteGroup
 
 Delete group
 
@@ -318,7 +318,7 @@ func main() {
         }),
     )
 
-    res, err := s.Groups.Delete(ctx, components.FormatJSON, 114822, goredmine.String("jsmith"))
+    res, err := s.Groups.DeleteGroup(ctx, components.FormatJSON, 114822, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -348,7 +348,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## AddUser
+## AddUserToGroup
 
 Add user to group
 
@@ -378,7 +378,7 @@ func main() {
         }),
     )
 
-    res, err := s.Groups.AddUser(ctx, components.FormatJSON, 699024, goredmine.String("jsmith"), nil)
+    res, err := s.Groups.AddUserToGroup(ctx, components.FormatJSON, 699024, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -409,7 +409,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## RemoveUser
+## RemoveUserFromGroup
 
 Remove user from group
 
@@ -439,7 +439,7 @@ func main() {
         }),
     )
 
-    res, err := s.Groups.RemoveUser(ctx, components.FormatXML, 982330, 948975, goredmine.String("jsmith"))
+    res, err := s.Groups.RemoveUserFromGroup(ctx, components.FormatXML, 982330, 948975, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

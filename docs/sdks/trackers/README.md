@@ -8,9 +8,9 @@ Status: Alpha, Availablity: 1.3
 
 ### Available Operations
 
-* [List](#list) - List trackers
+* [GetTrackers](#gettrackers) - List trackers
 
-## List
+## GetTrackers
 
 List trackers
 
@@ -40,7 +40,7 @@ func main() {
         }),
     )
 
-    res, err := s.Trackers.List(ctx, components.FormatJSON, goredmine.String("jsmith"))
+    res, err := s.Trackers.GetTrackers(ctx, components.FormatJSON, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

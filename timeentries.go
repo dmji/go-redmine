@@ -15,6 +15,9 @@ import (
 	"net/http"
 )
 
+// TimeEntries - Status: Stable, Availablity: 1.1
+//
+// https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries
 type TimeEntries struct {
 	sdkConfiguration sdkConfiguration
 }
@@ -25,10 +28,10 @@ func newTimeEntries(sdkConfig sdkConfiguration) *TimeEntries {
 	}
 }
 
-// List time entries
+// GetTimeEntries - List time entries
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Listing-time-entries
-func (s *TimeEntries) List(ctx context.Context, request operations.GetTimeEntriesRequest, opts ...operations.Option) (*operations.GetTimeEntriesResponse, error) {
+func (s *TimeEntries) GetTimeEntries(ctx context.Context, request operations.GetTimeEntriesRequest, opts ...operations.Option) (*operations.GetTimeEntriesResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -233,10 +236,10 @@ func (s *TimeEntries) List(ctx context.Context, request operations.GetTimeEntrie
 
 }
 
-// Create time entry
+// CreateTimeEntry - Create time entry
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Creating-a-time-entry
-func (s *TimeEntries) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateTimeEntryRequestBody, opts ...operations.Option) (*operations.CreateTimeEntryResponse, error) {
+func (s *TimeEntries) CreateTimeEntry(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateTimeEntryRequestBody, opts ...operations.Option) (*operations.CreateTimeEntryResponse, error) {
 	request := operations.CreateTimeEntryRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -471,10 +474,10 @@ func (s *TimeEntries) Create(ctx context.Context, format components.Format, xRed
 
 }
 
-// Get - Show time entry
+// GetTimeEntry - Show time entry
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Showing-a-time-entry
-func (s *TimeEntries) Get(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetTimeEntryResponse, error) {
+func (s *TimeEntries) GetTimeEntry(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetTimeEntryResponse, error) {
 	request := operations.GetTimeEntryRequest{
 		Format:             format,
 		TimeEntryID:        timeEntryID,
@@ -681,10 +684,10 @@ func (s *TimeEntries) Get(ctx context.Context, format components.Format, timeEnt
 
 }
 
-// Update time entry
+// UpdateTimeEntry - Update time entry
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Updating-a-time-entry
-func (s *TimeEntries) Update(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateTimeEntryRequestBody, opts ...operations.Option) (*operations.UpdateTimeEntryResponse, error) {
+func (s *TimeEntries) UpdateTimeEntry(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateTimeEntryRequestBody, opts ...operations.Option) (*operations.UpdateTimeEntryResponse, error) {
 	request := operations.UpdateTimeEntryRequest{
 		Format:             format,
 		TimeEntryID:        timeEntryID,
@@ -900,10 +903,10 @@ func (s *TimeEntries) Update(ctx context.Context, format components.Format, time
 
 }
 
-// Delete time entry
+// DeleteTimeEntry - Delete time entry
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Deleting-a-time-entry
-func (s *TimeEntries) Delete(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteTimeEntryResponse, error) {
+func (s *TimeEntries) DeleteTimeEntry(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteTimeEntryResponse, error) {
 	request := operations.DeleteTimeEntryRequest{
 		Format:             format,
 		TimeEntryID:        timeEntryID,

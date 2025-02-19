@@ -28,10 +28,10 @@ func newRoles(sdkConfig sdkConfiguration) *Roles {
 	}
 }
 
-// List roles
+// GetRoles - List roles
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Roles#GET
-func (s *Roles) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetRolesResponse, error) {
+func (s *Roles) GetRoles(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetRolesResponse, error) {
 	request := operations.GetRolesRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -237,10 +237,10 @@ func (s *Roles) List(ctx context.Context, format components.Format, xRedmineSwit
 
 }
 
-// Get - Show role
+// GetRole - Show role
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Roles#GET-2
-func (s *Roles) Get(ctx context.Context, format components.Format, roleID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetRoleResponse, error) {
+func (s *Roles) GetRole(ctx context.Context, format components.Format, roleID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetRoleResponse, error) {
 	request := operations.GetRoleRequest{
 		Format:             format,
 		RoleID:             roleID,

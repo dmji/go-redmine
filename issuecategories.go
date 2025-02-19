@@ -15,6 +15,9 @@ import (
 	"net/http"
 )
 
+// IssueCategories - Status: Alpha, Availablity: 1.3
+//
+// https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories
 type IssueCategories struct {
 	sdkConfiguration sdkConfiguration
 }
@@ -25,10 +28,10 @@ func newIssueCategories(sdkConfig sdkConfiguration) *IssueCategories {
 	}
 }
 
-// List issue categories
+// GetIssueCategories - List issue categories
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#GET
-func (s *IssueCategories) List(ctx context.Context, request operations.GetIssueCategoriesRequest, opts ...operations.Option) (*operations.GetIssueCategoriesResponse, error) {
+func (s *IssueCategories) GetIssueCategories(ctx context.Context, request operations.GetIssueCategoriesRequest, opts ...operations.Option) (*operations.GetIssueCategoriesResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -233,10 +236,10 @@ func (s *IssueCategories) List(ctx context.Context, request operations.GetIssueC
 
 }
 
-// Create issue category
+// CreateIssueCategory - Create issue category
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#POST
-func (s *IssueCategories) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateIssueCategoryRequestBody, opts ...operations.Option) (*operations.CreateIssueCategoryResponse, error) {
+func (s *IssueCategories) CreateIssueCategory(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateIssueCategoryRequestBody, opts ...operations.Option) (*operations.CreateIssueCategoryResponse, error) {
 	request := operations.CreateIssueCategoryRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -472,10 +475,10 @@ func (s *IssueCategories) Create(ctx context.Context, format components.Format, 
 
 }
 
-// Show issue category
+// GetIssueCategory - Show issue category
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#GET-2
-func (s *IssueCategories) Show(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueCategoryResponse, error) {
+func (s *IssueCategories) GetIssueCategory(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueCategoryResponse, error) {
 	request := operations.GetIssueCategoryRequest{
 		Format:             format,
 		IssueCategoryID:    issueCategoryID,
@@ -682,10 +685,10 @@ func (s *IssueCategories) Show(ctx context.Context, format components.Format, is
 
 }
 
-// Update issue category
+// UpdateIssueCategory - Update issue category
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#PUT
-func (s *IssueCategories) Update(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateIssueCategoryRequestBody, opts ...operations.Option) (*operations.UpdateIssueCategoryResponse, error) {
+func (s *IssueCategories) UpdateIssueCategory(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateIssueCategoryRequestBody, opts ...operations.Option) (*operations.UpdateIssueCategoryResponse, error) {
 	request := operations.UpdateIssueCategoryRequest{
 		Format:             format,
 		IssueCategoryID:    issueCategoryID,
@@ -901,10 +904,10 @@ func (s *IssueCategories) Update(ctx context.Context, format components.Format, 
 
 }
 
-// Delete issue category
+// DeleteIssueCategory - Delete issue category
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#DELETE
-func (s *IssueCategories) Delete(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, reassignToID *int64, opts ...operations.Option) (*operations.DeleteIssueCategoryResponse, error) {
+func (s *IssueCategories) DeleteIssueCategory(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, reassignToID *int64, opts ...operations.Option) (*operations.DeleteIssueCategoryResponse, error) {
 	request := operations.DeleteIssueCategoryRequest{
 		Format:             format,
 		IssueCategoryID:    issueCategoryID,

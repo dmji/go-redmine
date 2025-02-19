@@ -2,8 +2,8 @@ speakeasyVersion: 1.495.2
 sources:
     Redmine API:
         sourceNamespace: redmine-api
-        sourceRevisionDigest: sha256:740a6d3ecb351702966200b93b6e31081215a1397f1ceaf29f74674b18ab8f39
-        sourceBlobDigest: sha256:11746c8bfa2cbbd29db6b28b5762eed0e7259cc0f409288efde9d5f2d572583b
+        sourceRevisionDigest: sha256:df62395ebb66abdc6e12768e6024c04d0d2eed2019059457b3442f5520596808
+        sourceBlobDigest: sha256:37dc79f32cf67f4806d8e348882d08023c8dd2795a660f26591e4c4b54739355
         tags:
             - latest
             - 0.16.0
@@ -11,19 +11,17 @@ targets:
     go-redmine:
         source: Redmine API
         sourceNamespace: redmine-api
-        sourceRevisionDigest: sha256:740a6d3ecb351702966200b93b6e31081215a1397f1ceaf29f74674b18ab8f39
-        sourceBlobDigest: sha256:11746c8bfa2cbbd29db6b28b5762eed0e7259cc0f409288efde9d5f2d572583b
+        sourceRevisionDigest: sha256:df62395ebb66abdc6e12768e6024c04d0d2eed2019059457b3442f5520596808
+        sourceBlobDigest: sha256:37dc79f32cf67f4806d8e348882d08023c8dd2795a660f26591e4c4b54739355
         codeSamplesNamespace: redmine-api-go-code-samples
-        codeSamplesRevisionDigest: sha256:ea34bc0c60866cdbdd529bb73757c56f18022fa8ee59eda970e60e0e7679e97a
+        codeSamplesRevisionDigest: sha256:40f7425bb876d430e05c8a04cb75a9ebc43daac91e94f8228754533dc57c390b
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         Redmine API:
             inputs:
-                - location: ..\redmine-openapi.yaml
-            overlays:
-                - location: .speakeasy\speakeasy-modifications-overlay.yaml
+                - location: ..\openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/dmji/jikan/redmine-api
     targets:

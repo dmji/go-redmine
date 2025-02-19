@@ -3,15 +3,18 @@
 
 ## Overview
 
+Status: Alpha, Availablity: 1.4
+<https://www.redmine.org/projects/redmine/wiki/Rest_Memberships>
+
 ### Available Operations
 
-* [List](#list) - List memberships
-* [Create](#create) - Create membership
+* [GetMemberships](#getmemberships) - List memberships
+* [CreateMembership](#createmembership) - Create membership
 * [GetMembership](#getmembership) - Show membership
 * [UpdateMembership](#updatemembership) - Update membership
-* [Delete](#delete) - Delete membership
+* [DeleteMembership](#deletemembership) - Delete membership
 
-## List
+## GetMemberships
 
 List memberships
 
@@ -42,7 +45,7 @@ func main() {
         }),
     )
 
-    res, err := s.ProjectMemberships.List(ctx, operations.GetMembershipsRequest{
+    res, err := s.ProjectMemberships.GetMemberships(ctx, operations.GetMembershipsRequest{
         Format: components.FormatXML,
         ProjectID: 35144,
         XRedmineSwitchUser: goredmine.String("jsmith"),
@@ -74,7 +77,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateMembership
 
 Create membership
 
@@ -104,7 +107,7 @@ func main() {
         }),
     )
 
-    res, err := s.ProjectMemberships.Create(ctx, components.FormatJSON, 825309, goredmine.String("jsmith"), nil)
+    res, err := s.ProjectMemberships.CreateMembership(ctx, components.FormatJSON, 825309, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -257,7 +260,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteMembership
 
 Delete membership
 
@@ -287,7 +290,7 @@ func main() {
         }),
     )
 
-    res, err := s.ProjectMemberships.Delete(ctx, components.FormatJSON, 165422, goredmine.String("jsmith"))
+    res, err := s.ProjectMemberships.DeleteMembership(ctx, components.FormatJSON, 165422, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

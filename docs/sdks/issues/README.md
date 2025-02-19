@@ -8,15 +8,15 @@ Status: Stable, Availablity: 1.0
 
 ### Available Operations
 
-* [List](#list) - List issues
-* [Create](#create) - Create issue
-* [Get](#get) - Show issue
-* [Update](#update) - Update issue
-* [Delete](#delete) - Delete issue
+* [GetIssues](#getissues) - List issues
+* [CreateIssue](#createissue) - Create issue
+* [GetIssue](#getissue) - Show issue
+* [UpdateIssue](#updateissue) - Update issue
+* [DeleteIssue](#deleteissue) - Delete issue
 * [AddWatcher](#addwatcher) - Add watcher
 * [RemoveWatcher](#removewatcher) - Remove watcher
 
-## List
+## GetIssues
 
 List issues
 
@@ -47,7 +47,7 @@ func main() {
         }),
     )
 
-    res, err := s.Issues.List(ctx, operations.GetIssuesRequest{
+    res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
         Format: components.FormatXML,
         XRedmineSwitchUser: goredmine.String("jsmith"),
         Sort: goredmine.String("id:desc"),
@@ -82,7 +82,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateIssue
 
 Create issue
 
@@ -113,7 +113,7 @@ func main() {
         }),
     )
 
-    res, err := s.Issues.Create(ctx, components.FormatJSON, goredmine.String("jsmith"), &operations.CreateIssueRequestBody{
+    res, err := s.Issues.CreateIssue(ctx, components.FormatJSON, goredmine.String("jsmith"), &operations.CreateIssueRequestBody{
         Issue: operations.Issue{
             ProjectID: 46402,
             Subject: "<value>",
@@ -159,7 +159,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetIssue
 
 Show issue
 
@@ -189,7 +189,7 @@ func main() {
         }),
     )
 
-    res, err := s.Issues.Get(ctx, components.FormatXML, 310882, goredmine.String("jsmith"), nil)
+    res, err := s.Issues.GetIssue(ctx, components.FormatXML, 310882, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -220,7 +220,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateIssue
 
 Update issue
 
@@ -251,7 +251,7 @@ func main() {
         }),
     )
 
-    res, err := s.Issues.Update(ctx, components.FormatXML, 733216, goredmine.String("jsmith"), &operations.UpdateIssueRequestBody{
+    res, err := s.Issues.UpdateIssue(ctx, components.FormatXML, 733216, goredmine.String("jsmith"), &operations.UpdateIssueRequestBody{
         Issue: &operations.UpdateIssueIssue{
             CustomFields: []components.CustomFields{
                 components.CustomFields{
@@ -296,7 +296,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteIssue
 
 Delete issue
 
@@ -326,7 +326,7 @@ func main() {
         }),
     )
 
-    res, err := s.Issues.Delete(ctx, components.FormatXML, 338722, goredmine.String("jsmith"))
+    res, err := s.Issues.DeleteIssue(ctx, components.FormatXML, 338722, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

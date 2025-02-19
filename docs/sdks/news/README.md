@@ -8,14 +8,14 @@ Status: Prototype, Availablity: 1.1
 
 ### Available Operations
 
-* [List](#list) - List news
-* [Get](#get) - Show news
-* [Update](#update) - Update news
-* [Delete](#delete) - Delete news
-* [ListByProject](#listbyproject) - List news by project
-* [Create](#create) - Create news
+* [GetNewsList](#getnewslist) - List news
+* [GetNews](#getnews) - Show news
+* [UpdateNews](#updatenews) - Update news
+* [DeleteNews](#deletenews) - Delete news
+* [GetNewsListByProject](#getnewslistbyproject) - List news by project
+* [CreateNews](#createnews) - Create news
 
-## List
+## GetNewsList
 
 List news
 
@@ -46,7 +46,7 @@ func main() {
         }),
     )
 
-    res, err := s.News.List(ctx, operations.GetNewsListRequest{
+    res, err := s.News.GetNewsList(ctx, operations.GetNewsListRequest{
         Format: components.FormatJSON,
         XRedmineSwitchUser: goredmine.String("jsmith"),
     })
@@ -77,7 +77,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetNews
 
 Show news
 
@@ -105,7 +105,7 @@ func main() {
         }),
     )
 
-    res, err := s.News.Get(ctx, components.FormatJSON, 929355, goredmine.String("jsmith"), nil)
+    res, err := s.News.GetNews(ctx, components.FormatJSON, 929355, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -136,7 +136,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateNews
 
 Update news
 
@@ -164,7 +164,7 @@ func main() {
         }),
     )
 
-    res, err := s.News.Update(ctx, components.FormatXML, 95958, goredmine.String("jsmith"), nil)
+    res, err := s.News.UpdateNews(ctx, components.FormatXML, 95958, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -195,7 +195,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteNews
 
 Delete news
 
@@ -223,7 +223,7 @@ func main() {
         }),
     )
 
-    res, err := s.News.Delete(ctx, components.FormatXML, 149388, goredmine.String("jsmith"))
+    res, err := s.News.DeleteNews(ctx, components.FormatXML, 149388, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -253,7 +253,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## ListByProject
+## GetNewsListByProject
 
 List news by project
 
@@ -284,7 +284,7 @@ func main() {
         }),
     )
 
-    res, err := s.News.ListByProject(ctx, operations.GetNewsListByProjectRequest{
+    res, err := s.News.GetNewsListByProject(ctx, operations.GetNewsListByProjectRequest{
         Format: components.FormatXML,
         ProjectID: 632908,
         XRedmineSwitchUser: goredmine.String("jsmith"),
@@ -316,7 +316,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateNews
 
 Create news
 
@@ -344,7 +344,7 @@ func main() {
         }),
     )
 
-    res, err := s.News.Create(ctx, components.FormatXML, 281027, goredmine.String("jsmith"), nil)
+    res, err := s.News.CreateNews(ctx, components.FormatXML, 281027, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }

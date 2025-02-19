@@ -28,10 +28,10 @@ func newNews(sdkConfig sdkConfiguration) *News {
 	}
 }
 
-// List news
+// GetNewsList - List news
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_News#GET
-func (s *News) List(ctx context.Context, request operations.GetNewsListRequest, opts ...operations.Option) (*operations.GetNewsListResponse, error) {
+func (s *News) GetNewsList(ctx context.Context, request operations.GetNewsListRequest, opts ...operations.Option) (*operations.GetNewsListResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -236,8 +236,8 @@ func (s *News) List(ctx context.Context, request operations.GetNewsListRequest, 
 
 }
 
-// Get - Show news
-func (s *News) Get(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, include []operations.GetNewsQueryParamInclude, opts ...operations.Option) (*operations.GetNewsResponse, error) {
+// GetNews - Show news
+func (s *News) GetNews(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, include []operations.GetNewsQueryParamInclude, opts ...operations.Option) (*operations.GetNewsResponse, error) {
 	request := operations.GetNewsRequest{
 		Format:             format,
 		NewsID:             newsID,
@@ -449,8 +449,8 @@ func (s *News) Get(ctx context.Context, format components.Format, newsID int64, 
 
 }
 
-// Update news
-func (s *News) Update(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateNewsRequestBody, opts ...operations.Option) (*operations.UpdateNewsResponse, error) {
+// UpdateNews - Update news
+func (s *News) UpdateNews(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateNewsRequestBody, opts ...operations.Option) (*operations.UpdateNewsResponse, error) {
 	request := operations.UpdateNewsRequest{
 		Format:             format,
 		NewsID:             newsID,
@@ -645,8 +645,8 @@ func (s *News) Update(ctx context.Context, format components.Format, newsID int6
 
 }
 
-// Delete news
-func (s *News) Delete(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteNewsResponse, error) {
+// DeleteNews - Delete news
+func (s *News) DeleteNews(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteNewsResponse, error) {
 	request := operations.DeleteNewsRequest{
 		Format:             format,
 		NewsID:             newsID,
@@ -833,10 +833,10 @@ func (s *News) Delete(ctx context.Context, format components.Format, newsID int6
 
 }
 
-// ListByProject - List news by project
+// GetNewsListByProject - List news by project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_News#GET-2
-func (s *News) ListByProject(ctx context.Context, request operations.GetNewsListByProjectRequest, opts ...operations.Option) (*operations.GetNewsListByProjectResponse, error) {
+func (s *News) GetNewsListByProject(ctx context.Context, request operations.GetNewsListByProjectRequest, opts ...operations.Option) (*operations.GetNewsListByProjectResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1041,8 +1041,8 @@ func (s *News) ListByProject(ctx context.Context, request operations.GetNewsList
 
 }
 
-// Create news
-func (s *News) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateNewsRequestBody, opts ...operations.Option) (*operations.CreateNewsResponse, error) {
+// CreateNews - Create news
+func (s *News) CreateNews(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateNewsRequestBody, opts ...operations.Option) (*operations.CreateNewsResponse, error) {
 	request := operations.CreateNewsRequest{
 		Format:             format,
 		ProjectID:          projectID,

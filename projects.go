@@ -28,10 +28,10 @@ func newProjects(sdkConfig sdkConfiguration) *Projects {
 	}
 }
 
-// List projects
+// GetProjects - List projects
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Listing-projects
-func (s *Projects) List(ctx context.Context, request operations.GetProjectsRequest, opts ...operations.Option) (*operations.GetProjectsResponse, error) {
+func (s *Projects) GetProjects(ctx context.Context, request operations.GetProjectsRequest, opts ...operations.Option) (*operations.GetProjectsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -236,10 +236,10 @@ func (s *Projects) List(ctx context.Context, request operations.GetProjectsReque
 
 }
 
-// Create - Crete project
+// CreateProject - Crete project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Creating-a-project
-func (s *Projects) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateProjectRequestBody, opts ...operations.Option) (*operations.CreateProjectResponse, error) {
+func (s *Projects) CreateProject(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateProjectRequestBody, opts ...operations.Option) (*operations.CreateProjectResponse, error) {
 	request := operations.CreateProjectRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -474,10 +474,10 @@ func (s *Projects) Create(ctx context.Context, format components.Format, xRedmin
 
 }
 
-// Get - Show project
+// GetProject - Show project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Showing-a-project
-func (s *Projects) Get(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, include []operations.GetProjectQueryParamInclude, opts ...operations.Option) (*operations.GetProjectResponse, error) {
+func (s *Projects) GetProject(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, include []operations.GetProjectQueryParamInclude, opts ...operations.Option) (*operations.GetProjectResponse, error) {
 	request := operations.GetProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -689,10 +689,10 @@ func (s *Projects) Get(ctx context.Context, format components.Format, projectID 
 
 }
 
-// Update project
+// UpdateProject - Update project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Updating-a-project
-func (s *Projects) Update(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateProjectRequestBody, opts ...operations.Option) (*operations.UpdateProjectResponse, error) {
+func (s *Projects) UpdateProject(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateProjectRequestBody, opts ...operations.Option) (*operations.UpdateProjectResponse, error) {
 	request := operations.UpdateProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -887,10 +887,10 @@ func (s *Projects) Update(ctx context.Context, format components.Format, project
 
 }
 
-// Delete project
+// DeleteProject - Delete project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Deleting-a-project
-func (s *Projects) Delete(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
+func (s *Projects) DeleteProject(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
 	request := operations.DeleteProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1077,10 +1077,10 @@ func (s *Projects) Delete(ctx context.Context, format components.Format, project
 
 }
 
-// Archive project
+// ArchiveProject - Archive project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Archiving-a-project
-func (s *Projects) Archive(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.ArchiveProjectResponse, error) {
+func (s *Projects) ArchiveProject(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.ArchiveProjectResponse, error) {
 	request := operations.ArchiveProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1267,10 +1267,10 @@ func (s *Projects) Archive(ctx context.Context, format components.Format, projec
 
 }
 
-// Unarchive project
+// UnarchiveProject - Unarchive project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Unarchiving-a-project
-func (s *Projects) Unarchive(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.UnarchiveProjectResponse, error) {
+func (s *Projects) UnarchiveProject(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.UnarchiveProjectResponse, error) {
 	request := operations.UnarchiveProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1457,8 +1457,8 @@ func (s *Projects) Unarchive(ctx context.Context, format components.Format, proj
 
 }
 
-// Close project
-func (s *Projects) Close(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.CloseProjectResponse, error) {
+// CloseProject - Close project
+func (s *Projects) CloseProject(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.CloseProjectResponse, error) {
 	request := operations.CloseProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1645,8 +1645,8 @@ func (s *Projects) Close(ctx context.Context, format components.Format, projectI
 
 }
 
-// Reopen project
-func (s *Projects) Reopen(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.ReopenProjectResponse, error) {
+// ReopenProject - Reopen project
+func (s *Projects) ReopenProject(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.ReopenProjectResponse, error) {
 	request := operations.ReopenProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,

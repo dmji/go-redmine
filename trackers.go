@@ -28,10 +28,10 @@ func newTrackers(sdkConfig sdkConfiguration) *Trackers {
 	}
 }
 
-// List trackers
+// GetTrackers - List trackers
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Trackers#GET
-func (s *Trackers) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetTrackersResponse, error) {
+func (s *Trackers) GetTrackers(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetTrackersResponse, error) {
 	request := operations.GetTrackersRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,

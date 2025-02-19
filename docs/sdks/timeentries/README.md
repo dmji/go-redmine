@@ -3,15 +3,18 @@
 
 ## Overview
 
+Status: Stable, Availablity: 1.1
+<https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries>
+
 ### Available Operations
 
-* [List](#list) - List time entries
-* [Create](#create) - Create time entry
-* [Get](#get) - Show time entry
-* [Update](#update) - Update time entry
-* [Delete](#delete) - Delete time entry
+* [GetTimeEntries](#gettimeentries) - List time entries
+* [CreateTimeEntry](#createtimeentry) - Create time entry
+* [GetTimeEntry](#gettimeentry) - Show time entry
+* [UpdateTimeEntry](#updatetimeentry) - Update time entry
+* [DeleteTimeEntry](#deletetimeentry) - Delete time entry
 
-## List
+## GetTimeEntries
 
 List time entries
 
@@ -42,7 +45,7 @@ func main() {
         }),
     )
 
-    res, err := s.TimeEntries.List(ctx, operations.GetTimeEntriesRequest{
+    res, err := s.TimeEntries.GetTimeEntries(ctx, operations.GetTimeEntriesRequest{
         Format: components.FormatXML,
         XRedmineSwitchUser: goredmine.String("jsmith"),
         Sort: goredmine.String("spent_on:desc"),
@@ -74,7 +77,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateTimeEntry
 
 Create time entry
 
@@ -105,7 +108,7 @@ func main() {
         }),
     )
 
-    res, err := s.TimeEntries.Create(ctx, components.FormatJSON, goredmine.String("jsmith"), &operations.CreateTimeEntryRequestBody{
+    res, err := s.TimeEntries.CreateTimeEntry(ctx, components.FormatJSON, goredmine.String("jsmith"), &operations.CreateTimeEntryRequestBody{
         TimeEntry: operations.TimeEntry{
             Hours: 6204,
             CustomFields: []components.CustomFields{
@@ -151,7 +154,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetTimeEntry
 
 Show time entry
 
@@ -181,7 +184,7 @@ func main() {
         }),
     )
 
-    res, err := s.TimeEntries.Get(ctx, components.FormatXML, 835091, goredmine.String("jsmith"))
+    res, err := s.TimeEntries.GetTimeEntry(ctx, components.FormatXML, 835091, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -211,7 +214,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateTimeEntry
 
 Update time entry
 
@@ -242,7 +245,7 @@ func main() {
         }),
     )
 
-    res, err := s.TimeEntries.Update(ctx, components.FormatXML, 264460, goredmine.String("jsmith"), &operations.UpdateTimeEntryRequestBody{
+    res, err := s.TimeEntries.UpdateTimeEntry(ctx, components.FormatXML, 264460, goredmine.String("jsmith"), &operations.UpdateTimeEntryRequestBody{
         TimeEntry: &operations.UpdateTimeEntryTimeEntry{
             Hours: 2836.68,
             CustomFields: []components.CustomFields{
@@ -289,7 +292,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteTimeEntry
 
 Delete time entry
 
@@ -319,7 +322,7 @@ func main() {
         }),
     )
 
-    res, err := s.TimeEntries.Delete(ctx, components.FormatJSON, 721643, goredmine.String("jsmith"))
+    res, err := s.TimeEntries.DeleteTimeEntry(ctx, components.FormatJSON, 721643, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

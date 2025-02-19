@@ -22,7 +22,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Issues.List(ctx, operations.GetIssuesRequest{
+	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
 		XRedmineSwitchUser: goredmine.String("jsmith"),
 		Sort:               goredmine.String("id:desc"),

@@ -8,14 +8,14 @@ Status: Beta, Availablity: 1.3
 
 ### Available Operations
 
-* [Get](#get) - Show attachment
-* [Update](#update) - Update attachment
-* [Delete](#delete) - Delete attachment
-* [Download](#download) - Download attachment file
+* [GetAttachment](#getattachment) - Show attachment
+* [UpdateAttachment](#updateattachment) - Update attachment
+* [DeleteAttachment](#deleteattachment) - Delete attachment
+* [DownloadAttachmentFile](#downloadattachmentfile) - Download attachment file
 * [DownloadThumbnail](#downloadthumbnail) - Download thumbnail
-* [UploadFile](#uploadfile) - Upload attachment file
+* [UploadAttachmentFile](#uploadattachmentfile) - Upload attachment file
 
-## Get
+## GetAttachment
 
 Show attachment
 
@@ -45,7 +45,7 @@ func main() {
         }),
     )
 
-    res, err := s.Attachments.Get(ctx, components.FormatXML, 4607.28, goredmine.String("jsmith"))
+    res, err := s.Attachments.GetAttachment(ctx, components.FormatXML, 4607.28, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -75,7 +75,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateAttachment
 
 Update attachment
 
@@ -105,7 +105,7 @@ func main() {
         }),
     )
 
-    res, err := s.Attachments.Update(ctx, components.FormatXML, 2979.79, goredmine.String("jsmith"), nil)
+    res, err := s.Attachments.UpdateAttachment(ctx, components.FormatXML, 2979.79, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -136,7 +136,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteAttachment
 
 Delete attachment
 
@@ -166,7 +166,7 @@ func main() {
         }),
     )
 
-    res, err := s.Attachments.Delete(ctx, components.FormatJSON, 6973.38, goredmine.String("jsmith"))
+    res, err := s.Attachments.DeleteAttachment(ctx, components.FormatJSON, 6973.38, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -196,7 +196,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Download
+## DownloadAttachmentFile
 
 Download attachment file
 
@@ -224,7 +224,7 @@ func main() {
         }),
     )
 
-    res, err := s.Attachments.Download(ctx, 7175.81, "example.file", goredmine.String("jsmith"))
+    res, err := s.Attachments.DownloadAttachmentFile(ctx, 7175.81, "example.file", goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -311,7 +311,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## UploadFile
+## UploadAttachmentFile
 
 Upload attachment file
 
@@ -341,7 +341,7 @@ func main() {
         }),
     )
 
-    res, err := s.Attachments.UploadFile(ctx, components.FormatXML, goredmine.String("jsmith"), nil, nil)
+    res, err := s.Attachments.UploadAttachmentFile(ctx, components.FormatXML, goredmine.String("jsmith"), nil, nil)
     if err != nil {
         log.Fatal(err)
     }

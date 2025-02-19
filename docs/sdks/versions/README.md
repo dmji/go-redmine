@@ -8,13 +8,13 @@ Status: Alpha, Availablity: 1.3
 
 ### Available Operations
 
-* [ListByProject](#listbyproject) - List versions by project
-* [Create](#create) - Create version
-* [Get](#get) - Show version
-* [Update](#update) - Update version
-* [Delete](#delete) - Delete version
+* [GetVersionsByProject](#getversionsbyproject) - List versions by project
+* [CreateVersion](#createversion) - Create version
+* [GetVersions](#getversions) - Show version
+* [UpdateVersion](#updateversion) - Update version
+* [DeleteVersion](#deleteversion) - Delete version
 
-## ListByProject
+## GetVersionsByProject
 
 List versions by project
 
@@ -45,7 +45,7 @@ func main() {
         }),
     )
 
-    res, err := s.Versions.ListByProject(ctx, operations.GetVersionsByProjectRequest{
+    res, err := s.Versions.GetVersionsByProject(ctx, operations.GetVersionsByProjectRequest{
         Format: components.FormatJSON,
         ProjectID: 131775,
         XRedmineSwitchUser: goredmine.String("jsmith"),
@@ -77,7 +77,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateVersion
 
 Create version
 
@@ -108,7 +108,7 @@ func main() {
         }),
     )
 
-    res, err := s.Versions.Create(ctx, components.FormatJSON, 331583, goredmine.String("jsmith"), &operations.CreateVersionRequestBody{
+    res, err := s.Versions.CreateVersion(ctx, components.FormatJSON, 331583, goredmine.String("jsmith"), &operations.CreateVersionRequestBody{
         Version: operations.Version{
             Name: "<value>",
             CustomFields: []components.CustomFields{
@@ -155,7 +155,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetVersions
 
 Show version
 
@@ -185,7 +185,7 @@ func main() {
         }),
     )
 
-    res, err := s.Versions.Get(ctx, components.FormatJSON, 158895, goredmine.String("jsmith"))
+    res, err := s.Versions.GetVersions(ctx, components.FormatJSON, 158895, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -215,7 +215,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateVersion
 
 Update version
 
@@ -246,7 +246,7 @@ func main() {
         }),
     )
 
-    res, err := s.Versions.Update(ctx, components.FormatJSON, 55046, goredmine.String("jsmith"), &operations.UpdateVersionRequestBody{
+    res, err := s.Versions.UpdateVersion(ctx, components.FormatJSON, 55046, goredmine.String("jsmith"), &operations.UpdateVersionRequestBody{
         Version: &operations.UpdateVersionVersion{
             CustomFields: []components.CustomFields{
                 components.CustomFields{
@@ -292,7 +292,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteVersion
 
 Delete version
 
@@ -322,7 +322,7 @@ func main() {
         }),
     )
 
-    res, err := s.Versions.Delete(ctx, components.FormatXML, 964250, goredmine.String("jsmith"))
+    res, err := s.Versions.DeleteVersion(ctx, components.FormatXML, 964250, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

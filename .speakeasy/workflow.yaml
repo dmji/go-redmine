@@ -3,9 +3,7 @@ speakeasyVersion: latest
 sources:
     Redmine API:
         inputs:
-            - location: ..\redmine-openapi.yaml
-        overlays:
-            - location: .speakeasy\speakeasy-modifications-overlay.yaml
+            - location: ..\openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/dmji/jikan/redmine-api
 targets:

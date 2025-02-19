@@ -28,10 +28,10 @@ func newVersions(sdkConfig sdkConfiguration) *Versions {
 	}
 }
 
-// ListByProject - List versions by project
+// GetVersionsByProject - List versions by project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#GET
-func (s *Versions) ListByProject(ctx context.Context, request operations.GetVersionsByProjectRequest, opts ...operations.Option) (*operations.GetVersionsByProjectResponse, error) {
+func (s *Versions) GetVersionsByProject(ctx context.Context, request operations.GetVersionsByProjectRequest, opts ...operations.Option) (*operations.GetVersionsByProjectResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -236,10 +236,10 @@ func (s *Versions) ListByProject(ctx context.Context, request operations.GetVers
 
 }
 
-// Create version
+// CreateVersion - Create version
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#POST
-func (s *Versions) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateVersionRequestBody, opts ...operations.Option) (*operations.CreateVersionResponse, error) {
+func (s *Versions) CreateVersion(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateVersionRequestBody, opts ...operations.Option) (*operations.CreateVersionResponse, error) {
 	request := operations.CreateVersionRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -475,10 +475,10 @@ func (s *Versions) Create(ctx context.Context, format components.Format, project
 
 }
 
-// Get - Show version
+// GetVersions - Show version
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#GET-2
-func (s *Versions) Get(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetVersionsResponse, error) {
+func (s *Versions) GetVersions(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetVersionsResponse, error) {
 	request := operations.GetVersionsRequest{
 		Format:             format,
 		VersionID:          versionID,
@@ -685,10 +685,10 @@ func (s *Versions) Get(ctx context.Context, format components.Format, versionID 
 
 }
 
-// Update version
+// UpdateVersion - Update version
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#PUT
-func (s *Versions) Update(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateVersionRequestBody, opts ...operations.Option) (*operations.UpdateVersionResponse, error) {
+func (s *Versions) UpdateVersion(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateVersionRequestBody, opts ...operations.Option) (*operations.UpdateVersionResponse, error) {
 	request := operations.UpdateVersionRequest{
 		Format:             format,
 		VersionID:          versionID,
@@ -904,10 +904,10 @@ func (s *Versions) Update(ctx context.Context, format components.Format, version
 
 }
 
-// Delete version
+// DeleteVersion - Delete version
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#DELETE
-func (s *Versions) Delete(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteVersionResponse, error) {
+func (s *Versions) DeleteVersion(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteVersionResponse, error) {
 	request := operations.DeleteVersionRequest{
 		Format:             format,
 		VersionID:          versionID,

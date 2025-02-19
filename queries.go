@@ -28,10 +28,10 @@ func newQueries(sdkConfig sdkConfiguration) *Queries {
 	}
 }
 
-// List queries
+// GetQueries - List queries
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Queries#GET
-func (s *Queries) List(ctx context.Context, request operations.GetQueriesRequest, opts ...operations.Option) (*operations.GetQueriesResponse, error) {
+func (s *Queries) GetQueries(ctx context.Context, request operations.GetQueriesRequest, opts ...operations.Option) (*operations.GetQueriesResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,

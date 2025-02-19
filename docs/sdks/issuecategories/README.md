@@ -3,15 +3,18 @@
 
 ## Overview
 
+Status: Alpha, Availablity: 1.3
+<https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories>
+
 ### Available Operations
 
-* [List](#list) - List issue categories
-* [Create](#create) - Create issue category
-* [Show](#show) - Show issue category
-* [Update](#update) - Update issue category
-* [Delete](#delete) - Delete issue category
+* [GetIssueCategories](#getissuecategories) - List issue categories
+* [CreateIssueCategory](#createissuecategory) - Create issue category
+* [GetIssueCategory](#getissuecategory) - Show issue category
+* [UpdateIssueCategory](#updateissuecategory) - Update issue category
+* [DeleteIssueCategory](#deleteissuecategory) - Delete issue category
 
-## List
+## GetIssueCategories
 
 List issue categories
 
@@ -42,7 +45,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueCategories.List(ctx, operations.GetIssueCategoriesRequest{
+    res, err := s.IssueCategories.GetIssueCategories(ctx, operations.GetIssueCategoriesRequest{
         Format: components.FormatJSON,
         ProjectID: 823814,
         XRedmineSwitchUser: goredmine.String("jsmith"),
@@ -74,7 +77,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateIssueCategory
 
 Create issue category
 
@@ -104,7 +107,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueCategories.Create(ctx, components.FormatXML, 714556, goredmine.String("jsmith"), nil)
+    res, err := s.IssueCategories.CreateIssueCategory(ctx, components.FormatXML, 714556, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -136,7 +139,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Show
+## GetIssueCategory
 
 Show issue category
 
@@ -166,7 +169,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueCategories.Show(ctx, components.FormatJSON, 735932, goredmine.String("jsmith"))
+    res, err := s.IssueCategories.GetIssueCategory(ctx, components.FormatJSON, 735932, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -196,7 +199,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateIssueCategory
 
 Update issue category
 
@@ -226,7 +229,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueCategories.Update(ctx, components.FormatJSON, 774678, goredmine.String("jsmith"), nil)
+    res, err := s.IssueCategories.UpdateIssueCategory(ctx, components.FormatJSON, 774678, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -258,7 +261,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteIssueCategory
 
 Delete issue category
 
@@ -288,7 +291,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueCategories.Delete(ctx, components.FormatJSON, 147277, goredmine.String("jsmith"), nil)
+    res, err := s.IssueCategories.DeleteIssueCategory(ctx, components.FormatJSON, 147277, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }

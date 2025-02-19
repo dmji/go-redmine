@@ -15,6 +15,9 @@ import (
 	"net/http"
 )
 
+// MyAccount - Status: Alpha, Availablity: 4.1
+//
+// https://www.redmine.org/projects/redmine/wiki/Rest_MyAccount
 type MyAccount struct {
 	sdkConfiguration sdkConfiguration
 }
@@ -25,10 +28,10 @@ func newMyAccount(sdkConfig sdkConfiguration) *MyAccount {
 	}
 }
 
-// Get - Show my account
+// GetMyAccount - Show my account
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_MyAccount#GET
-func (s *MyAccount) Get(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetMyAccountResponse, error) {
+func (s *MyAccount) GetMyAccount(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetMyAccountResponse, error) {
 	request := operations.GetMyAccountRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -234,10 +237,10 @@ func (s *MyAccount) Get(ctx context.Context, format components.Format, xRedmineS
 
 }
 
-// Update my account
+// UpdateMyAccount - Update my account
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_MyAccount#PUT
-func (s *MyAccount) Update(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.UpdateMyAccountRequestBody, opts ...operations.Option) (*operations.UpdateMyAccountResponse, error) {
+func (s *MyAccount) UpdateMyAccount(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.UpdateMyAccountRequestBody, opts ...operations.Option) (*operations.UpdateMyAccountResponse, error) {
 	request := operations.UpdateMyAccountRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,

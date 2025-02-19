@@ -3,14 +3,17 @@
 
 ## Overview
 
+Status: Alpha, Availablity: 1.3
+<https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations>
+
 ### Available Operations
 
-* [List](#list) - List issue relations
-* [Create](#create) - Create issue relation
-* [Get](#get) - Show issue relation
-* [Delete](#delete) - Delete issue relation
+* [GetIssueRelations](#getissuerelations) - List issue relations
+* [CreateIssueRelation](#createissuerelation) - Create issue relation
+* [GetIssueRelation](#getissuerelation) - Show issue relation
+* [DeleteIssueRelation](#deleteissuerelation) - Delete issue relation
 
-## List
+## GetIssueRelations
 
 List issue relations
 
@@ -40,7 +43,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueRelations.List(ctx, components.FormatXML, 466676, goredmine.String("jsmith"))
+    res, err := s.IssueRelations.GetIssueRelations(ctx, components.FormatXML, 466676, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -70,7 +73,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateIssueRelation
 
 Create issue relation
 
@@ -100,7 +103,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueRelations.Create(ctx, components.FormatXML, 929406, goredmine.String("jsmith"), nil)
+    res, err := s.IssueRelations.CreateIssueRelation(ctx, components.FormatXML, 929406, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -132,7 +135,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetIssueRelation
 
 Show issue relation
 
@@ -162,7 +165,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueRelations.Get(ctx, components.FormatJSON, 427544, goredmine.String("jsmith"))
+    res, err := s.IssueRelations.GetIssueRelation(ctx, components.FormatJSON, 427544, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -192,7 +195,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteIssueRelation
 
 Delete issue relation
 
@@ -222,7 +225,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueRelations.Delete(ctx, components.FormatXML, 441215, goredmine.String("jsmith"))
+    res, err := s.IssueRelations.DeleteIssueRelation(ctx, components.FormatXML, 441215, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

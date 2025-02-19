@@ -78,7 +78,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Issues.List(ctx, operations.GetIssuesRequest{
+	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
 		XRedmineSwitchUser: goredmine.String("jsmith"),
 		Sort:               goredmine.String("id:desc"),
@@ -134,7 +134,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Issues.List(ctx, operations.GetIssuesRequest{
+	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
 		XRedmineSwitchUser: goredmine.String("jsmith"),
 		Sort:               goredmine.String("id:desc"),
@@ -161,16 +161,16 @@ func main() {
 
 ### [Attachments](docs/sdks/attachments/README.md)
 
-* [Get](docs/sdks/attachments/README.md#get) - Show attachment
-* [Update](docs/sdks/attachments/README.md#update) - Update attachment
-* [Delete](docs/sdks/attachments/README.md#delete) - Delete attachment
-* [Download](docs/sdks/attachments/README.md#download) - Download attachment file
+* [GetAttachment](docs/sdks/attachments/README.md#getattachment) - Show attachment
+* [UpdateAttachment](docs/sdks/attachments/README.md#updateattachment) - Update attachment
+* [DeleteAttachment](docs/sdks/attachments/README.md#deleteattachment) - Delete attachment
+* [DownloadAttachmentFile](docs/sdks/attachments/README.md#downloadattachmentfile) - Download attachment file
 * [DownloadThumbnail](docs/sdks/attachments/README.md#downloadthumbnail) - Download thumbnail
-* [UploadFile](docs/sdks/attachments/README.md#uploadfile) - Upload attachment file
+* [UploadAttachmentFile](docs/sdks/attachments/README.md#uploadattachmentfile) - Upload attachment file
 
 ### [CustomFields](docs/sdks/customfields/README.md)
 
-* [List](docs/sdks/customfields/README.md#list) - List custom fields
+* [GetCustomFields](docs/sdks/customfields/README.md#getcustomfields) - List custom fields
 
 ### [Enumerations](docs/sdks/enumerations/README.md)
 
@@ -180,90 +180,90 @@ func main() {
 
 ### [Files](docs/sdks/files/README.md)
 
-* [List](docs/sdks/files/README.md#list) - List files
-* [Create](docs/sdks/files/README.md#create) - Create file
+* [GetFiles](docs/sdks/files/README.md#getfiles) - List files
+* [CreateFile](docs/sdks/files/README.md#createfile) - Create file
 
 
 ### [Groups](docs/sdks/groups/README.md)
 
-* [List](docs/sdks/groups/README.md#list) - List groups
-* [Create](docs/sdks/groups/README.md#create) - Create group
-* [Get](docs/sdks/groups/README.md#get) - Show group
-* [Update](docs/sdks/groups/README.md#update) - Update group
-* [Delete](docs/sdks/groups/README.md#delete) - Delete group
-* [AddUser](docs/sdks/groups/README.md#adduser) - Add user to group
-* [RemoveUser](docs/sdks/groups/README.md#removeuser) - Remove user from group
+* [GetGroups](docs/sdks/groups/README.md#getgroups) - List groups
+* [CreateGroup](docs/sdks/groups/README.md#creategroup) - Create group
+* [GetGroup](docs/sdks/groups/README.md#getgroup) - Show group
+* [UpdateGroup](docs/sdks/groups/README.md#updategroup) - Update group
+* [DeleteGroup](docs/sdks/groups/README.md#deletegroup) - Delete group
+* [AddUserToGroup](docs/sdks/groups/README.md#addusertogroup) - Add user to group
+* [RemoveUserFromGroup](docs/sdks/groups/README.md#removeuserfromgroup) - Remove user from group
 
 ### [IssueCategories](docs/sdks/issuecategories/README.md)
 
-* [List](docs/sdks/issuecategories/README.md#list) - List issue categories
-* [Create](docs/sdks/issuecategories/README.md#create) - Create issue category
-* [Show](docs/sdks/issuecategories/README.md#show) - Show issue category
-* [Update](docs/sdks/issuecategories/README.md#update) - Update issue category
-* [Delete](docs/sdks/issuecategories/README.md#delete) - Delete issue category
+* [GetIssueCategories](docs/sdks/issuecategories/README.md#getissuecategories) - List issue categories
+* [CreateIssueCategory](docs/sdks/issuecategories/README.md#createissuecategory) - Create issue category
+* [GetIssueCategory](docs/sdks/issuecategories/README.md#getissuecategory) - Show issue category
+* [UpdateIssueCategory](docs/sdks/issuecategories/README.md#updateissuecategory) - Update issue category
+* [DeleteIssueCategory](docs/sdks/issuecategories/README.md#deleteissuecategory) - Delete issue category
 
 ### [IssueRelations](docs/sdks/issuerelations/README.md)
 
-* [List](docs/sdks/issuerelations/README.md#list) - List issue relations
-* [Create](docs/sdks/issuerelations/README.md#create) - Create issue relation
-* [Get](docs/sdks/issuerelations/README.md#get) - Show issue relation
-* [Delete](docs/sdks/issuerelations/README.md#delete) - Delete issue relation
+* [GetIssueRelations](docs/sdks/issuerelations/README.md#getissuerelations) - List issue relations
+* [CreateIssueRelation](docs/sdks/issuerelations/README.md#createissuerelation) - Create issue relation
+* [GetIssueRelation](docs/sdks/issuerelations/README.md#getissuerelation) - Show issue relation
+* [DeleteIssueRelation](docs/sdks/issuerelations/README.md#deleteissuerelation) - Delete issue relation
 
 ### [Issues](docs/sdks/issues/README.md)
 
-* [List](docs/sdks/issues/README.md#list) - List issues
-* [Create](docs/sdks/issues/README.md#create) - Create issue
-* [Get](docs/sdks/issues/README.md#get) - Show issue
-* [Update](docs/sdks/issues/README.md#update) - Update issue
-* [Delete](docs/sdks/issues/README.md#delete) - Delete issue
+* [GetIssues](docs/sdks/issues/README.md#getissues) - List issues
+* [CreateIssue](docs/sdks/issues/README.md#createissue) - Create issue
+* [GetIssue](docs/sdks/issues/README.md#getissue) - Show issue
+* [UpdateIssue](docs/sdks/issues/README.md#updateissue) - Update issue
+* [DeleteIssue](docs/sdks/issues/README.md#deleteissue) - Delete issue
 * [AddWatcher](docs/sdks/issues/README.md#addwatcher) - Add watcher
 * [RemoveWatcher](docs/sdks/issues/README.md#removewatcher) - Remove watcher
 
 ### [IssueStatuses](docs/sdks/issuestatuses/README.md)
 
-* [List](docs/sdks/issuestatuses/README.md#list) - List issue statuses
+* [GetIssueStatuses](docs/sdks/issuestatuses/README.md#getissuestatuses) - List issue statuses
 
 ### [Journals](docs/sdks/journals/README.md)
 
-* [Update](docs/sdks/journals/README.md#update) - Update journal
+* [UpdateJournal](docs/sdks/journals/README.md#updatejournal) - Update journal
 
 ### [MyAccount](docs/sdks/myaccount/README.md)
 
-* [Get](docs/sdks/myaccount/README.md#get) - Show my account
-* [Update](docs/sdks/myaccount/README.md#update) - Update my account
+* [GetMyAccount](docs/sdks/myaccount/README.md#getmyaccount) - Show my account
+* [UpdateMyAccount](docs/sdks/myaccount/README.md#updatemyaccount) - Update my account
 
 ### [News](docs/sdks/news/README.md)
 
-* [List](docs/sdks/news/README.md#list) - List news
-* [Get](docs/sdks/news/README.md#get) - Show news
-* [Update](docs/sdks/news/README.md#update) - Update news
-* [Delete](docs/sdks/news/README.md#delete) - Delete news
-* [ListByProject](docs/sdks/news/README.md#listbyproject) - List news by project
-* [Create](docs/sdks/news/README.md#create) - Create news
+* [GetNewsList](docs/sdks/news/README.md#getnewslist) - List news
+* [GetNews](docs/sdks/news/README.md#getnews) - Show news
+* [UpdateNews](docs/sdks/news/README.md#updatenews) - Update news
+* [DeleteNews](docs/sdks/news/README.md#deletenews) - Delete news
+* [GetNewsListByProject](docs/sdks/news/README.md#getnewslistbyproject) - List news by project
+* [CreateNews](docs/sdks/news/README.md#createnews) - Create news
 
 ### [ProjectMemberships](docs/sdks/projectmemberships/README.md)
 
-* [List](docs/sdks/projectmemberships/README.md#list) - List memberships
-* [Create](docs/sdks/projectmemberships/README.md#create) - Create membership
+* [GetMemberships](docs/sdks/projectmemberships/README.md#getmemberships) - List memberships
+* [CreateMembership](docs/sdks/projectmemberships/README.md#createmembership) - Create membership
 * [GetMembership](docs/sdks/projectmemberships/README.md#getmembership) - Show membership
 * [UpdateMembership](docs/sdks/projectmemberships/README.md#updatemembership) - Update membership
-* [Delete](docs/sdks/projectmemberships/README.md#delete) - Delete membership
+* [DeleteMembership](docs/sdks/projectmemberships/README.md#deletemembership) - Delete membership
 
 ### [Projects](docs/sdks/projects/README.md)
 
-* [List](docs/sdks/projects/README.md#list) - List projects
-* [Create](docs/sdks/projects/README.md#create) - Crete project
-* [Get](docs/sdks/projects/README.md#get) - Show project
-* [Update](docs/sdks/projects/README.md#update) - Update project
-* [Delete](docs/sdks/projects/README.md#delete) - Delete project
-* [Archive](docs/sdks/projects/README.md#archive) - Archive project
-* [Unarchive](docs/sdks/projects/README.md#unarchive) - Unarchive project
-* [Close](docs/sdks/projects/README.md#close) - Close project
-* [Reopen](docs/sdks/projects/README.md#reopen) - Reopen project
+* [GetProjects](docs/sdks/projects/README.md#getprojects) - List projects
+* [CreateProject](docs/sdks/projects/README.md#createproject) - Crete project
+* [GetProject](docs/sdks/projects/README.md#getproject) - Show project
+* [UpdateProject](docs/sdks/projects/README.md#updateproject) - Update project
+* [DeleteProject](docs/sdks/projects/README.md#deleteproject) - Delete project
+* [ArchiveProject](docs/sdks/projects/README.md#archiveproject) - Archive project
+* [UnarchiveProject](docs/sdks/projects/README.md#unarchiveproject) - Unarchive project
+* [CloseProject](docs/sdks/projects/README.md#closeproject) - Close project
+* [ReopenProject](docs/sdks/projects/README.md#reopenproject) - Reopen project
 
 ### [Queries](docs/sdks/queries/README.md)
 
-* [List](docs/sdks/queries/README.md#list) - List queries
+* [GetQueries](docs/sdks/queries/README.md#getqueries) - List queries
 
 ### [Repositories](docs/sdks/repositories/README.md)
 
@@ -272,49 +272,49 @@ func main() {
 
 ### [Roles](docs/sdks/roles/README.md)
 
-* [List](docs/sdks/roles/README.md#list) - List roles
-* [Get](docs/sdks/roles/README.md#get) - Show role
+* [GetRoles](docs/sdks/roles/README.md#getroles) - List roles
+* [GetRole](docs/sdks/roles/README.md#getrole) - Show role
 
 ### [Search](docs/sdks/search/README.md)
 
-* [Execute](docs/sdks/search/README.md#execute) - Search
+* [Search](docs/sdks/search/README.md#search) - Search
 
 ### [TimeEntries](docs/sdks/timeentries/README.md)
 
-* [List](docs/sdks/timeentries/README.md#list) - List time entries
-* [Create](docs/sdks/timeentries/README.md#create) - Create time entry
-* [Get](docs/sdks/timeentries/README.md#get) - Show time entry
-* [Update](docs/sdks/timeentries/README.md#update) - Update time entry
-* [Delete](docs/sdks/timeentries/README.md#delete) - Delete time entry
+* [GetTimeEntries](docs/sdks/timeentries/README.md#gettimeentries) - List time entries
+* [CreateTimeEntry](docs/sdks/timeentries/README.md#createtimeentry) - Create time entry
+* [GetTimeEntry](docs/sdks/timeentries/README.md#gettimeentry) - Show time entry
+* [UpdateTimeEntry](docs/sdks/timeentries/README.md#updatetimeentry) - Update time entry
+* [DeleteTimeEntry](docs/sdks/timeentries/README.md#deletetimeentry) - Delete time entry
 
 ### [Trackers](docs/sdks/trackers/README.md)
 
-* [List](docs/sdks/trackers/README.md#list) - List trackers
+* [GetTrackers](docs/sdks/trackers/README.md#gettrackers) - List trackers
 
 ### [Users](docs/sdks/users/README.md)
 
-* [List](docs/sdks/users/README.md#list) - List users
-* [Create](docs/sdks/users/README.md#create) - Create user
-* [Show](docs/sdks/users/README.md#show) - Show user
-* [Update](docs/sdks/users/README.md#update) - Update user
-* [Delete](docs/sdks/users/README.md#delete) - Delete user
-* [GetCurrent](docs/sdks/users/README.md#getcurrent) - Show current user
+* [GetUsers](docs/sdks/users/README.md#getusers) - List users
+* [CreateUser](docs/sdks/users/README.md#createuser) - Create user
+* [GetUser](docs/sdks/users/README.md#getuser) - Show user
+* [UpdateUser](docs/sdks/users/README.md#updateuser) - Update user
+* [DeleteUser](docs/sdks/users/README.md#deleteuser) - Delete user
+* [GetCurrentUser](docs/sdks/users/README.md#getcurrentuser) - Show current user
 
 ### [Versions](docs/sdks/versions/README.md)
 
-* [ListByProject](docs/sdks/versions/README.md#listbyproject) - List versions by project
-* [Create](docs/sdks/versions/README.md#create) - Create version
-* [Get](docs/sdks/versions/README.md#get) - Show version
-* [Update](docs/sdks/versions/README.md#update) - Update version
-* [Delete](docs/sdks/versions/README.md#delete) - Delete version
+* [GetVersionsByProject](docs/sdks/versions/README.md#getversionsbyproject) - List versions by project
+* [CreateVersion](docs/sdks/versions/README.md#createversion) - Create version
+* [GetVersions](docs/sdks/versions/README.md#getversions) - Show version
+* [UpdateVersion](docs/sdks/versions/README.md#updateversion) - Update version
+* [DeleteVersion](docs/sdks/versions/README.md#deleteversion) - Delete version
 
 ### [WikiPages](docs/sdks/wikipages/README.md)
 
-* [List](docs/sdks/wikipages/README.md#list) - List wiki pages
-* [Get](docs/sdks/wikipages/README.md#get) - Show wiki page
-* [Update](docs/sdks/wikipages/README.md#update) - Create or update wiki page
-* [Delete](docs/sdks/wikipages/README.md#delete) - Delete wiki page
-* [GetByVersion](docs/sdks/wikipages/README.md#getbyversion) - Show wiki page by specific version
+* [GetWikiPages](docs/sdks/wikipages/README.md#getwikipages) - List wiki pages
+* [GetWikiPage](docs/sdks/wikipages/README.md#getwikipage) - Show wiki page
+* [UpdateWikiPage](docs/sdks/wikipages/README.md#updatewikipage) - Create or update wiki page
+* [DeleteWikiPage](docs/sdks/wikipages/README.md#deletewikipage) - Delete wiki page
+* [GetWikiPageByVersion](docs/sdks/wikipages/README.md#getwikipagebyversion) - Show wiki page by specific version
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -350,7 +350,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Issues.List(ctx, operations.GetIssuesRequest{
+	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
 		XRedmineSwitchUser: goredmine.String("jsmith"),
 		Sort:               goredmine.String("id:desc"),
@@ -414,7 +414,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Issues.List(ctx, operations.GetIssuesRequest{
+	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
 		XRedmineSwitchUser: goredmine.String("jsmith"),
 		Sort:               goredmine.String("id:desc"),
@@ -440,7 +440,7 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `Create` function may return the following errors:
+For example, the `CreateProject` function may return the following errors:
 
 | Error Type         | Status Code | Content Type     |
 | ------------------ | ----------- | ---------------- |
@@ -474,7 +474,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Projects.Create(ctx, components.FormatXML, goredmine.String("jsmith"), &operations.CreateProjectRequestBody{
+	res, err := s.Projects.CreateProject(ctx, components.FormatXML, goredmine.String("jsmith"), &operations.CreateProjectRequestBody{
 		Project: operations.Project{
 			Name:       "<value>",
 			Identifier: "<value>",
@@ -540,7 +540,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Issues.List(ctx, operations.GetIssuesRequest{
+	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
 		XRedmineSwitchUser: goredmine.String("jsmith"),
 		Sort:               goredmine.String("id:desc"),

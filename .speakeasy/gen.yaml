@@ -2,7 +2,7 @@ configVersion: 2.0.0
 generation:
   devContainers:
     enabled: true
-    schemaPath: redmine-openapi.yaml
+    schemaPath: openapi.yaml
   sdkClassName: GoRedmine
   maintainOpenAPIOrder: true
   usageSnippets:
@@ -13,12 +13,12 @@ generation:
     nameResolutionFeb2025: false
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
-    securityFeb2025: false
+    securityFeb2025: true
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 go:
-  version: 0.2.1
+  version: 0.0.1
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   clientServerStatusCodesAsErrors: true

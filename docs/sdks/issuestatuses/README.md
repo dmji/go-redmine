@@ -3,11 +3,14 @@
 
 ## Overview
 
+Status: Alpha, Availablity: 1.3
+<https://www.redmine.org/projects/redmine/wiki/Rest_IssueStatuses>
+
 ### Available Operations
 
-* [List](#list) - List issue statuses
+* [GetIssueStatuses](#getissuestatuses) - List issue statuses
 
-## List
+## GetIssueStatuses
 
 List issue statuses
 
@@ -37,7 +40,7 @@ func main() {
         }),
     )
 
-    res, err := s.IssueStatuses.List(ctx, components.FormatXML, goredmine.String("jsmith"))
+    res, err := s.IssueStatuses.GetIssueStatuses(ctx, components.FormatXML, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

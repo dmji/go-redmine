@@ -3,11 +3,14 @@
 
 ## Overview
 
+Status: Alpha, Availablity: 2.4
+<https://www.redmine.org/projects/redmine/wiki/Rest_CustomFields>
+
 ### Available Operations
 
-* [List](#list) - List custom fields
+* [GetCustomFields](#getcustomfields) - List custom fields
 
-## List
+## GetCustomFields
 
 List custom fields
 
@@ -37,7 +40,7 @@ func main() {
         }),
     )
 
-    res, err := s.CustomFields.List(ctx, components.FormatXML, goredmine.String("jsmith"))
+    res, err := s.CustomFields.GetCustomFields(ctx, components.FormatXML, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

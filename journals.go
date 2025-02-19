@@ -27,8 +27,8 @@ func newJournals(sdkConfig sdkConfiguration) *Journals {
 	}
 }
 
-// Update journal
-func (s *Journals) Update(ctx context.Context, format components.Format, journalID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateJournalRequestBody, opts ...operations.Option) (*operations.UpdateJournalResponse, error) {
+// UpdateJournal - Update journal
+func (s *Journals) UpdateJournal(ctx context.Context, format components.Format, journalID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateJournalRequestBody, opts ...operations.Option) (*operations.UpdateJournalResponse, error) {
 	request := operations.UpdateJournalRequest{
 		Format:             format,
 		JournalID:          journalID,

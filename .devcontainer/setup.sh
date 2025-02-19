@@ -12,4 +12,4 @@ go mod download
 go mod tidy
 
 # Generate starter usage sample with speakeasy
-speakeasy generate usage -s redmine-openapi.yaml -l go -o samples/root.go
+speakeasy generate usage -s openapi.yaml -l go -o samples/root.go

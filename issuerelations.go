@@ -15,6 +15,9 @@ import (
 	"net/http"
 )
 
+// IssueRelations - Status: Alpha, Availablity: 1.3
+//
+// https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations
 type IssueRelations struct {
 	sdkConfiguration sdkConfiguration
 }
@@ -25,10 +28,10 @@ func newIssueRelations(sdkConfig sdkConfiguration) *IssueRelations {
 	}
 }
 
-// List issue relations
+// GetIssueRelations - List issue relations
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations#GET
-func (s *IssueRelations) List(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueRelationsResponse, error) {
+func (s *IssueRelations) GetIssueRelations(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueRelationsResponse, error) {
 	request := operations.GetIssueRelationsRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -235,10 +238,10 @@ func (s *IssueRelations) List(ctx context.Context, format components.Format, iss
 
 }
 
-// Create issue relation
+// CreateIssueRelation - Create issue relation
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations#POST
-func (s *IssueRelations) Create(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, requestBody *operations.CreateIssueRelationRequestBody, opts ...operations.Option) (*operations.CreateIssueRelationResponse, error) {
+func (s *IssueRelations) CreateIssueRelation(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, requestBody *operations.CreateIssueRelationRequestBody, opts ...operations.Option) (*operations.CreateIssueRelationResponse, error) {
 	request := operations.CreateIssueRelationRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -474,10 +477,10 @@ func (s *IssueRelations) Create(ctx context.Context, format components.Format, i
 
 }
 
-// Get - Show issue relation
+// GetIssueRelation - Show issue relation
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations#GET-2
-func (s *IssueRelations) Get(ctx context.Context, format components.Format, issueRelationID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueRelationResponse, error) {
+func (s *IssueRelations) GetIssueRelation(ctx context.Context, format components.Format, issueRelationID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueRelationResponse, error) {
 	request := operations.GetIssueRelationRequest{
 		Format:             format,
 		IssueRelationID:    issueRelationID,
@@ -684,10 +687,10 @@ func (s *IssueRelations) Get(ctx context.Context, format components.Format, issu
 
 }
 
-// Delete issue relation
+// DeleteIssueRelation - Delete issue relation
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations#DELETE
-func (s *IssueRelations) Delete(ctx context.Context, format components.Format, issueRelationID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteIssueRelationResponse, error) {
+func (s *IssueRelations) DeleteIssueRelation(ctx context.Context, format components.Format, issueRelationID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteIssueRelationResponse, error) {
 	request := operations.DeleteIssueRelationRequest{
 		Format:             format,
 		IssueRelationID:    issueRelationID,

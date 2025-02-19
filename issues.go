@@ -28,10 +28,10 @@ func newIssues(sdkConfig sdkConfiguration) *Issues {
 	}
 }
 
-// List issues
+// GetIssues - List issues
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Listing-issues
-func (s *Issues) List(ctx context.Context, request operations.GetIssuesRequest, opts ...operations.Option) (*operations.GetIssuesResponse, error) {
+func (s *Issues) GetIssues(ctx context.Context, request operations.GetIssuesRequest, opts ...operations.Option) (*operations.GetIssuesResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -236,10 +236,10 @@ func (s *Issues) List(ctx context.Context, request operations.GetIssuesRequest, 
 
 }
 
-// Create issue
+// CreateIssue - Create issue
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Creating-an-issue
-func (s *Issues) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateIssueRequestBody, opts ...operations.Option) (*operations.CreateIssueResponse, error) {
+func (s *Issues) CreateIssue(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateIssueRequestBody, opts ...operations.Option) (*operations.CreateIssueResponse, error) {
 	request := operations.CreateIssueRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -453,10 +453,10 @@ func (s *Issues) Create(ctx context.Context, format components.Format, xRedmineS
 
 }
 
-// Get - Show issue
+// GetIssue - Show issue
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Showing-an-issue
-func (s *Issues) Get(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, include []operations.QueryParamInclude, opts ...operations.Option) (*operations.GetIssueResponse, error) {
+func (s *Issues) GetIssue(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, include []operations.QueryParamInclude, opts ...operations.Option) (*operations.GetIssueResponse, error) {
 	request := operations.GetIssueRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -668,10 +668,10 @@ func (s *Issues) Get(ctx context.Context, format components.Format, issueID int6
 
 }
 
-// Update issue
+// UpdateIssue - Update issue
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Updating-an-issue
-func (s *Issues) Update(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateIssueRequestBody, opts ...operations.Option) (*operations.UpdateIssueResponse, error) {
+func (s *Issues) UpdateIssue(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateIssueRequestBody, opts ...operations.Option) (*operations.UpdateIssueResponse, error) {
 	request := operations.UpdateIssueRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -866,10 +866,10 @@ func (s *Issues) Update(ctx context.Context, format components.Format, issueID i
 
 }
 
-// Delete issue
+// DeleteIssue - Delete issue
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Deleting-an-issue
-func (s *Issues) Delete(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteIssueResponse, error) {
+func (s *Issues) DeleteIssue(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteIssueResponse, error) {
 	request := operations.DeleteIssueRequest{
 		Format:             format,
 		IssueID:            issueID,

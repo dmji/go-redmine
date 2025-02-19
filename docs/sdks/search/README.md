@@ -8,9 +8,9 @@ Status: Alpha, Availablity: 3.3
 
 ### Available Operations
 
-* [Execute](#execute) - Search
+* [Search](#search) - Search
 
-## Execute
+## Search
 
 Search
 
@@ -41,7 +41,7 @@ func main() {
         }),
     )
 
-    res, err := s.Search.Execute(ctx, operations.SearchRequest{
+    res, err := s.Search.Search(ctx, operations.SearchRequest{
         Format: components.FormatJSON,
         XRedmineSwitchUser: goredmine.String("jsmith"),
         Q: "<value>",

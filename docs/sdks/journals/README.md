@@ -8,9 +8,9 @@ Status: Alpha, Availablity: 5.0
 
 ### Available Operations
 
-* [Update](#update) - Update journal
+* [UpdateJournal](#updatejournal) - Update journal
 
-## Update
+## UpdateJournal
 
 Update journal
 
@@ -38,7 +38,7 @@ func main() {
         }),
     )
 
-    res, err := s.Journals.Update(ctx, components.FormatJSON, 169354, goredmine.String("jsmith"), nil)
+    res, err := s.Journals.UpdateJournal(ctx, components.FormatJSON, 169354, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }

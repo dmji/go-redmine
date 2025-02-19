@@ -8,10 +8,10 @@ Status: Alpha, Availablity: 1.4
 
 ### Available Operations
 
-* [List](#list) - List roles
-* [Get](#get) - Show role
+* [GetRoles](#getroles) - List roles
+* [GetRole](#getrole) - Show role
 
-## List
+## GetRoles
 
 List roles
 
@@ -41,7 +41,7 @@ func main() {
         }),
     )
 
-    res, err := s.Roles.List(ctx, components.FormatJSON, goredmine.String("jsmith"))
+    res, err := s.Roles.GetRoles(ctx, components.FormatJSON, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -70,7 +70,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## GetRole
 
 Show role
 
@@ -100,7 +100,7 @@ func main() {
         }),
     )
 
-    res, err := s.Roles.Get(ctx, components.FormatXML, 113599, goredmine.String("jsmith"))
+    res, err := s.Roles.GetRole(ctx, components.FormatXML, 113599, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }

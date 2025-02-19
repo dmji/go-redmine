@@ -28,10 +28,10 @@ func newAttachments(sdkConfig sdkConfiguration) *Attachments {
 	}
 }
 
-// Get - Show attachment
+// GetAttachment - Show attachment
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Attachments#GET
-func (s *Attachments) Get(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetAttachmentResponse, error) {
+func (s *Attachments) GetAttachment(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetAttachmentResponse, error) {
 	request := operations.GetAttachmentRequest{
 		Format:             format,
 		AttachmentID:       attachmentID,
@@ -238,10 +238,10 @@ func (s *Attachments) Get(ctx context.Context, format components.Format, attachm
 
 }
 
-// Update attachment
+// UpdateAttachment - Update attachment
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Attachments#PATCH
-func (s *Attachments) Update(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, requestBody *operations.UpdateAttachmentRequestBody, opts ...operations.Option) (*operations.UpdateAttachmentResponse, error) {
+func (s *Attachments) UpdateAttachment(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, requestBody *operations.UpdateAttachmentRequestBody, opts ...operations.Option) (*operations.UpdateAttachmentResponse, error) {
 	request := operations.UpdateAttachmentRequest{
 		Format:             format,
 		AttachmentID:       attachmentID,
@@ -436,10 +436,10 @@ func (s *Attachments) Update(ctx context.Context, format components.Format, atta
 
 }
 
-// Delete attachment
+// DeleteAttachment - Delete attachment
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Attachments#DELETE
-func (s *Attachments) Delete(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteAttachmentResponse, error) {
+func (s *Attachments) DeleteAttachment(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteAttachmentResponse, error) {
 	request := operations.DeleteAttachmentRequest{
 		Format:             format,
 		AttachmentID:       attachmentID,
@@ -626,8 +626,8 @@ func (s *Attachments) Delete(ctx context.Context, format components.Format, atta
 
 }
 
-// Download attachment file
-func (s *Attachments) Download(ctx context.Context, attachmentID float64, filename string, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DownloadAttachmentFileResponse, error) {
+// DownloadAttachmentFile - Download attachment file
+func (s *Attachments) DownloadAttachmentFile(ctx context.Context, attachmentID float64, filename string, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DownloadAttachmentFileResponse, error) {
 	request := operations.DownloadAttachmentFileRequest{
 		AttachmentID:       attachmentID,
 		Filename:           filename,
@@ -1025,10 +1025,10 @@ func (s *Attachments) DownloadThumbnail(ctx context.Context, attachmentID float6
 
 }
 
-// UploadFile - Upload attachment file
+// UploadAttachmentFile - Upload attachment file
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_api#Attaching-files
-func (s *Attachments) UploadFile(ctx context.Context, format components.Format, xRedmineSwitchUser *string, filename *string, requestBody *any, opts ...operations.Option) (*operations.UploadAttachmentFileResponse, error) {
+func (s *Attachments) UploadAttachmentFile(ctx context.Context, format components.Format, xRedmineSwitchUser *string, filename *string, requestBody *any, opts ...operations.Option) (*operations.UploadAttachmentFileResponse, error) {
 	request := operations.UploadAttachmentFileRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,

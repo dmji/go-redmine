@@ -15,6 +15,9 @@ import (
 	"net/http"
 )
 
+// IssueStatuses - Status: Alpha, Availablity: 1.3
+//
+// https://www.redmine.org/projects/redmine/wiki/Rest_IssueStatuses
 type IssueStatuses struct {
 	sdkConfiguration sdkConfiguration
 }
@@ -25,10 +28,10 @@ func newIssueStatuses(sdkConfig sdkConfiguration) *IssueStatuses {
 	}
 }
 
-// List issue statuses
+// GetIssueStatuses - List issue statuses
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueStatuses#GET
-func (s *IssueStatuses) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueStatusesResponse, error) {
+func (s *IssueStatuses) GetIssueStatuses(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueStatusesResponse, error) {
 	request := operations.GetIssueStatusesRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,

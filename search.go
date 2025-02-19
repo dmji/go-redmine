@@ -28,10 +28,10 @@ func newSearch(sdkConfig sdkConfiguration) *Search {
 	}
 }
 
-// Execute - Search
+// Search
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Search#GET
-func (s *Search) Execute(ctx context.Context, request operations.SearchRequest, opts ...operations.Option) (*operations.SearchResponse, error) {
+func (s *Search) Search(ctx context.Context, request operations.SearchRequest, opts ...operations.Option) (*operations.SearchResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,

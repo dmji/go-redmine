@@ -15,6 +15,9 @@ import (
 	"net/http"
 )
 
+// CustomFields - Status: Alpha, Availablity: 2.4
+//
+// https://www.redmine.org/projects/redmine/wiki/Rest_CustomFields
 type CustomFields struct {
 	sdkConfiguration sdkConfiguration
 }
@@ -25,10 +28,10 @@ func newCustomFields(sdkConfig sdkConfiguration) *CustomFields {
 	}
 }
 
-// List custom fields
+// GetCustomFields - List custom fields
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_CustomFields#GET
-func (s *CustomFields) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetCustomFieldsResponse, error) {
+func (s *CustomFields) GetCustomFields(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetCustomFieldsResponse, error) {
 	request := operations.GetCustomFieldsRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,

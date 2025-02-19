@@ -28,10 +28,10 @@ func newUsers(sdkConfig sdkConfiguration) *Users {
 	}
 }
 
-// List users
+// GetUsers - List users
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET
-func (s *Users) List(ctx context.Context, request operations.GetUsersRequest, opts ...operations.Option) (*operations.GetUsersResponse, error) {
+func (s *Users) GetUsers(ctx context.Context, request operations.GetUsersRequest, opts ...operations.Option) (*operations.GetUsersResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -236,10 +236,10 @@ func (s *Users) List(ctx context.Context, request operations.GetUsersRequest, op
 
 }
 
-// Create user
+// CreateUser - Create user
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#POST
-func (s *Users) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateUserRequestBody, opts ...operations.Option) (*operations.CreateUserResponse, error) {
+func (s *Users) CreateUser(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateUserRequestBody, opts ...operations.Option) (*operations.CreateUserResponse, error) {
 	request := operations.CreateUserRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -474,10 +474,10 @@ func (s *Users) Create(ctx context.Context, format components.Format, xRedmineSw
 
 }
 
-// Show user
+// GetUser - Show user
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET-2
-func (s *Users) Show(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, include []operations.GetUserQueryParamInclude, opts ...operations.Option) (*operations.GetUserResponse, error) {
+func (s *Users) GetUser(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, include []operations.GetUserQueryParamInclude, opts ...operations.Option) (*operations.GetUserResponse, error) {
 	request := operations.GetUserRequest{
 		Format:             format,
 		UserID:             userID,
@@ -689,10 +689,10 @@ func (s *Users) Show(ctx context.Context, format components.Format, userID int64
 
 }
 
-// Update user
+// UpdateUser - Update user
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#PUT
-func (s *Users) Update(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateUserRequestBody, opts ...operations.Option) (*operations.UpdateUserResponse, error) {
+func (s *Users) UpdateUser(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateUserRequestBody, opts ...operations.Option) (*operations.UpdateUserResponse, error) {
 	request := operations.UpdateUserRequest{
 		Format:             format,
 		UserID:             userID,
@@ -908,10 +908,10 @@ func (s *Users) Update(ctx context.Context, format components.Format, userID int
 
 }
 
-// Delete user
+// DeleteUser - Delete user
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#DELETE
-func (s *Users) Delete(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteUserResponse, error) {
+func (s *Users) DeleteUser(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteUserResponse, error) {
 	request := operations.DeleteUserRequest{
 		Format:             format,
 		UserID:             userID,
@@ -1098,10 +1098,10 @@ func (s *Users) Delete(ctx context.Context, format components.Format, userID int
 
 }
 
-// GetCurrent - Show current user
+// GetCurrentUser - Show current user
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET-2
-func (s *Users) GetCurrent(ctx context.Context, format components.Format, xRedmineSwitchUser *string, include []operations.GetCurrentUserQueryParamInclude, opts ...operations.Option) (*operations.GetCurrentUserResponse, error) {
+func (s *Users) GetCurrentUser(ctx context.Context, format components.Format, xRedmineSwitchUser *string, include []operations.GetCurrentUserQueryParamInclude, opts ...operations.Option) (*operations.GetCurrentUserResponse, error) {
 	request := operations.GetCurrentUserRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,

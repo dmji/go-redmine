@@ -3,12 +3,15 @@
 
 ## Overview
 
+Status: Alpha, Availablity: 4.1
+<https://www.redmine.org/projects/redmine/wiki/Rest_MyAccount>
+
 ### Available Operations
 
-* [Get](#get) - Show my account
-* [Update](#update) - Update my account
+* [GetMyAccount](#getmyaccount) - Show my account
+* [UpdateMyAccount](#updatemyaccount) - Update my account
 
-## Get
+## GetMyAccount
 
 Show my account
 
@@ -38,7 +41,7 @@ func main() {
         }),
     )
 
-    res, err := s.MyAccount.Get(ctx, components.FormatXML, goredmine.String("jsmith"))
+    res, err := s.MyAccount.GetMyAccount(ctx, components.FormatXML, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -67,7 +70,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateMyAccount
 
 Update my account
 
@@ -98,7 +101,7 @@ func main() {
         }),
     )
 
-    res, err := s.MyAccount.Update(ctx, components.FormatJSON, goredmine.String("jsmith"), &operations.UpdateMyAccountRequestBody{
+    res, err := s.MyAccount.UpdateMyAccount(ctx, components.FormatJSON, goredmine.String("jsmith"), &operations.UpdateMyAccountRequestBody{
         User: &operations.UpdateMyAccountUser{
             CustomFields: []components.CustomFields{
                 components.CustomFields{

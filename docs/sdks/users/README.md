@@ -8,14 +8,14 @@ Status: Stable, Availablity: 1.1
 
 ### Available Operations
 
-* [List](#list) - List users
-* [Create](#create) - Create user
-* [Show](#show) - Show user
-* [Update](#update) - Update user
-* [Delete](#delete) - Delete user
-* [GetCurrent](#getcurrent) - Show current user
+* [GetUsers](#getusers) - List users
+* [CreateUser](#createuser) - Create user
+* [GetUser](#getuser) - Show user
+* [UpdateUser](#updateuser) - Update user
+* [DeleteUser](#deleteuser) - Delete user
+* [GetCurrentUser](#getcurrentuser) - Show current user
 
-## List
+## GetUsers
 
 List users
 
@@ -46,7 +46,7 @@ func main() {
         }),
     )
 
-    res, err := s.Users.List(ctx, operations.GetUsersRequest{
+    res, err := s.Users.GetUsers(ctx, operations.GetUsersRequest{
         Format: components.FormatJSON,
         XRedmineSwitchUser: goredmine.String("jsmith"),
     })
@@ -77,7 +77,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Create
+## CreateUser
 
 Create user
 
@@ -108,7 +108,7 @@ func main() {
         }),
     )
 
-    res, err := s.Users.Create(ctx, components.FormatXML, goredmine.String("jsmith"), &operations.CreateUserRequestBody{
+    res, err := s.Users.CreateUser(ctx, components.FormatXML, goredmine.String("jsmith"), &operations.CreateUserRequestBody{
         User: operations.User{
             Login: "Jimmy12",
             Firstname: "Domenico",
@@ -157,7 +157,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Show
+## GetUser
 
 Show user
 
@@ -187,7 +187,7 @@ func main() {
         }),
     )
 
-    res, err := s.Users.Show(ctx, components.FormatXML, 161855, goredmine.String("jsmith"), nil)
+    res, err := s.Users.GetUser(ctx, components.FormatXML, 161855, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -218,7 +218,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Update
+## UpdateUser
 
 Update user
 
@@ -249,7 +249,7 @@ func main() {
         }),
     )
 
-    res, err := s.Users.Update(ctx, components.FormatJSON, 713914, goredmine.String("jsmith"), &operations.UpdateUserRequestBody{
+    res, err := s.Users.UpdateUser(ctx, components.FormatJSON, 713914, goredmine.String("jsmith"), &operations.UpdateUserRequestBody{
         User: &operations.UpdateUserUser{
             CustomFields: []components.CustomFields{
                 components.CustomFields{
@@ -295,7 +295,7 @@ func main() {
 | apierrors.Errors   | 422                | application/json   |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Delete
+## DeleteUser
 
 Delete user
 
@@ -325,7 +325,7 @@ func main() {
         }),
     )
 
-    res, err := s.Users.Delete(ctx, components.FormatJSON, 335223, goredmine.String("jsmith"))
+    res, err := s.Users.DeleteUser(ctx, components.FormatJSON, 335223, goredmine.String("jsmith"))
     if err != nil {
         log.Fatal(err)
     }
@@ -355,7 +355,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## GetCurrent
+## GetCurrentUser
 
 Show current user
 
@@ -385,7 +385,7 @@ func main() {
         }),
     )
 
-    res, err := s.Users.GetCurrent(ctx, components.FormatXML, goredmine.String("jsmith"), nil)
+    res, err := s.Users.GetCurrentUser(ctx, components.FormatXML, goredmine.String("jsmith"), nil)
     if err != nil {
         log.Fatal(err)
     }

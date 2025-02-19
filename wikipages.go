@@ -15,6 +15,9 @@ import (
 	"net/http"
 )
 
+// WikiPages - Status: Alpha, Availablity: 2.2
+//
+// https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages
 type WikiPages struct {
 	sdkConfiguration sdkConfiguration
 }
@@ -25,10 +28,10 @@ func newWikiPages(sdkConfig sdkConfiguration) *WikiPages {
 	}
 }
 
-// List wiki pages
+// GetWikiPages - List wiki pages
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Getting-the-pages-list-of-a-wiki
-func (s *WikiPages) List(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetWikiPagesResponse, error) {
+func (s *WikiPages) GetWikiPages(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetWikiPagesResponse, error) {
 	request := operations.GetWikiPagesRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -235,10 +238,10 @@ func (s *WikiPages) List(ctx context.Context, format components.Format, projectI
 
 }
 
-// Get - Show wiki page
+// GetWikiPage - Show wiki page
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Getting-a-wiki-page
-func (s *WikiPages) Get(ctx context.Context, request operations.GetWikiPageRequest, opts ...operations.Option) (*operations.GetWikiPageResponse, error) {
+func (s *WikiPages) GetWikiPage(ctx context.Context, request operations.GetWikiPageRequest, opts ...operations.Option) (*operations.GetWikiPageResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -443,10 +446,10 @@ func (s *WikiPages) Get(ctx context.Context, request operations.GetWikiPageReque
 
 }
 
-// Update - Create or update wiki page
+// UpdateWikiPage - Create or update wiki page
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Creating-or-updating-a-wiki-page
-func (s *WikiPages) Update(ctx context.Context, request operations.UpdateWikiPageRequest, opts ...operations.Option) (*operations.UpdateWikiPageResponse, error) {
+func (s *WikiPages) UpdateWikiPage(ctx context.Context, request operations.UpdateWikiPageRequest, opts ...operations.Option) (*operations.UpdateWikiPageResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -678,10 +681,10 @@ func (s *WikiPages) Update(ctx context.Context, request operations.UpdateWikiPag
 
 }
 
-// Delete wiki page
+// DeleteWikiPage - Delete wiki page
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Deleting-a-wiki-page
-func (s *WikiPages) Delete(ctx context.Context, format components.Format, projectID int64, wikiPageTitle string, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteWikiPageResponse, error) {
+func (s *WikiPages) DeleteWikiPage(ctx context.Context, format components.Format, projectID int64, wikiPageTitle string, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteWikiPageResponse, error) {
 	request := operations.DeleteWikiPageRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -869,10 +872,10 @@ func (s *WikiPages) Delete(ctx context.Context, format components.Format, projec
 
 }
 
-// GetByVersion - Show wiki page by specific version
+// GetWikiPageByVersion - Show wiki page by specific version
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Getting-an-old-version-of-a-wiki-page
-func (s *WikiPages) GetByVersion(ctx context.Context, request operations.GetWikiPageByVersionRequest, opts ...operations.Option) (*operations.GetWikiPageByVersionResponse, error) {
+func (s *WikiPages) GetWikiPageByVersion(ctx context.Context, request operations.GetWikiPageByVersionRequest, opts ...operations.Option) (*operations.GetWikiPageByVersionResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
