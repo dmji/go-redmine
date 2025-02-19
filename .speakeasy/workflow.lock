@@ -21,7 +21,7 @@ workflow:
     sources:
         Redmine API:
             inputs:
-                - location: ..\openapi.yaml
+                - location: openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/dmji/jikan/redmine-api
     targets:
