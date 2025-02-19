@@ -32,12 +32,6 @@ func newEnumerations(sdkConfig sdkConfiguration) *Enumerations {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Enumerations#GET
 func (s *Enumerations) GetIssuePriorities(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssuePrioritiesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getIssuePriorities",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetIssuePrioritiesRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -64,6 +58,13 @@ func (s *Enumerations) GetIssuePriorities(ctx context.Context, format components
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/enumerations/issue_priorities.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getIssuePriorities",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -240,12 +241,6 @@ func (s *Enumerations) GetIssuePriorities(ctx context.Context, format components
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Enumerations#GET-2
 func (s *Enumerations) GetTimeEntryActivities(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetTimeEntryActivitiesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getTimeEntryActivities",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetTimeEntryActivitiesRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -272,6 +267,13 @@ func (s *Enumerations) GetTimeEntryActivities(ctx context.Context, format compon
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/enumerations/time_entry_activities.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getTimeEntryActivities",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -448,12 +450,6 @@ func (s *Enumerations) GetTimeEntryActivities(ctx context.Context, format compon
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Enumerations#GET-3
 func (s *Enumerations) GetDocumentCategories(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetDocumentCategoriesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getDocumentCategories",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetDocumentCategoriesRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -480,6 +476,13 @@ func (s *Enumerations) GetDocumentCategories(ctx context.Context, format compone
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/enumerations/document_categories.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getDocumentCategories",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

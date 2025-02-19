@@ -32,12 +32,6 @@ func newQueries(sdkConfig sdkConfiguration) *Queries {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Queries#GET
 func (s *Queries) List(ctx context.Context, request operations.GetQueriesRequest, opts ...operations.Option) (*operations.GetQueriesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getQueries",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -59,6 +53,13 @@ func (s *Queries) List(ctx context.Context, request operations.GetQueriesRequest
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/queries.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getQueries",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

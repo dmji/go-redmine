@@ -32,12 +32,6 @@ func newSearch(sdkConfig sdkConfiguration) *Search {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Search#GET
 func (s *Search) Execute(ctx context.Context, request operations.SearchRequest, opts ...operations.Option) (*operations.SearchResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "search",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -59,6 +53,13 @@ func (s *Search) Execute(ctx context.Context, request operations.SearchRequest, 
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/search.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "search",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

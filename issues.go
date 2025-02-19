@@ -32,12 +32,6 @@ func newIssues(sdkConfig sdkConfiguration) *Issues {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Listing-issues
 func (s *Issues) List(ctx context.Context, request operations.GetIssuesRequest, opts ...operations.Option) (*operations.GetIssuesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getIssues",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -59,6 +53,13 @@ func (s *Issues) List(ctx context.Context, request operations.GetIssuesRequest, 
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/issues.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getIssues",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -239,12 +240,6 @@ func (s *Issues) List(ctx context.Context, request operations.GetIssuesRequest, 
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Creating-an-issue
 func (s *Issues) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateIssueRequestBody, opts ...operations.Option) (*operations.CreateIssueResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createIssue",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateIssueRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -274,6 +269,12 @@ func (s *Issues) Create(ctx context.Context, format components.Format, xRedmineS
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createIssue",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -456,12 +457,6 @@ func (s *Issues) Create(ctx context.Context, format components.Format, xRedmineS
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Showing-an-issue
 func (s *Issues) Get(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, include []operations.QueryParamInclude, opts ...operations.Option) (*operations.GetIssueResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getIssue",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetIssueRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -490,6 +485,13 @@ func (s *Issues) Get(ctx context.Context, format components.Format, issueID int6
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/issues/{issue_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getIssue",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -670,12 +672,6 @@ func (s *Issues) Get(ctx context.Context, format components.Format, issueID int6
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Updating-an-issue
 func (s *Issues) Update(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateIssueRequestBody, opts ...operations.Option) (*operations.UpdateIssueResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateIssue",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateIssueRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -706,6 +702,12 @@ func (s *Issues) Update(ctx context.Context, format components.Format, issueID i
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateIssue",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -868,12 +870,6 @@ func (s *Issues) Update(ctx context.Context, format components.Format, issueID i
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Deleting-an-issue
 func (s *Issues) Delete(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteIssueResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteIssue",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteIssueRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -901,6 +897,13 @@ func (s *Issues) Delete(ctx context.Context, format components.Format, issueID i
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/issues/{issue_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteIssue",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1057,12 +1060,6 @@ func (s *Issues) Delete(ctx context.Context, format components.Format, issueID i
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Adding-a-watcher
 func (s *Issues) AddWatcher(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, requestBody *operations.AddWatcherRequestBody, opts ...operations.Option) (*operations.AddWatcherResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "addWatcher",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.AddWatcherRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -1093,6 +1090,12 @@ func (s *Issues) AddWatcher(ctx context.Context, format components.Format, issue
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "addWatcher",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -1255,12 +1258,6 @@ func (s *Issues) AddWatcher(ctx context.Context, format components.Format, issue
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Removing-a-watcher
 func (s *Issues) RemoveWatcher(ctx context.Context, format components.Format, issueID int64, userID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.RemoveWatcherResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "removeWatcher",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.RemoveWatcherRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -1289,6 +1286,13 @@ func (s *Issues) RemoveWatcher(ctx context.Context, format components.Format, is
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/issues/{issue_id}/watchers/{user_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "removeWatcher",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

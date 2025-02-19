@@ -32,12 +32,6 @@ func newNews(sdkConfig sdkConfiguration) *News {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_News#GET
 func (s *News) List(ctx context.Context, request operations.GetNewsListRequest, opts ...operations.Option) (*operations.GetNewsListResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getNewsList",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -59,6 +53,13 @@ func (s *News) List(ctx context.Context, request operations.GetNewsListRequest, 
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/news.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getNewsList",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -237,12 +238,6 @@ func (s *News) List(ctx context.Context, request operations.GetNewsListRequest, 
 
 // Get - Show news
 func (s *News) Get(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, include []operations.GetNewsQueryParamInclude, opts ...operations.Option) (*operations.GetNewsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getNews",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetNewsRequest{
 		Format:             format,
 		NewsID:             newsID,
@@ -271,6 +266,13 @@ func (s *News) Get(ctx context.Context, format components.Format, newsID int64, 
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/news/{news_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getNews",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -449,12 +451,6 @@ func (s *News) Get(ctx context.Context, format components.Format, newsID int64, 
 
 // Update news
 func (s *News) Update(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateNewsRequestBody, opts ...operations.Option) (*operations.UpdateNewsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateNews",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateNewsRequest{
 		Format:             format,
 		NewsID:             newsID,
@@ -485,6 +481,12 @@ func (s *News) Update(ctx context.Context, format components.Format, newsID int6
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateNews",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -645,12 +647,6 @@ func (s *News) Update(ctx context.Context, format components.Format, newsID int6
 
 // Delete news
 func (s *News) Delete(ctx context.Context, format components.Format, newsID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteNewsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteNews",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteNewsRequest{
 		Format:             format,
 		NewsID:             newsID,
@@ -678,6 +674,13 @@ func (s *News) Delete(ctx context.Context, format components.Format, newsID int6
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/news/{news_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteNews",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -834,12 +837,6 @@ func (s *News) Delete(ctx context.Context, format components.Format, newsID int6
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_News#GET-2
 func (s *News) ListByProject(ctx context.Context, request operations.GetNewsListByProjectRequest, opts ...operations.Option) (*operations.GetNewsListByProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getNewsListByProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -861,6 +858,13 @@ func (s *News) ListByProject(ctx context.Context, request operations.GetNewsList
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/news.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getNewsListByProject",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1039,12 +1043,6 @@ func (s *News) ListByProject(ctx context.Context, request operations.GetNewsList
 
 // Create news
 func (s *News) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateNewsRequestBody, opts ...operations.Option) (*operations.CreateNewsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createNews",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateNewsRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1075,6 +1073,12 @@ func (s *News) Create(ctx context.Context, format components.Format, projectID i
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createNews",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err

@@ -29,12 +29,6 @@ func newIssueStatuses(sdkConfig sdkConfiguration) *IssueStatuses {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueStatuses#GET
 func (s *IssueStatuses) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueStatusesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getIssueStatuses",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetIssueStatusesRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -61,6 +55,13 @@ func (s *IssueStatuses) List(ctx context.Context, format components.Format, xRed
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/issue_statuses.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getIssueStatuses",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

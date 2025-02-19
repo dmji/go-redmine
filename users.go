@@ -32,12 +32,6 @@ func newUsers(sdkConfig sdkConfiguration) *Users {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET
 func (s *Users) List(ctx context.Context, request operations.GetUsersRequest, opts ...operations.Option) (*operations.GetUsersResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getUsers",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -59,6 +53,13 @@ func (s *Users) List(ctx context.Context, request operations.GetUsersRequest, op
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/users.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getUsers",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -239,12 +240,6 @@ func (s *Users) List(ctx context.Context, request operations.GetUsersRequest, op
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#POST
 func (s *Users) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateUserRequestBody, opts ...operations.Option) (*operations.CreateUserResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createUser",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateUserRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -274,6 +269,12 @@ func (s *Users) Create(ctx context.Context, format components.Format, xRedmineSw
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createUser",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -477,12 +478,6 @@ func (s *Users) Create(ctx context.Context, format components.Format, xRedmineSw
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET-2
 func (s *Users) Show(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, include []operations.GetUserQueryParamInclude, opts ...operations.Option) (*operations.GetUserResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getUser",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetUserRequest{
 		Format:             format,
 		UserID:             userID,
@@ -511,6 +506,13 @@ func (s *Users) Show(ctx context.Context, format components.Format, userID int64
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/users/{user_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getUser",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -691,12 +693,6 @@ func (s *Users) Show(ctx context.Context, format components.Format, userID int64
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#PUT
 func (s *Users) Update(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateUserRequestBody, opts ...operations.Option) (*operations.UpdateUserResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateUser",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateUserRequest{
 		Format:             format,
 		UserID:             userID,
@@ -727,6 +723,12 @@ func (s *Users) Update(ctx context.Context, format components.Format, userID int
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateUser",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -910,12 +912,6 @@ func (s *Users) Update(ctx context.Context, format components.Format, userID int
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#DELETE
 func (s *Users) Delete(ctx context.Context, format components.Format, userID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteUserResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteUser",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteUserRequest{
 		Format:             format,
 		UserID:             userID,
@@ -943,6 +939,13 @@ func (s *Users) Delete(ctx context.Context, format components.Format, userID int
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/users/{user_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteUser",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1099,12 +1102,6 @@ func (s *Users) Delete(ctx context.Context, format components.Format, userID int
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET-2
 func (s *Users) GetCurrent(ctx context.Context, format components.Format, xRedmineSwitchUser *string, include []operations.GetCurrentUserQueryParamInclude, opts ...operations.Option) (*operations.GetCurrentUserResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getCurrentUser",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetCurrentUserRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -1132,6 +1129,13 @@ func (s *Users) GetCurrent(ctx context.Context, format components.Format, xRedmi
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/users/current.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getCurrentUser",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

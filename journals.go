@@ -29,12 +29,6 @@ func newJournals(sdkConfig sdkConfiguration) *Journals {
 
 // Update journal
 func (s *Journals) Update(ctx context.Context, format components.Format, journalID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateJournalRequestBody, opts ...operations.Option) (*operations.UpdateJournalResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateJournal",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateJournalRequest{
 		Format:             format,
 		JournalID:          journalID,
@@ -65,6 +59,12 @@ func (s *Journals) Update(ctx context.Context, format components.Format, journal
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateJournal",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err

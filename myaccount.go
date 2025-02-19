@@ -29,12 +29,6 @@ func newMyAccount(sdkConfig sdkConfiguration) *MyAccount {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_MyAccount#GET
 func (s *MyAccount) Get(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetMyAccountResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getMyAccount",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetMyAccountRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -61,6 +55,13 @@ func (s *MyAccount) Get(ctx context.Context, format components.Format, xRedmineS
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/my/account.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getMyAccount",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -237,12 +238,6 @@ func (s *MyAccount) Get(ctx context.Context, format components.Format, xRedmineS
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_MyAccount#PUT
 func (s *MyAccount) Update(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.UpdateMyAccountRequestBody, opts ...operations.Option) (*operations.UpdateMyAccountResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateMyAccount",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateMyAccountRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -272,6 +267,12 @@ func (s *MyAccount) Update(ctx context.Context, format components.Format, xRedmi
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateMyAccount",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err

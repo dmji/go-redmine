@@ -32,12 +32,6 @@ func newAttachments(sdkConfig sdkConfiguration) *Attachments {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Attachments#GET
 func (s *Attachments) Get(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetAttachmentResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getAttachment",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetAttachmentRequest{
 		Format:             format,
 		AttachmentID:       attachmentID,
@@ -65,6 +59,13 @@ func (s *Attachments) Get(ctx context.Context, format components.Format, attachm
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/attachments/{attachment_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getAttachment",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -241,12 +242,6 @@ func (s *Attachments) Get(ctx context.Context, format components.Format, attachm
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Attachments#PATCH
 func (s *Attachments) Update(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, requestBody *operations.UpdateAttachmentRequestBody, opts ...operations.Option) (*operations.UpdateAttachmentResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateAttachment",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateAttachmentRequest{
 		Format:             format,
 		AttachmentID:       attachmentID,
@@ -277,6 +272,12 @@ func (s *Attachments) Update(ctx context.Context, format components.Format, atta
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateAttachment",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -439,12 +440,6 @@ func (s *Attachments) Update(ctx context.Context, format components.Format, atta
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Attachments#DELETE
 func (s *Attachments) Delete(ctx context.Context, format components.Format, attachmentID float64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteAttachmentResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteAttachment",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteAttachmentRequest{
 		Format:             format,
 		AttachmentID:       attachmentID,
@@ -472,6 +467,13 @@ func (s *Attachments) Delete(ctx context.Context, format components.Format, atta
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/attachments/{attachment_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteAttachment",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -626,12 +628,6 @@ func (s *Attachments) Delete(ctx context.Context, format components.Format, atta
 
 // Download attachment file
 func (s *Attachments) Download(ctx context.Context, attachmentID float64, filename string, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DownloadAttachmentFileResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "downloadAttachmentFile",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DownloadAttachmentFileRequest{
 		AttachmentID:       attachmentID,
 		Filename:           filename,
@@ -659,6 +655,13 @@ func (s *Attachments) Download(ctx context.Context, attachmentID float64, filena
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/attachments/download/{attachment_id}/{filename}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "downloadAttachmentFile",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -825,12 +828,6 @@ func (s *Attachments) Download(ctx context.Context, attachmentID float64, filena
 
 // DownloadThumbnail - Download thumbnail
 func (s *Attachments) DownloadThumbnail(ctx context.Context, attachmentID float64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DownloadThumbnailResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "downloadThumbnail",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DownloadThumbnailRequest{
 		AttachmentID:       attachmentID,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -857,6 +854,13 @@ func (s *Attachments) DownloadThumbnail(ctx context.Context, attachmentID float6
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/attachments/thumbnail/{attachment_id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "downloadThumbnail",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1025,12 +1029,6 @@ func (s *Attachments) DownloadThumbnail(ctx context.Context, attachmentID float6
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_api#Attaching-files
 func (s *Attachments) UploadFile(ctx context.Context, format components.Format, xRedmineSwitchUser *string, filename *string, requestBody *any, opts ...operations.Option) (*operations.UploadAttachmentFileResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "uploadAttachmentFile",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UploadAttachmentFileRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -1061,6 +1059,12 @@ func (s *Attachments) UploadFile(ctx context.Context, format components.Format, 
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "uploadAttachmentFile",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "raw", `request:"mediaType=application/octet-stream"`)
 	if err != nil {
 		return nil, err

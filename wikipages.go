@@ -29,12 +29,6 @@ func newWikiPages(sdkConfig sdkConfiguration) *WikiPages {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Getting-the-pages-list-of-a-wiki
 func (s *WikiPages) List(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetWikiPagesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getWikiPages",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetWikiPagesRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -62,6 +56,13 @@ func (s *WikiPages) List(ctx context.Context, format components.Format, projectI
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/wiki/index.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getWikiPages",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -238,12 +239,6 @@ func (s *WikiPages) List(ctx context.Context, format components.Format, projectI
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Getting-a-wiki-page
 func (s *WikiPages) Get(ctx context.Context, request operations.GetWikiPageRequest, opts ...operations.Option) (*operations.GetWikiPageResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getWikiPage",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -265,6 +260,13 @@ func (s *WikiPages) Get(ctx context.Context, request operations.GetWikiPageReque
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/wiki/{wiki_page_title}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getWikiPage",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -445,12 +447,6 @@ func (s *WikiPages) Get(ctx context.Context, request operations.GetWikiPageReque
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Creating-or-updating-a-wiki-page
 func (s *WikiPages) Update(ctx context.Context, request operations.UpdateWikiPageRequest, opts ...operations.Option) (*operations.UpdateWikiPageResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateWikiPage",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -474,6 +470,12 @@ func (s *WikiPages) Update(ctx context.Context, request operations.UpdateWikiPag
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateWikiPage",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -680,12 +682,6 @@ func (s *WikiPages) Update(ctx context.Context, request operations.UpdateWikiPag
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Deleting-a-wiki-page
 func (s *WikiPages) Delete(ctx context.Context, format components.Format, projectID int64, wikiPageTitle string, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteWikiPageResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteWikiPage",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteWikiPageRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -714,6 +710,13 @@ func (s *WikiPages) Delete(ctx context.Context, format components.Format, projec
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/wiki/{wiki_page_title}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteWikiPage",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -870,12 +873,6 @@ func (s *WikiPages) Delete(ctx context.Context, format components.Format, projec
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_WikiPages#Getting-an-old-version-of-a-wiki-page
 func (s *WikiPages) GetByVersion(ctx context.Context, request operations.GetWikiPageByVersionRequest, opts ...operations.Option) (*operations.GetWikiPageByVersionResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getWikiPageByVersion",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -897,6 +894,13 @@ func (s *WikiPages) GetByVersion(ctx context.Context, request operations.GetWiki
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/wiki/{wiki_page_title}/{version_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getWikiPageByVersion",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

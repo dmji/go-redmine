@@ -15,7 +15,7 @@ import (
 
 // ServerList contains the list of servers available to the SDK
 var ServerList = []string{
-	"https:///",
+	"/",
 }
 
 // HTTPClient provides an interface for suplying the SDK with a custom HTTP client
@@ -214,9 +214,9 @@ func New(opts ...SDKOption) *GoRedmine {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "0.16.0",
-			SDKVersion:        "0.1.0",
-			GenVersion:        "2.500.5",
-			UserAgent:         "speakeasy-sdk/go 0.1.0 2.500.5 0.16.0 github.com/dmji/go-redmine",
+			SDKVersion:        "0.2.1",
+			GenVersion:        "2.515.4",
+			UserAgent:         "speakeasy-sdk/go 0.2.1 2.515.4 0.16.0 github.com/dmji/go-redmine",
 			Hooks:             hooks.New(),
 		},
 	}

@@ -29,12 +29,6 @@ func newProjectMemberships(sdkConfig sdkConfiguration) *ProjectMemberships {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Memberships#GET
 func (s *ProjectMemberships) List(ctx context.Context, request operations.GetMembershipsRequest, opts ...operations.Option) (*operations.GetMembershipsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getMemberships",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -56,6 +50,13 @@ func (s *ProjectMemberships) List(ctx context.Context, request operations.GetMem
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/memberships.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getMemberships",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -236,12 +237,6 @@ func (s *ProjectMemberships) List(ctx context.Context, request operations.GetMem
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Memberships#POST
 func (s *ProjectMemberships) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateMembershipRequestBody, opts ...operations.Option) (*operations.CreateMembershipResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createMembership",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateMembershipRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -272,6 +267,12 @@ func (s *ProjectMemberships) Create(ctx context.Context, format components.Forma
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createMembership",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -454,12 +455,6 @@ func (s *ProjectMemberships) Create(ctx context.Context, format components.Forma
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Memberships#GET-2
 func (s *ProjectMemberships) GetMembership(ctx context.Context, format components.Format, membershipID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetMembershipResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getMembership",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetMembershipRequest{
 		Format:             format,
 		MembershipID:       membershipID,
@@ -487,6 +482,13 @@ func (s *ProjectMemberships) GetMembership(ctx context.Context, format component
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/memberships/{membership_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getMembership",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -663,12 +665,6 @@ func (s *ProjectMemberships) GetMembership(ctx context.Context, format component
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Memberships#PUT
 func (s *ProjectMemberships) UpdateMembership(ctx context.Context, format components.Format, membershipID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateMembershipRequestBody, opts ...operations.Option) (*operations.UpdateMembershipResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateMembership",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateMembershipRequest{
 		Format:             format,
 		MembershipID:       membershipID,
@@ -699,6 +695,12 @@ func (s *ProjectMemberships) UpdateMembership(ctx context.Context, format compon
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateMembership",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -882,12 +884,6 @@ func (s *ProjectMemberships) UpdateMembership(ctx context.Context, format compon
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Memberships#DELETE
 func (s *ProjectMemberships) Delete(ctx context.Context, format components.Format, membershipID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteMembershipResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteMembership",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteMembershipRequest{
 		Format:             format,
 		MembershipID:       membershipID,
@@ -915,6 +911,13 @@ func (s *ProjectMemberships) Delete(ctx context.Context, format components.Forma
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/memberships/{membership_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteMembership",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

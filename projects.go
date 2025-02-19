@@ -32,12 +32,6 @@ func newProjects(sdkConfig sdkConfiguration) *Projects {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Listing-projects
 func (s *Projects) List(ctx context.Context, request operations.GetProjectsRequest, opts ...operations.Option) (*operations.GetProjectsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getProjects",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -59,6 +53,13 @@ func (s *Projects) List(ctx context.Context, request operations.GetProjectsReque
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getProjects",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -239,12 +240,6 @@ func (s *Projects) List(ctx context.Context, request operations.GetProjectsReque
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Creating-a-project
 func (s *Projects) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateProjectRequestBody, opts ...operations.Option) (*operations.CreateProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateProjectRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -274,6 +269,12 @@ func (s *Projects) Create(ctx context.Context, format components.Format, xRedmin
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createProject",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -477,12 +478,6 @@ func (s *Projects) Create(ctx context.Context, format components.Format, xRedmin
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Showing-a-project
 func (s *Projects) Get(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, include []operations.GetProjectQueryParamInclude, opts ...operations.Option) (*operations.GetProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -511,6 +506,13 @@ func (s *Projects) Get(ctx context.Context, format components.Format, projectID 
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getProject",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -691,12 +693,6 @@ func (s *Projects) Get(ctx context.Context, format components.Format, projectID 
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Updating-a-project
 func (s *Projects) Update(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateProjectRequestBody, opts ...operations.Option) (*operations.UpdateProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -727,6 +723,12 @@ func (s *Projects) Update(ctx context.Context, format components.Format, project
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateProject",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -889,12 +891,6 @@ func (s *Projects) Update(ctx context.Context, format components.Format, project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Deleting-a-project
 func (s *Projects) Delete(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -922,6 +918,13 @@ func (s *Projects) Delete(ctx context.Context, format components.Format, project
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteProject",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1078,12 +1081,6 @@ func (s *Projects) Delete(ctx context.Context, format components.Format, project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Archiving-a-project
 func (s *Projects) Archive(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.ArchiveProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "archiveProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.ArchiveProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1111,6 +1108,13 @@ func (s *Projects) Archive(ctx context.Context, format components.Format, projec
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/archive.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "archiveProject",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1267,12 +1271,6 @@ func (s *Projects) Archive(ctx context.Context, format components.Format, projec
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Projects#Unarchiving-a-project
 func (s *Projects) Unarchive(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.UnarchiveProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "unarchiveProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UnarchiveProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1300,6 +1298,13 @@ func (s *Projects) Unarchive(ctx context.Context, format components.Format, proj
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/unarchive.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "unarchiveProject",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1454,12 +1459,6 @@ func (s *Projects) Unarchive(ctx context.Context, format components.Format, proj
 
 // Close project
 func (s *Projects) Close(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.CloseProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "closeProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CloseProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1487,6 +1486,13 @@ func (s *Projects) Close(ctx context.Context, format components.Format, projectI
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/close.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "closeProject",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1641,12 +1647,6 @@ func (s *Projects) Close(ctx context.Context, format components.Format, projectI
 
 // Reopen project
 func (s *Projects) Reopen(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.ReopenProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "reopenProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.ReopenProjectRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -1674,6 +1674,13 @@ func (s *Projects) Reopen(ctx context.Context, format components.Format, project
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/reopen.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "reopenProject",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

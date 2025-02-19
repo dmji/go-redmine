@@ -32,12 +32,6 @@ func newFiles(sdkConfig sdkConfiguration) *Files {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Files#GET
 func (s *Files) List(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetFilesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getFiles",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetFilesRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -65,6 +59,13 @@ func (s *Files) List(ctx context.Context, format components.Format, projectID in
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/files.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getFiles",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -241,12 +242,6 @@ func (s *Files) List(ctx context.Context, format components.Format, projectID in
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Files#POST
 func (s *Files) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateFileRequestBody, opts ...operations.Option) (*operations.CreateFileResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createFile",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateFileRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -277,6 +272,12 @@ func (s *Files) Create(ctx context.Context, format components.Format, projectID 
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createFile",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err

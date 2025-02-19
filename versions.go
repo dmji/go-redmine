@@ -32,12 +32,6 @@ func newVersions(sdkConfig sdkConfiguration) *Versions {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#GET
 func (s *Versions) ListByProject(ctx context.Context, request operations.GetVersionsByProjectRequest, opts ...operations.Option) (*operations.GetVersionsByProjectResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getVersionsByProject",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -59,6 +53,13 @@ func (s *Versions) ListByProject(ctx context.Context, request operations.GetVers
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/versions.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getVersionsByProject",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -239,12 +240,6 @@ func (s *Versions) ListByProject(ctx context.Context, request operations.GetVers
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#POST
 func (s *Versions) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateVersionRequestBody, opts ...operations.Option) (*operations.CreateVersionResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createVersion",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateVersionRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -275,6 +270,12 @@ func (s *Versions) Create(ctx context.Context, format components.Format, project
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createVersion",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -478,12 +479,6 @@ func (s *Versions) Create(ctx context.Context, format components.Format, project
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#GET-2
 func (s *Versions) Get(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetVersionsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getVersions",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetVersionsRequest{
 		Format:             format,
 		VersionID:          versionID,
@@ -511,6 +506,13 @@ func (s *Versions) Get(ctx context.Context, format components.Format, versionID 
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/versions/{version_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getVersions",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -687,12 +689,6 @@ func (s *Versions) Get(ctx context.Context, format components.Format, versionID 
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#PUT
 func (s *Versions) Update(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateVersionRequestBody, opts ...operations.Option) (*operations.UpdateVersionResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateVersion",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateVersionRequest{
 		Format:             format,
 		VersionID:          versionID,
@@ -723,6 +719,12 @@ func (s *Versions) Update(ctx context.Context, format components.Format, version
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateVersion",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -906,12 +908,6 @@ func (s *Versions) Update(ctx context.Context, format components.Format, version
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Versions#DELETE
 func (s *Versions) Delete(ctx context.Context, format components.Format, versionID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteVersionResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteVersion",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteVersionRequest{
 		Format:             format,
 		VersionID:          versionID,
@@ -939,6 +935,13 @@ func (s *Versions) Delete(ctx context.Context, format components.Format, version
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/versions/{version_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteVersion",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

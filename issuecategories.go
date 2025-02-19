@@ -29,12 +29,6 @@ func newIssueCategories(sdkConfig sdkConfiguration) *IssueCategories {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#GET
 func (s *IssueCategories) List(ctx context.Context, request operations.GetIssueCategoriesRequest, opts ...operations.Option) (*operations.GetIssueCategoriesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getIssueCategories",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -56,6 +50,13 @@ func (s *IssueCategories) List(ctx context.Context, request operations.GetIssueC
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/issue_categories.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getIssueCategories",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -236,12 +237,6 @@ func (s *IssueCategories) List(ctx context.Context, request operations.GetIssueC
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#POST
 func (s *IssueCategories) Create(ctx context.Context, format components.Format, projectID int64, xRedmineSwitchUser *string, requestBody *operations.CreateIssueCategoryRequestBody, opts ...operations.Option) (*operations.CreateIssueCategoryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createIssueCategory",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateIssueCategoryRequest{
 		Format:             format,
 		ProjectID:          projectID,
@@ -272,6 +267,12 @@ func (s *IssueCategories) Create(ctx context.Context, format components.Format, 
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createIssueCategory",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -475,12 +476,6 @@ func (s *IssueCategories) Create(ctx context.Context, format components.Format, 
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#GET-2
 func (s *IssueCategories) Show(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueCategoryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getIssueCategory",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetIssueCategoryRequest{
 		Format:             format,
 		IssueCategoryID:    issueCategoryID,
@@ -508,6 +503,13 @@ func (s *IssueCategories) Show(ctx context.Context, format components.Format, is
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/issue_categories/{issue_category_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getIssueCategory",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -684,12 +686,6 @@ func (s *IssueCategories) Show(ctx context.Context, format components.Format, is
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#PUT
 func (s *IssueCategories) Update(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateIssueCategoryRequestBody, opts ...operations.Option) (*operations.UpdateIssueCategoryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateIssueCategory",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateIssueCategoryRequest{
 		Format:             format,
 		IssueCategoryID:    issueCategoryID,
@@ -720,6 +716,12 @@ func (s *IssueCategories) Update(ctx context.Context, format components.Format, 
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateIssueCategory",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -903,12 +905,6 @@ func (s *IssueCategories) Update(ctx context.Context, format components.Format, 
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueCategories#DELETE
 func (s *IssueCategories) Delete(ctx context.Context, format components.Format, issueCategoryID int64, xRedmineSwitchUser *string, reassignToID *int64, opts ...operations.Option) (*operations.DeleteIssueCategoryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteIssueCategory",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteIssueCategoryRequest{
 		Format:             format,
 		IssueCategoryID:    issueCategoryID,
@@ -937,6 +933,13 @@ func (s *IssueCategories) Delete(ctx context.Context, format components.Format, 
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/issue_categories/{issue_category_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteIssueCategory",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

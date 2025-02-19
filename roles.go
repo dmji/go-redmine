@@ -32,12 +32,6 @@ func newRoles(sdkConfig sdkConfiguration) *Roles {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Roles#GET
 func (s *Roles) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetRolesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getRoles",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetRolesRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -64,6 +58,13 @@ func (s *Roles) List(ctx context.Context, format components.Format, xRedmineSwit
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/roles.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getRoles",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -240,12 +241,6 @@ func (s *Roles) List(ctx context.Context, format components.Format, xRedmineSwit
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Roles#GET-2
 func (s *Roles) Get(ctx context.Context, format components.Format, roleID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetRoleResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getRole",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetRoleRequest{
 		Format:             format,
 		RoleID:             roleID,
@@ -273,6 +268,13 @@ func (s *Roles) Get(ctx context.Context, format components.Format, roleID int64,
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/roles/{role_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getRole",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

@@ -362,7 +362,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-name-override: list
     post:
       tags:
         - Issues
@@ -452,7 +451,6 @@ paths:
                 properties:
                   issue:
                     $ref: "#/components/schemas/issue.simple"
-      x-speakeasy-name-override: create
   /issues/{issue_id}.{format}:
     get:
       tags:
@@ -492,7 +490,6 @@ paths:
                 properties:
                   issue:
                     $ref: "#/components/schemas/issue"
-      x-speakeasy-name-override: get
     put:
       tags:
         - Issues
@@ -573,7 +570,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Issues
@@ -588,7 +584,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: delete
   /issues/{issue_id}/watchers.{format}:
     post:
       tags:
@@ -721,7 +716,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-name-override: list
     post:
       tags:
         - Projects
@@ -803,7 +797,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-name-override: create
   /projects/{project_id}.{format}:
     get:
       tags:
@@ -841,7 +834,6 @@ paths:
                 properties:
                   project:
                     $ref: "#/components/schemas/project"
-      x-speakeasy-name-override: get
     put:
       tags:
         - Projects
@@ -902,7 +894,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Projects
@@ -917,7 +908,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: delete
   /projects/{project_id}/archive.{format}:
     put:
       tags:
@@ -933,7 +923,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: archive
   /projects/{project_id}/unarchive.{format}:
     put:
       tags:
@@ -949,7 +938,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: unarchive
   /projects/{project_id}/memberships.{format}:
     get:
       tags:
@@ -986,8 +974,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-group: projectMemberships
-      x-speakeasy-name-override: list
     post:
       tags:
         - Project Memberships
@@ -1031,8 +1017,6 @@ paths:
                 properties:
                   membership:
                     $ref: "#/components/schemas/membership"
-      x-speakeasy-group: projectMemberships
-      x-speakeasy-name-override: create
   /memberships/{membership_id}.{format}:
     get:
       tags:
@@ -1057,7 +1041,6 @@ paths:
                 properties:
                   membership:
                     $ref: "#/components/schemas/membership"
-      x-speakeasy-group: projectMemberships
     put:
       tags:
         - Project Memberships
@@ -1093,7 +1076,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: projectMemberships
     delete:
       tags:
         - Project Memberships
@@ -1108,8 +1090,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-group: projectMemberships
-      x-speakeasy-name-override: delete
   /projects/{project_id}/close.{format}:
     put:
       tags:
@@ -1123,7 +1103,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: close
   /projects/{project_id}/reopen.{format}:
     put:
       tags:
@@ -1137,7 +1116,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: reopen
   /users.{format}:
     get:
       tags:
@@ -1185,7 +1163,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-name-override: list
     post:
       tags:
         - Users
@@ -1272,7 +1249,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-name-override: create
   /users/{user_id}.{format}:
     get:
       tags:
@@ -1307,7 +1283,6 @@ paths:
                 properties:
                   user:
                     $ref: "#/components/schemas/user"
-      x-speakeasy-name-override: show
     put:
       tags:
         - Users
@@ -1385,7 +1360,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Users
@@ -1400,7 +1374,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: delete
   /users/current.{format}:
     get:
       tags:
@@ -1434,7 +1407,6 @@ paths:
                 properties:
                   user:
                     $ref: "#/components/schemas/user"
-      x-speakeasy-name-override: getCurrent
   /time_entries.{format}:
     get:
       tags:
@@ -1575,8 +1547,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-group: timeEntries
-      x-speakeasy-name-override: list
     post:
       tags:
         - Time Entries
@@ -1637,8 +1607,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: timeEntries
-      x-speakeasy-name-override: create
   /time_entries/{time_entry_id}.{format}:
     get:
       tags:
@@ -1663,8 +1631,6 @@ paths:
                 properties:
                   time_entry:
                     $ref: "#/components/schemas/time_entry"
-      x-speakeasy-group: timeEntries
-      x-speakeasy-name-override: get
     put:
       tags:
         - Time Entries
@@ -1715,8 +1681,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: timeEntries
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Time Entries
@@ -1731,8 +1695,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-group: timeEntries
-      x-speakeasy-name-override: delete
   /news.{format}:
     get:
       tags:
@@ -1768,7 +1730,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-name-override: list
   /news/{news_id}.{format}:
     get:
       tags:
@@ -1801,7 +1762,6 @@ paths:
                 properties:
                   news:
                     $ref: "#/components/schemas/news"
-      x-speakeasy-name-override: get
     put:
       tags:
         - News
@@ -1842,7 +1802,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: update
     delete:
       tags:
         - News
@@ -1855,7 +1814,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: delete
   /projects/{project_id}/news.{format}:
     get:
       tags:
@@ -1892,7 +1850,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-name-override: listByProject
     post:
       tags:
         - News
@@ -1935,7 +1892,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: create
   /issues/{issue_id}/relations.{format}:
     get:
       tags:
@@ -1962,8 +1918,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/issue_relation"
-      x-speakeasy-group: issueRelations
-      x-speakeasy-name-override: list
     post:
       tags:
         - Issue Relations
@@ -2024,8 +1978,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: issueRelations
-      x-speakeasy-name-override: create
   /relations/{issue_relation_id}.{format}:
     get:
       tags:
@@ -2050,8 +2002,6 @@ paths:
                 properties:
                   relation:
                     $ref: "#/components/schemas/issue_relation"
-      x-speakeasy-group: issueRelations
-      x-speakeasy-name-override: get
     delete:
       tags:
         - Issue Relations
@@ -2072,8 +2022,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: issueRelations
-      x-speakeasy-name-override: delete
   /projects/{project_id}/versions.{format}:
     get:
       tags:
@@ -2104,7 +2052,6 @@ paths:
                       $ref: "#/components/schemas/version.simple"
                   total_count:
                     type: integer
-      x-speakeasy-name-override: listByProject
     post:
       tags:
         - Versions
@@ -2176,7 +2123,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-name-override: create
   /versions/{version_id}.{format}:
     get:
       tags:
@@ -2201,7 +2147,6 @@ paths:
                 properties:
                   version:
                     $ref: "#/components/schemas/version"
-      x-speakeasy-name-override: get
     put:
       tags:
         - Versions
@@ -2260,7 +2205,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Versions
@@ -2281,7 +2225,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-name-override: delete
   /projects/{project_id}/wiki/index.{format}:
     get:
       tags:
@@ -2308,8 +2251,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/wiki_pages"
-      x-speakeasy-group: wikiPages
-      x-speakeasy-name-override: list
   /projects/{project_id}/wiki/{wiki_page_title}.{format}:
     get:
       tags:
@@ -2341,8 +2282,6 @@ paths:
                 properties:
                   wiki_page:
                     $ref: "#/components/schemas/wiki_page"
-      x-speakeasy-group: wikiPages
-      x-speakeasy-name-override: get
     put:
       tags:
         - Wiki Pages
@@ -2398,8 +2337,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: wikiPages
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Wiki Pages
@@ -2415,8 +2352,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-group: wikiPages
-      x-speakeasy-name-override: delete
   /projects/{project_id}/wiki/{wiki_page_title}/{version_id}.{format}:
     get:
       tags:
@@ -2449,8 +2384,6 @@ paths:
                 properties:
                   wiki_page:
                     $ref: "#/components/schemas/wiki_page"
-      x-speakeasy-group: wikiPages
-      x-speakeasy-name-override: getByVersion
   /queries.{format}:
     get:
       tags:
@@ -2486,7 +2419,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-name-override: list
   /attachments/{attachment_id}.{format}:
     get:
       tags:
@@ -2511,7 +2443,6 @@ paths:
                 properties:
                   attachment:
                     $ref: "#/components/schemas/attachment"
-      x-speakeasy-name-override: get
     patch:
       tags:
         - Attachments
@@ -2539,7 +2470,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Attachments
@@ -2554,7 +2484,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: delete
   /attachments/download/{attachment_id}/{filename}:
     get:
       tags:
@@ -2573,7 +2502,6 @@ paths:
               schema:
                 type: string
                 format: binary
-      x-speakeasy-name-override: download
   /attachments/thumbnail/{attachment_id}:
     get:
       tags:
@@ -2616,8 +2544,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/issue_status"
-      x-speakeasy-group: issueStatuses
-      x-speakeasy-name-override: list
   /trackers.{format}:
     get:
       tags:
@@ -2643,7 +2569,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/tracker"
-      x-speakeasy-name-override: list
   /projects/{project_id}/issue_categories.{format}:
     get:
       tags:
@@ -2674,8 +2599,6 @@ paths:
                       $ref: "#/components/schemas/issue_category"
                   total_count:
                     type: integer
-      x-speakeasy-group: issueCategories
-      x-speakeasy-name-override: list
     post:
       tags:
         - Issue Categories
@@ -2722,8 +2645,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: issueCategories
-      x-speakeasy-name-override: create
   /enumerations/issue_priorities.{format}:
     get:
       tags:
@@ -2823,8 +2744,6 @@ paths:
                 properties:
                   issue_category:
                     $ref: "#/components/schemas/issue_category"
-      x-speakeasy-group: issueCategories
-      x-speakeasy-name-override: show
     put:
       tags:
         - Issue Categories
@@ -2858,8 +2777,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: issueCategories
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Issue Categories
@@ -2878,8 +2795,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-group: issueCategories
-      x-speakeasy-name-override: delete
   /roles.{format}:
     get:
       tags:
@@ -2905,7 +2820,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/id_name"
-      x-speakeasy-name-override: list
   /roles/{role_id}.{format}:
     get:
       tags:
@@ -2930,7 +2844,6 @@ paths:
                 properties:
                   role:
                     $ref: "#/components/schemas/role"
-      x-speakeasy-name-override: get
   /groups.{format}:
     get:
       tags:
@@ -2956,7 +2869,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/group.simple"
-      x-speakeasy-name-override: list
     post:
       tags:
         - Groups
@@ -3004,7 +2916,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-name-override: create
   /groups/{group_id}.{format}:
     get:
       tags:
@@ -3039,7 +2950,6 @@ paths:
                 properties:
                   group:
                     $ref: "#/components/schemas/group"
-      x-speakeasy-name-override: get
     put:
       tags:
         - Groups
@@ -3073,7 +2983,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: update
     delete:
       tags:
         - Groups
@@ -3088,7 +2997,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: delete
   /groups/{group_id}/users.{format}:
     post:
       tags:
@@ -3114,7 +3022,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: addUser
   /groups/{group_id}/users/{user_id}.{format}:
     delete:
       tags:
@@ -3131,7 +3038,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: removeUser
   /custom_fields.{format}:
     get:
       tags:
@@ -3157,8 +3063,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/custom_field"
-      x-speakeasy-group: customFields
-      x-speakeasy-name-override: list
   /search.{format}:
     get:
       tags:
@@ -3275,7 +3179,6 @@ paths:
                     type: integer
                   limit:
                     type: integer
-      x-speakeasy-name-override: execute
   /projects/{project_id}/files.{format}:
     get:
       tags:
@@ -3302,7 +3205,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/file"
-      x-speakeasy-name-override: list
     post:
       tags:
         - Files
@@ -3340,7 +3242,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: create
   /my/account.{format}:
     get:
       tags:
@@ -3359,8 +3260,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/my_account"
-      x-speakeasy-group: myAccount
-      x-speakeasy-name-override: get
     put:
       tags:
         - My Account
@@ -3435,8 +3334,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-group: myAccount
-      x-speakeasy-name-override: update
   /journals/{journal_id}.{format}:
     put:
       tags:
@@ -3464,7 +3361,6 @@ paths:
       responses:
         "204":
           description: ""
-      x-speakeasy-name-override: update
   /uploads.{format}:
     post:
       tags:
@@ -3512,7 +3408,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/errors"
-      x-speakeasy-name-override: uploadFile
   /projects/{project_id}/repository/{repository_id}/revisions/{revision}/issues.{format}:
     post:
       tags:

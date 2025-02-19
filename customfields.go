@@ -29,12 +29,6 @@ func newCustomFields(sdkConfig sdkConfiguration) *CustomFields {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_CustomFields#GET
 func (s *CustomFields) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetCustomFieldsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getCustomFields",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetCustomFieldsRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -61,6 +55,13 @@ func (s *CustomFields) List(ctx context.Context, format components.Format, xRedm
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/custom_fields.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getCustomFields",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

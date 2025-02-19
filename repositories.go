@@ -27,12 +27,6 @@ func newRepositories(sdkConfig sdkConfiguration) *Repositories {
 
 // AddRelatedIssue - Add related issue
 func (s *Repositories) AddRelatedIssue(ctx context.Context, request operations.AddRelatedIssueRequest, opts ...operations.Option) (*operations.AddRelatedIssueResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "addRelatedIssue",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -56,6 +50,12 @@ func (s *Repositories) AddRelatedIssue(ctx context.Context, request operations.A
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "addRelatedIssue",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -216,12 +216,6 @@ func (s *Repositories) AddRelatedIssue(ctx context.Context, request operations.A
 
 // RemoveRelatedIssue - Remove related issue
 func (s *Repositories) RemoveRelatedIssue(ctx context.Context, request operations.RemoveRelatedIssueRequest, opts ...operations.Option) (*operations.RemoveRelatedIssueResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "removeRelatedIssue",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -243,6 +237,13 @@ func (s *Repositories) RemoveRelatedIssue(ctx context.Context, request operation
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/repository/{repository_id}/revisions/{revision}/issues/{issue_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "removeRelatedIssue",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

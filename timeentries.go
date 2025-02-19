@@ -29,12 +29,6 @@ func newTimeEntries(sdkConfig sdkConfiguration) *TimeEntries {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Listing-time-entries
 func (s *TimeEntries) List(ctx context.Context, request operations.GetTimeEntriesRequest, opts ...operations.Option) (*operations.GetTimeEntriesResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getTimeEntries",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -56,6 +50,13 @@ func (s *TimeEntries) List(ctx context.Context, request operations.GetTimeEntrie
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/time_entries.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getTimeEntries",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -236,12 +237,6 @@ func (s *TimeEntries) List(ctx context.Context, request operations.GetTimeEntrie
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Creating-a-time-entry
 func (s *TimeEntries) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateTimeEntryRequestBody, opts ...operations.Option) (*operations.CreateTimeEntryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createTimeEntry",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateTimeEntryRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -271,6 +266,12 @@ func (s *TimeEntries) Create(ctx context.Context, format components.Format, xRed
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createTimeEntry",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -474,12 +475,6 @@ func (s *TimeEntries) Create(ctx context.Context, format components.Format, xRed
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Showing-a-time-entry
 func (s *TimeEntries) Get(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetTimeEntryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getTimeEntry",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetTimeEntryRequest{
 		Format:             format,
 		TimeEntryID:        timeEntryID,
@@ -507,6 +502,13 @@ func (s *TimeEntries) Get(ctx context.Context, format components.Format, timeEnt
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/time_entries/{time_entry_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getTimeEntry",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -683,12 +685,6 @@ func (s *TimeEntries) Get(ctx context.Context, format components.Format, timeEnt
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Updating-a-time-entry
 func (s *TimeEntries) Update(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateTimeEntryRequestBody, opts ...operations.Option) (*operations.UpdateTimeEntryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateTimeEntry",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateTimeEntryRequest{
 		Format:             format,
 		TimeEntryID:        timeEntryID,
@@ -719,6 +715,12 @@ func (s *TimeEntries) Update(ctx context.Context, format components.Format, time
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateTimeEntry",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -902,12 +904,6 @@ func (s *TimeEntries) Update(ctx context.Context, format components.Format, time
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_TimeEntries#Deleting-a-time-entry
 func (s *TimeEntries) Delete(ctx context.Context, format components.Format, timeEntryID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteTimeEntryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteTimeEntry",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteTimeEntryRequest{
 		Format:             format,
 		TimeEntryID:        timeEntryID,
@@ -935,6 +931,13 @@ func (s *TimeEntries) Delete(ctx context.Context, format components.Format, time
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/time_entries/{time_entry_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteTimeEntry",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

@@ -29,12 +29,6 @@ func newIssueRelations(sdkConfig sdkConfiguration) *IssueRelations {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations#GET
 func (s *IssueRelations) List(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueRelationsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getIssueRelations",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetIssueRelationsRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -62,6 +56,13 @@ func (s *IssueRelations) List(ctx context.Context, format components.Format, iss
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/issues/{issue_id}/relations.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getIssueRelations",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -238,12 +239,6 @@ func (s *IssueRelations) List(ctx context.Context, format components.Format, iss
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations#POST
 func (s *IssueRelations) Create(ctx context.Context, format components.Format, issueID int64, xRedmineSwitchUser *string, requestBody *operations.CreateIssueRelationRequestBody, opts ...operations.Option) (*operations.CreateIssueRelationResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createIssueRelation",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateIssueRelationRequest{
 		Format:             format,
 		IssueID:            issueID,
@@ -274,6 +269,12 @@ func (s *IssueRelations) Create(ctx context.Context, format components.Format, i
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createIssueRelation",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -477,12 +478,6 @@ func (s *IssueRelations) Create(ctx context.Context, format components.Format, i
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations#GET-2
 func (s *IssueRelations) Get(ctx context.Context, format components.Format, issueRelationID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetIssueRelationResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getIssueRelation",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetIssueRelationRequest{
 		Format:             format,
 		IssueRelationID:    issueRelationID,
@@ -510,6 +505,13 @@ func (s *IssueRelations) Get(ctx context.Context, format components.Format, issu
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/relations/{issue_relation_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getIssueRelation",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -686,12 +688,6 @@ func (s *IssueRelations) Get(ctx context.Context, format components.Format, issu
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_IssueRelations#DELETE
 func (s *IssueRelations) Delete(ctx context.Context, format components.Format, issueRelationID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteIssueRelationResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteIssueRelation",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteIssueRelationRequest{
 		Format:             format,
 		IssueRelationID:    issueRelationID,
@@ -719,6 +715,13 @@ func (s *IssueRelations) Delete(ctx context.Context, format components.Format, i
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/relations/{issue_relation_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteIssueRelation",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

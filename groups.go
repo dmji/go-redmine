@@ -32,12 +32,6 @@ func newGroups(sdkConfig sdkConfiguration) *Groups {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#GET
 func (s *Groups) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetGroupsResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getGroups",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetGroupsRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -64,6 +58,13 @@ func (s *Groups) List(ctx context.Context, format components.Format, xRedmineSwi
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/groups.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getGroups",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -240,12 +241,6 @@ func (s *Groups) List(ctx context.Context, format components.Format, xRedmineSwi
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#POST
 func (s *Groups) Create(ctx context.Context, format components.Format, xRedmineSwitchUser *string, requestBody *operations.CreateGroupRequestBody, opts ...operations.Option) (*operations.CreateGroupResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "createGroup",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.CreateGroupRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -275,6 +270,12 @@ func (s *Groups) Create(ctx context.Context, format components.Format, xRedmineS
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "createGroup",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -478,12 +479,6 @@ func (s *Groups) Create(ctx context.Context, format components.Format, xRedmineS
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#GET-2
 func (s *Groups) Get(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, include []operations.GetGroupQueryParamInclude, opts ...operations.Option) (*operations.GetGroupResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getGroup",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -512,6 +507,13 @@ func (s *Groups) Get(ctx context.Context, format components.Format, groupID int6
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/groups/{group_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getGroup",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -692,12 +694,6 @@ func (s *Groups) Get(ctx context.Context, format components.Format, groupID int6
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#PUT
 func (s *Groups) Update(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, requestBody *operations.UpdateGroupRequestBody, opts ...operations.Option) (*operations.UpdateGroupResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "updateGroup",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.UpdateGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -728,6 +724,12 @@ func (s *Groups) Update(ctx context.Context, format components.Format, groupID i
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "updateGroup",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -890,12 +892,6 @@ func (s *Groups) Update(ctx context.Context, format components.Format, groupID i
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#DELETE
 func (s *Groups) Delete(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.DeleteGroupResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "deleteGroup",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.DeleteGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -923,6 +919,13 @@ func (s *Groups) Delete(ctx context.Context, format components.Format, groupID i
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/groups/{group_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "deleteGroup",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -1079,12 +1082,6 @@ func (s *Groups) Delete(ctx context.Context, format components.Format, groupID i
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#POST-2
 func (s *Groups) AddUser(ctx context.Context, format components.Format, groupID int64, xRedmineSwitchUser *string, requestBody *operations.AddUserToGroupRequestBody, opts ...operations.Option) (*operations.AddUserToGroupResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "addUserToGroup",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.AddUserToGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -1115,6 +1112,12 @@ func (s *Groups) AddUser(ctx context.Context, format components.Format, groupID 
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "addUserToGroup",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -1277,12 +1280,6 @@ func (s *Groups) AddUser(ctx context.Context, format components.Format, groupID 
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Groups#DELETE-2
 func (s *Groups) RemoveUser(ctx context.Context, format components.Format, groupID int64, userID int64, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.RemoveUserFromGroupResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "removeUserFromGroup",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.RemoveUserFromGroupRequest{
 		Format:             format,
 		GroupID:            groupID,
@@ -1311,6 +1308,13 @@ func (s *Groups) RemoveUser(ctx context.Context, format components.Format, group
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/groups/{group_id}/users/{user_id}.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "removeUserFromGroup",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout

@@ -32,12 +32,6 @@ func newTrackers(sdkConfig sdkConfiguration) *Trackers {
 //
 // https://www.redmine.org/projects/redmine/wiki/Rest_Trackers#GET
 func (s *Trackers) List(ctx context.Context, format components.Format, xRedmineSwitchUser *string, opts ...operations.Option) (*operations.GetTrackersResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getTrackers",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetTrackersRequest{
 		Format:             format,
 		XRedmineSwitchUser: xRedmineSwitchUser,
@@ -64,6 +58,13 @@ func (s *Trackers) List(ctx context.Context, format components.Format, xRedmineS
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/trackers.{format}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getTrackers",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
