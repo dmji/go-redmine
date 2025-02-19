@@ -3,8 +3,8 @@
 package components
 
 type SchemeBasicAuth struct {
-	Username string `security:"name=username,env=goredmine_username"`
-	Password string `security:"name=password,env=goredmine_password"`
+	Username string `security:"name=username,env=redmine_username"`
+	Password string `security:"name=password,env=redmine_password"`
 }
 
 func (o *SchemeBasicAuth) GetUsername() string {

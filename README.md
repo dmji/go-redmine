@@ -9,8 +9,6 @@ Developer-friendly & type-safe Go SDK specifically catered to leverage _github.c
     </a>
 </div>
 
-`<br /><br />`
-
 ## Summary
 
 Redmine API: Unofficial OpenAPI specification for the Redmine API.
@@ -64,7 +62,7 @@ package main
 
 import (
 	"context"
-	goredmine "github.com/dmji/go-redmine"
+	redmine "github.com/dmji/go-redmine"
 	"github.com/dmji/go-redmine/models/components"
 	"github.com/dmji/go-redmine/models/operations"
 	"log"
@@ -73,8 +71,8 @@ import (
 func main() {
 	ctx := context.Background()
 
-	s := goredmine.New(
-		goredmine.WithSecurity(components.Security{
+	s := redmine.New(
+		redmine.WithSecurity(components.Security{
 			BasicAuth: &components.SchemeBasicAuth{
 				Username: "",
 				Password: "",
@@ -84,8 +82,8 @@ func main() {
 
 	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
-		XRedmineSwitchUser: goredmine.String("jsmith"),
-		Sort:               goredmine.String("id:desc"),
+		XRedmineSwitchUser: redmine.String("jsmith"),
+		Sort:               redmine.String("id:desc"),
 		CfX: map[string]string{
 			"cf_0": "string",
 		},
@@ -110,11 +108,11 @@ func main() {
 
 This SDK supports the following security schemes globally:
 
-| Name                | Type   | Scheme     | Environment Variable              |
-| ------------------- | ------ | ---------- | --------------------------------- |
-| `BasicAuth`         | http   | HTTP Basic | `GOREDMINE_BASIC_AUTH`            |
-| `APIKeyAuth`        | apiKey | API key    | `GOREDMINE_API_KEY_AUTH`          |
-| `APIKeyInQueryAuth` | apiKey | API key    | `GOREDMINE_API_KEY_IN_QUERY_AUTH` |
+| Name                | Type   | Scheme     | Environment Variable            |
+| ------------------- | ------ | ---------- | ------------------------------- |
+| `BasicAuth`         | http   | HTTP Basic | `redmine_BASIC_AUTH`            |
+| `APIKeyAuth`        | apiKey | API key    | `redmine_API_KEY_AUTH`          |
+| `APIKeyInQueryAuth` | apiKey | API key    | `redmine_API_KEY_IN_QUERY_AUTH` |
 
 You can set the security parameters through the `WithSecurity` option when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 
@@ -123,7 +121,7 @@ package main
 
 import (
 	"context"
-	goredmine "github.com/dmji/go-redmine"
+	redmine "github.com/dmji/go-redmine"
 	"github.com/dmji/go-redmine/models/components"
 	"github.com/dmji/go-redmine/models/operations"
 	"log"
@@ -132,8 +130,8 @@ import (
 func main() {
 	ctx := context.Background()
 
-	s := goredmine.New(
-		goredmine.WithSecurity(components.Security{
+	s := redmine.New(
+		redmine.WithSecurity(components.Security{
 			BasicAuth: &components.SchemeBasicAuth{
 				Username: "",
 				Password: "",
@@ -143,8 +141,8 @@ func main() {
 
 	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
-		XRedmineSwitchUser: goredmine.String("jsmith"),
-		Sort:               goredmine.String("id:desc"),
+		XRedmineSwitchUser: redmine.String("jsmith"),
+		Sort:               redmine.String("id:desc"),
 		CfX: map[string]string{
 			"cf_0": "string",
 		},
@@ -340,7 +338,7 @@ package main
 
 import (
 	"context"
-	goredmine "github.com/dmji/go-redmine"
+	redmine "github.com/dmji/go-redmine"
 	"github.com/dmji/go-redmine/models/components"
 	"github.com/dmji/go-redmine/models/operations"
 	"github.com/dmji/go-redmine/retry"
@@ -351,8 +349,8 @@ import (
 func main() {
 	ctx := context.Background()
 
-	s := goredmine.New(
-		goredmine.WithSecurity(components.Security{
+	s := redmine.New(
+		redmine.WithSecurity(components.Security{
 			BasicAuth: &components.SchemeBasicAuth{
 				Username: "",
 				Password: "",
@@ -362,8 +360,8 @@ func main() {
 
 	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
-		XRedmineSwitchUser: goredmine.String("jsmith"),
-		Sort:               goredmine.String("id:desc"),
+		XRedmineSwitchUser: redmine.String("jsmith"),
+		Sort:               redmine.String("id:desc"),
 		CfX: map[string]string{
 			"cf_0": "string",
 		},
@@ -395,7 +393,7 @@ package main
 
 import (
 	"context"
-	goredmine "github.com/dmji/go-redmine"
+	redmine "github.com/dmji/go-redmine"
 	"github.com/dmji/go-redmine/models/components"
 	"github.com/dmji/go-redmine/models/operations"
 	"github.com/dmji/go-redmine/retry"
@@ -405,8 +403,8 @@ import (
 func main() {
 	ctx := context.Background()
 
-	s := goredmine.New(
-		goredmine.WithRetryConfig(
+	s := redmine.New(
+		redmine.WithRetryConfig(
 			retry.Config{
 				Strategy: "backoff",
 				Backoff: &retry.BackoffStrategy{
@@ -417,7 +415,7 @@ func main() {
 				},
 				RetryConnectionErrors: false,
 			}),
-		goredmine.WithSecurity(components.Security{
+		redmine.WithSecurity(components.Security{
 			BasicAuth: &components.SchemeBasicAuth{
 				Username: "",
 				Password: "",
@@ -427,8 +425,8 @@ func main() {
 
 	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
-		XRedmineSwitchUser: goredmine.String("jsmith"),
-		Sort:               goredmine.String("id:desc"),
+		XRedmineSwitchUser: redmine.String("jsmith"),
+		Sort:               redmine.String("id:desc"),
 		CfX: map[string]string{
 			"cf_0": "string",
 		},
@@ -468,7 +466,7 @@ package main
 import (
 	"context"
 	"errors"
-	goredmine "github.com/dmji/go-redmine"
+	redmine "github.com/dmji/go-redmine"
 	"github.com/dmji/go-redmine/models/apierrors"
 	"github.com/dmji/go-redmine/models/components"
 	"github.com/dmji/go-redmine/models/operations"
@@ -478,8 +476,8 @@ import (
 func main() {
 	ctx := context.Background()
 
-	s := goredmine.New(
-		goredmine.WithSecurity(components.Security{
+	s := redmine.New(
+		redmine.WithSecurity(components.Security{
 			BasicAuth: &components.SchemeBasicAuth{
 				Username: "",
 				Password: "",
@@ -487,7 +485,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Projects.CreateProject(ctx, components.FormatXML, goredmine.String("jsmith"), &operations.CreateProjectRequestBody{
+	res, err := s.Projects.CreateProject(ctx, components.FormatXML, redmine.String("jsmith"), &operations.CreateProjectRequestBody{
 		Project: operations.Project{
 			Name:       "<value>",
 			Identifier: "<value>",
@@ -537,7 +535,7 @@ package main
 
 import (
 	"context"
-	goredmine "github.com/dmji/go-redmine"
+	redmine "github.com/dmji/go-redmine"
 	"github.com/dmji/go-redmine/models/components"
 	"github.com/dmji/go-redmine/models/operations"
 	"log"
@@ -546,9 +544,9 @@ import (
 func main() {
 	ctx := context.Background()
 
-	s := goredmine.New(
-		goredmine.WithServerURL("/"),
-		goredmine.WithSecurity(components.Security{
+	s := redmine.New(
+		redmine.WithServerURL("/"),
+		redmine.WithSecurity(components.Security{
 			BasicAuth: &components.SchemeBasicAuth{
 				Username: "",
 				Password: "",
@@ -558,8 +556,8 @@ func main() {
 
 	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
-		XRedmineSwitchUser: goredmine.String("jsmith"),
-		Sort:               goredmine.String("id:desc"),
+		XRedmineSwitchUser: redmine.String("jsmith"),
+		Sort:               redmine.String("id:desc"),
 		CfX: map[string]string{
 			"cf_0": "string",
 		},

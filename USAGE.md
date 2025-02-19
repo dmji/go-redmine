@@ -1,10 +1,11 @@
 <!-- Start SDK Example Usage [usage] -->
+
 ```go
 package main
 
 import (
 	"context"
-	goredmine "github.com/dmji/go-redmine"
+	redmine "github.com/dmji/go-redmine"
 	"github.com/dmji/go-redmine/models/components"
 	"github.com/dmji/go-redmine/models/operations"
 	"log"
@@ -13,8 +14,8 @@ import (
 func main() {
 	ctx := context.Background()
 
-	s := goredmine.New(
-		goredmine.WithSecurity(components.Security{
+	s := redmine.New(
+		redmine.WithSecurity(components.Security{
 			BasicAuth: &components.SchemeBasicAuth{
 				Username: "",
 				Password: "",
@@ -24,8 +25,8 @@ func main() {
 
 	res, err := s.Issues.GetIssues(ctx, operations.GetIssuesRequest{
 		Format:             components.FormatXML,
-		XRedmineSwitchUser: goredmine.String("jsmith"),
-		Sort:               goredmine.String("id:desc"),
+		XRedmineSwitchUser: redmine.String("jsmith"),
+		Sort:               redmine.String("id:desc"),
 		CfX: map[string]string{
 			"cf_0": "string",
 		},
@@ -39,4 +40,5 @@ func main() {
 }
 
 ```
+
 <!-- End SDK Example Usage [usage] -->

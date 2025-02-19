@@ -1,9 +1,0 @@
-# GetIssueRelationsResponse
-
-
-## Fields
-
-| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `HTTPMeta`                                                                                            | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                    | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `Object`                                                                                              | [*operations.GetIssueRelationsResponseBody](../../models/operations/getissuerelationsresponsebody.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

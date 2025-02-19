@@ -4,8 +4,8 @@ package components
 
 type Security struct {
 	BasicAuth         *SchemeBasicAuth `security:"scheme,type=http,subtype=basic"`
-	APIKeyAuth        *string          `security:"scheme,type=apiKey,subtype=header,name=X-Redmine-API-Key,env=goredmine_api_key_auth"`
-	APIKeyInQueryAuth *string          `security:"scheme,type=apiKey,subtype=query,name=key,env=goredmine_api_key_in_query_auth"`
+	APIKeyAuth        *string          `security:"scheme,type=apiKey,subtype=header,name=X-Redmine-API-Key,env=redmine_api_key_auth"`
+	APIKeyInQueryAuth *string          `security:"scheme,type=apiKey,subtype=query,name=key,env=redmine_api_key_in_query_auth"`
 }
 
 func (o *Security) GetBasicAuth() *SchemeBasicAuth {
