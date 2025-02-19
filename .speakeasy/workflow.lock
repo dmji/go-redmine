@@ -1,0 +1,36 @@
+speakeasyVersion: 1.481.1
+sources:
+    Redmine API:
+        sourceNamespace: redmine-api
+        sourceRevisionDigest: sha256:ca7db8390e5709115a96f91b49d4cba030a2ead3566fdae7749a16c74c7f65a9
+        sourceBlobDigest: sha256:c4448501a4b09a276eeaab395a91ed3ec49e7e934aaa7d5ffcff77d74084da44
+        tags:
+            - latest
+            - 0.16.0
+targets:
+    go-redmine:
+        source: Redmine API
+        sourceNamespace: redmine-api
+        sourceRevisionDigest: sha256:ca7db8390e5709115a96f91b49d4cba030a2ead3566fdae7749a16c74c7f65a9
+        sourceBlobDigest: sha256:c4448501a4b09a276eeaab395a91ed3ec49e7e934aaa7d5ffcff77d74084da44
+        codeSamplesNamespace: redmine-api-go-code-samples
+        codeSamplesRevisionDigest: sha256:40f7425bb876d430e05c8a04cb75a9ebc43daac91e94f8228754533dc57c390b
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Redmine API:
+            inputs:
+                - location: ..\redmine-openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/dmji/jikan/redmine-api
+    targets:
+        go-redmine:
+            target: go
+            source: Redmine API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/dmji/jikan/redmine-api-go-code-samples
+                labelOverride:
+                    fixedValue: Go (SDK)
+                blocking: false

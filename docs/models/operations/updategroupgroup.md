@@ -1,0 +1,11 @@
+# UpdateGroupGroup
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `Name`                                                               | **string*                                                            | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `UserIds`                                                            | []*int64*                                                            | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `CustomFields`                                                       | [][components.CustomFields](../../models/components/customfields.md) | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `CustomFieldValues`                                                  | map[string]*any*                                                     | :heavy_minus_sign:                                                   | N/A                                                                  | {<br/>"0": "string"<br/>}                                            |

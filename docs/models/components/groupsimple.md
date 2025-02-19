@@ -1,0 +1,10 @@
+# GroupSimple
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ID`                                                                         | *int64*                                                                      | :heavy_check_mark:                                                           | N/A                                                                          |
+| `Name`                                                                       | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `CustomFields`                                                               | [][components.CustomFieldValue](../../models/components/customfieldvalue.md) | :heavy_minus_sign:                                                           | N/A                                                                          |

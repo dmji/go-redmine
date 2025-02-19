@@ -1,0 +1,1542 @@
+lockVersion: 2.0.0
+id: 26d2ac17-e25b-4c74-a80c-928f2c945e02
+management:
+  docChecksum: ba2687d0d3d33089e82da8411adac6f8
+  docVersion: 0.16.0
+  speakeasyVersion: 1.481.1
+  generationVersion: 2.500.5
+  releaseVersion: 0.1.0
+  configChecksum: 0dcccad0bea14064297d53e133b6ce36
+features:
+  go:
+    additionalDependencies: 0.1.0
+    additionalProperties: 0.1.2
+    core: 3.6.12
+    defaultEnabledRetries: 0.2.0
+    devContainers: 2.90.0
+    downloadStreams: 0.1.2
+    envVarSecurityUsage: 0.3.2
+    flattening: 2.81.1
+    globalSecurity: 2.82.10
+    globalSecurityCallbacks: 0.1.0
+    globalServerURLs: 2.82.2
+    groups: 2.81.2
+    intellisenseMarkdownSupport: 0.1.0
+    nameOverrides: 2.81.2
+    nullables: 0.1.0
+    responseFormat: 0.1.2
+    retries: 2.83.2
+    sdkHooks: 0.1.0
+    uploadStreams: 0.1.0
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - /models/apierrors/errors.go
+  - /models/components/attachment.go
+  - /models/components/customfield.go
+  - /models/components/customfields.go
+  - /models/components/customfieldvalue.go
+  - /models/components/documentcategory.go
+  - /models/components/file.go
+  - /models/components/format.go
+  - /models/components/group.go
+  - /models/components/groupsimple.go
+  - /models/components/httpmetadata.go
+  - /models/components/idname.go
+  - /models/components/issue.go
+  - /models/components/issuecategory.go
+  - /models/components/issuepriority.go
+  - /models/components/issuerelation.go
+  - /models/components/issuesimple.go
+  - /models/components/issuestatus.go
+  - /models/components/membership.go
+  - /models/components/myaccount.go
+  - /models/components/news.go
+  - /models/components/newscomment.go
+  - /models/components/nometa.go
+  - /models/components/pref.go
+  - /models/components/project.go
+  - /models/components/projectsimple.go
+  - /models/components/query.go
+  - /models/components/role.go
+  - /models/components/schemebasicauth.go
+  - /models/components/search.go
+  - /models/components/security.go
+  - /models/components/timeentry.go
+  - /models/components/timeentryactivity.go
+  - /models/components/tracker.go
+  - /models/components/uploads.go
+  - /models/components/user.go
+  - /models/components/usersimple.go
+  - /models/components/version.go
+  - /models/components/versionsimple.go
+  - /models/components/wikipage.go
+  - /models/components/wikipages.go
+  - /models/components/xredminenometa.go
+  - /models/operations/addrelatedissue.go
+  - /models/operations/addusertogroup.go
+  - /models/operations/addwatcher.go
+  - /models/operations/archiveproject.go
+  - /models/operations/closeproject.go
+  - /models/operations/createfile.go
+  - /models/operations/creategroup.go
+  - /models/operations/createissue.go
+  - /models/operations/createissuecategory.go
+  - /models/operations/createissuerelation.go
+  - /models/operations/createmembership.go
+  - /models/operations/createnews.go
+  - /models/operations/createproject.go
+  - /models/operations/createtimeentry.go
+  - /models/operations/createuser.go
+  - /models/operations/createversion.go
+  - /models/operations/deleteattachment.go
+  - /models/operations/deletegroup.go
+  - /models/operations/deleteissue.go
+  - /models/operations/deleteissuecategory.go
+  - /models/operations/deleteissuerelation.go
+  - /models/operations/deletemembership.go
+  - /models/operations/deletenews.go
+  - /models/operations/deleteproject.go
+  - /models/operations/deletetimeentry.go
+  - /models/operations/deleteuser.go
+  - /models/operations/deleteversion.go
+  - /models/operations/deletewikipage.go
+  - /models/operations/downloadattachmentfile.go
+  - /models/operations/downloadthumbnail.go
+  - /models/operations/getattachment.go
+  - /models/operations/getcurrentuser.go
+  - /models/operations/getcustomfields.go
+  - /models/operations/getdocumentcategories.go
+  - /models/operations/getfiles.go
+  - /models/operations/getgroup.go
+  - /models/operations/getgroups.go
+  - /models/operations/getissue.go
+  - /models/operations/getissuecategories.go
+  - /models/operations/getissuecategory.go
+  - /models/operations/getissuepriorities.go
+  - /models/operations/getissuerelation.go
+  - /models/operations/getissuerelations.go
+  - /models/operations/getissues.go
+  - /models/operations/getissuestatuses.go
+  - /models/operations/getmembership.go
+  - /models/operations/getmemberships.go
+  - /models/operations/getmyaccount.go
+  - /models/operations/getnews.go
+  - /models/operations/getnewslist.go
+  - /models/operations/getnewslistbyproject.go
+  - /models/operations/getproject.go
+  - /models/operations/getprojects.go
+  - /models/operations/getqueries.go
+  - /models/operations/getrole.go
+  - /models/operations/getroles.go
+  - /models/operations/gettimeentries.go
+  - /models/operations/gettimeentry.go
+  - /models/operations/gettimeentryactivities.go
+  - /models/operations/gettrackers.go
+  - /models/operations/getuser.go
+  - /models/operations/getusers.go
+  - /models/operations/getversions.go
+  - /models/operations/getversionsbyproject.go
+  - /models/operations/getwikipage.go
+  - /models/operations/getwikipagebyversion.go
+  - /models/operations/getwikipages.go
+  - /models/operations/removerelatedissue.go
+  - /models/operations/removeuserfromgroup.go
+  - /models/operations/removewatcher.go
+  - /models/operations/reopenproject.go
+  - /models/operations/search.go
+  - /models/operations/unarchiveproject.go
+  - /models/operations/updateattachment.go
+  - /models/operations/updategroup.go
+  - /models/operations/updateissue.go
+  - /models/operations/updateissuecategory.go
+  - /models/operations/updatejournal.go
+  - /models/operations/updatemembership.go
+  - /models/operations/updatemyaccount.go
+  - /models/operations/updatenews.go
+  - /models/operations/updateproject.go
+  - /models/operations/updatetimeentry.go
+  - /models/operations/updateuser.go
+  - /models/operations/updateversion.go
+  - /models/operations/updatewikipage.go
+  - /models/operations/uploadattachmentfile.go
+  - USAGE.md
+  - attachments.go
+  - customfields.go
+  - docs/models/apierrors/errors.md
+  - docs/models/components/attachment.md
+  - docs/models/components/attachments.md
+  - docs/models/components/autowatchon.md
+  - docs/models/components/children.md
+  - docs/models/components/commentssorting.md
+  - docs/models/components/customfield.md
+  - docs/models/components/customfields.md
+  - docs/models/components/customfieldvalue.md
+  - docs/models/components/customizedtype.md
+  - docs/models/components/details.md
+  - docs/models/components/documentcategory.md
+  - docs/models/components/fieldformat.md
+  - docs/models/components/file.md
+  - docs/models/components/format.md
+  - docs/models/components/group.md
+  - docs/models/components/groupmemberships.md
+  - docs/models/components/groupsimple.md
+  - docs/models/components/historydefaulttab.md
+  - docs/models/components/httpmetadata.md
+  - docs/models/components/idname.md
+  - docs/models/components/issue.md
+  - docs/models/components/issuecategory.md
+  - docs/models/components/issuepriority.md
+  - docs/models/components/issuerelation.md
+  - docs/models/components/issuesimple.md
+  - docs/models/components/issuestatus.md
+  - docs/models/components/journals.md
+  - docs/models/components/membership.md
+  - docs/models/components/memberships.md
+  - docs/models/components/myaccount.md
+  - docs/models/components/myaccountuser.md
+  - docs/models/components/news.md
+  - docs/models/components/newscomment.md
+  - docs/models/components/nometa.md
+  - docs/models/components/parent.md
+  - docs/models/components/possiblevalues.md
+  - docs/models/components/pref.md
+  - docs/models/components/project.md
+  - docs/models/components/projectsimple.md
+  - docs/models/components/query.md
+  - docs/models/components/relations.md
+  - docs/models/components/role.md
+  - docs/models/components/roles.md
+  - docs/models/components/schemebasicauth.md
+  - docs/models/components/search.md
+  - docs/models/components/security.md
+  - docs/models/components/sharing.md
+  - docs/models/components/status.md
+  - docs/models/components/textareafont.md
+  - docs/models/components/timeentry.md
+  - docs/models/components/timeentryactivity.md
+  - docs/models/components/timeentryissue.md
+  - docs/models/components/tracker.md
+  - docs/models/components/twofascheme.md
+  - docs/models/components/uploads.md
+  - docs/models/components/user.md
+  - docs/models/components/usersimple.md
+  - docs/models/components/usertwofascheme.md
+  - docs/models/components/version.md
+  - docs/models/components/versionsharing.md
+  - docs/models/components/versionsimple.md
+  - docs/models/components/versionstatus.md
+  - docs/models/components/wikipage.md
+  - docs/models/components/wikipageparent.md
+  - docs/models/components/wikipages.md
+  - docs/models/components/xredminenometa.md
+  - docs/models/operations/addrelatedissuerequest.md
+  - docs/models/operations/addrelatedissuerequestbody.md
+  - docs/models/operations/addrelatedissueresponse.md
+  - docs/models/operations/addusertogrouprequest.md
+  - docs/models/operations/addusertogrouprequestbody.md
+  - docs/models/operations/addusertogroupresponse.md
+  - docs/models/operations/addwatcherrequest.md
+  - docs/models/operations/addwatcherrequestbody.md
+  - docs/models/operations/addwatcherresponse.md
+  - docs/models/operations/allwords.md
+  - docs/models/operations/archiveprojectrequest.md
+  - docs/models/operations/archiveprojectresponse.md
+  - docs/models/operations/attachment.md
+  - docs/models/operations/attachments.md
+  - docs/models/operations/changesets.md
+  - docs/models/operations/closeprojectrequest.md
+  - docs/models/operations/closeprojectresponse.md
+  - docs/models/operations/createfilerequest.md
+  - docs/models/operations/createfilerequestbody.md
+  - docs/models/operations/createfileresponse.md
+  - docs/models/operations/creategrouprequest.md
+  - docs/models/operations/creategrouprequestbody.md
+  - docs/models/operations/creategroupresponse.md
+  - docs/models/operations/creategroupresponsebody.md
+  - docs/models/operations/createissuecategoryrequest.md
+  - docs/models/operations/createissuecategoryrequestbody.md
+  - docs/models/operations/createissuecategoryresponse.md
+  - docs/models/operations/createissuecategoryresponsebody.md
+  - docs/models/operations/createissuerelationrequest.md
+  - docs/models/operations/createissuerelationrequestbody.md
+  - docs/models/operations/createissuerelationresponse.md
+  - docs/models/operations/createissuerelationresponsebody.md
+  - docs/models/operations/createissuerequest.md
+  - docs/models/operations/createissuerequestbody.md
+  - docs/models/operations/createissueresponse.md
+  - docs/models/operations/createissueresponsebody.md
+  - docs/models/operations/createmembershiprequest.md
+  - docs/models/operations/createmembershiprequestbody.md
+  - docs/models/operations/createmembershipresponse.md
+  - docs/models/operations/createmembershipresponsebody.md
+  - docs/models/operations/createnewsnews.md
+  - docs/models/operations/createnewsrequest.md
+  - docs/models/operations/createnewsrequestbody.md
+  - docs/models/operations/createnewsresponse.md
+  - docs/models/operations/createnewsuploads.md
+  - docs/models/operations/createprojectrequest.md
+  - docs/models/operations/createprojectrequestbody.md
+  - docs/models/operations/createprojectresponse.md
+  - docs/models/operations/createprojectresponsebody.md
+  - docs/models/operations/createtimeentryrequest.md
+  - docs/models/operations/createtimeentryrequestbody.md
+  - docs/models/operations/createtimeentryresponse.md
+  - docs/models/operations/createtimeentryresponsebody.md
+  - docs/models/operations/createuserrequest.md
+  - docs/models/operations/createuserrequestbody.md
+  - docs/models/operations/createuserresponse.md
+  - docs/models/operations/createuserresponsebody.md
+  - docs/models/operations/createversionrequest.md
+  - docs/models/operations/createversionrequestbody.md
+  - docs/models/operations/createversionresponse.md
+  - docs/models/operations/createversionresponsebody.md
+  - docs/models/operations/deleteattachmentrequest.md
+  - docs/models/operations/deleteattachmentresponse.md
+  - docs/models/operations/deletegrouprequest.md
+  - docs/models/operations/deletegroupresponse.md
+  - docs/models/operations/deleteissuecategoryrequest.md
+  - docs/models/operations/deleteissuecategoryresponse.md
+  - docs/models/operations/deleteissuerelationrequest.md
+  - docs/models/operations/deleteissuerelationresponse.md
+  - docs/models/operations/deleteissuerequest.md
+  - docs/models/operations/deleteissueresponse.md
+  - docs/models/operations/deletemembershiprequest.md
+  - docs/models/operations/deletemembershipresponse.md
+  - docs/models/operations/deletenewsrequest.md
+  - docs/models/operations/deletenewsresponse.md
+  - docs/models/operations/deleteprojectrequest.md
+  - docs/models/operations/deleteprojectresponse.md
+  - docs/models/operations/deletetimeentryrequest.md
+  - docs/models/operations/deletetimeentryresponse.md
+  - docs/models/operations/deleteuserrequest.md
+  - docs/models/operations/deleteuserresponse.md
+  - docs/models/operations/deleteversionrequest.md
+  - docs/models/operations/deleteversionresponse.md
+  - docs/models/operations/deletewikipagerequest.md
+  - docs/models/operations/deletewikipageresponse.md
+  - docs/models/operations/documents.md
+  - docs/models/operations/downloadattachmentfilerequest.md
+  - docs/models/operations/downloadattachmentfileresponse.md
+  - docs/models/operations/downloadthumbnailrequest.md
+  - docs/models/operations/downloadthumbnailresponse.md
+  - docs/models/operations/file.md
+  - docs/models/operations/getattachmentrequest.md
+  - docs/models/operations/getattachmentresponse.md
+  - docs/models/operations/getattachmentresponsebody.md
+  - docs/models/operations/getcurrentuserqueryparaminclude.md
+  - docs/models/operations/getcurrentuserrequest.md
+  - docs/models/operations/getcurrentuserresponse.md
+  - docs/models/operations/getcurrentuserresponsebody.md
+  - docs/models/operations/getcustomfieldsrequest.md
+  - docs/models/operations/getcustomfieldsresponse.md
+  - docs/models/operations/getcustomfieldsresponsebody.md
+  - docs/models/operations/getdocumentcategoriesrequest.md
+  - docs/models/operations/getdocumentcategoriesresponse.md
+  - docs/models/operations/getdocumentcategoriesresponsebody.md
+  - docs/models/operations/getfilesrequest.md
+  - docs/models/operations/getfilesresponse.md
+  - docs/models/operations/getfilesresponsebody.md
+  - docs/models/operations/getgroupqueryparaminclude.md
+  - docs/models/operations/getgrouprequest.md
+  - docs/models/operations/getgroupresponse.md
+  - docs/models/operations/getgroupresponsebody.md
+  - docs/models/operations/getgroupsrequest.md
+  - docs/models/operations/getgroupsresponse.md
+  - docs/models/operations/getgroupsresponsebody.md
+  - docs/models/operations/getissuecategoriesrequest.md
+  - docs/models/operations/getissuecategoriesresponse.md
+  - docs/models/operations/getissuecategoriesresponsebody.md
+  - docs/models/operations/getissuecategoryrequest.md
+  - docs/models/operations/getissuecategoryresponse.md
+  - docs/models/operations/getissuecategoryresponsebody.md
+  - docs/models/operations/getissueprioritiesrequest.md
+  - docs/models/operations/getissueprioritiesresponse.md
+  - docs/models/operations/getissueprioritiesresponsebody.md
+  - docs/models/operations/getissuerelationrequest.md
+  - docs/models/operations/getissuerelationresponse.md
+  - docs/models/operations/getissuerelationresponsebody.md
+  - docs/models/operations/getissuerelationsrequest.md
+  - docs/models/operations/getissuerelationsresponse.md
+  - docs/models/operations/getissuerelationsresponsebody.md
+  - docs/models/operations/getissuerequest.md
+  - docs/models/operations/getissueresponse.md
+  - docs/models/operations/getissueresponsebody.md
+  - docs/models/operations/getissuesrequest.md
+  - docs/models/operations/getissuesresponse.md
+  - docs/models/operations/getissuesresponsebody.md
+  - docs/models/operations/getissuestatusesrequest.md
+  - docs/models/operations/getissuestatusesresponse.md
+  - docs/models/operations/getissuestatusesresponsebody.md
+  - docs/models/operations/getmembershiprequest.md
+  - docs/models/operations/getmembershipresponse.md
+  - docs/models/operations/getmembershipresponsebody.md
+  - docs/models/operations/getmembershipsrequest.md
+  - docs/models/operations/getmembershipsresponse.md
+  - docs/models/operations/getmembershipsresponsebody.md
+  - docs/models/operations/getmyaccountrequest.md
+  - docs/models/operations/getmyaccountresponse.md
+  - docs/models/operations/getnewslistbyprojectrequest.md
+  - docs/models/operations/getnewslistbyprojectresponse.md
+  - docs/models/operations/getnewslistbyprojectresponsebody.md
+  - docs/models/operations/getnewslistrequest.md
+  - docs/models/operations/getnewslistresponse.md
+  - docs/models/operations/getnewslistresponsebody.md
+  - docs/models/operations/getnewsqueryparaminclude.md
+  - docs/models/operations/getnewsrequest.md
+  - docs/models/operations/getnewsresponse.md
+  - docs/models/operations/getnewsresponsebody.md
+  - docs/models/operations/getprojectqueryparaminclude.md
+  - docs/models/operations/getprojectrequest.md
+  - docs/models/operations/getprojectresponse.md
+  - docs/models/operations/getprojectresponsebody.md
+  - docs/models/operations/getprojectsqueryparaminclude.md
+  - docs/models/operations/getprojectsrequest.md
+  - docs/models/operations/getprojectsresponse.md
+  - docs/models/operations/getprojectsresponsebody.md
+  - docs/models/operations/getqueriesrequest.md
+  - docs/models/operations/getqueriesresponse.md
+  - docs/models/operations/getqueriesresponsebody.md
+  - docs/models/operations/getrolerequest.md
+  - docs/models/operations/getroleresponse.md
+  - docs/models/operations/getroleresponsebody.md
+  - docs/models/operations/getrolesrequest.md
+  - docs/models/operations/getrolesresponse.md
+  - docs/models/operations/getrolesresponsebody.md
+  - docs/models/operations/gettimeentriesrequest.md
+  - docs/models/operations/gettimeentriesresponse.md
+  - docs/models/operations/gettimeentriesresponsebody.md
+  - docs/models/operations/gettimeentryactivitiesrequest.md
+  - docs/models/operations/gettimeentryactivitiesresponse.md
+  - docs/models/operations/gettimeentryactivitiesresponsebody.md
+  - docs/models/operations/gettimeentryrequest.md
+  - docs/models/operations/gettimeentryresponse.md
+  - docs/models/operations/gettimeentryresponsebody.md
+  - docs/models/operations/gettrackersrequest.md
+  - docs/models/operations/gettrackersresponse.md
+  - docs/models/operations/gettrackersresponsebody.md
+  - docs/models/operations/getuserqueryparaminclude.md
+  - docs/models/operations/getuserrequest.md
+  - docs/models/operations/getuserresponse.md
+  - docs/models/operations/getuserresponsebody.md
+  - docs/models/operations/getusersrequest.md
+  - docs/models/operations/getusersresponse.md
+  - docs/models/operations/getusersresponsebody.md
+  - docs/models/operations/getversionsbyprojectrequest.md
+  - docs/models/operations/getversionsbyprojectresponse.md
+  - docs/models/operations/getversionsbyprojectresponsebody.md
+  - docs/models/operations/getversionsrequest.md
+  - docs/models/operations/getversionsresponse.md
+  - docs/models/operations/getversionsresponsebody.md
+  - docs/models/operations/getwikipagebyversionqueryparaminclude.md
+  - docs/models/operations/getwikipagebyversionrequest.md
+  - docs/models/operations/getwikipagebyversionresponse.md
+  - docs/models/operations/getwikipagebyversionresponsebody.md
+  - docs/models/operations/getwikipagequeryparaminclude.md
+  - docs/models/operations/getwikipagerequest.md
+  - docs/models/operations/getwikipageresponse.md
+  - docs/models/operations/getwikipageresponsebody.md
+  - docs/models/operations/getwikipagesrequest.md
+  - docs/models/operations/getwikipagesresponse.md
+  - docs/models/operations/getwikipagesresponsebody.md
+  - docs/models/operations/group.md
+  - docs/models/operations/include.md
+  - docs/models/operations/ispublic.md
+  - docs/models/operations/issue.md
+  - docs/models/operations/issuecategory.md
+  - docs/models/operations/issues.md
+  - docs/models/operations/journal.md
+  - docs/models/operations/mailnotification.md
+  - docs/models/operations/membership.md
+  - docs/models/operations/messages.md
+  - docs/models/operations/news.md
+  - docs/models/operations/openissues.md
+  - docs/models/operations/option.md
+  - docs/models/operations/project.md
+  - docs/models/operations/projects.md
+  - docs/models/operations/queryparaminclude.md
+  - docs/models/operations/queryparamnews.md
+  - docs/models/operations/relation.md
+  - docs/models/operations/relationtype.md
+  - docs/models/operations/removerelatedissuerequest.md
+  - docs/models/operations/removerelatedissueresponse.md
+  - docs/models/operations/removeuserfromgrouprequest.md
+  - docs/models/operations/removeuserfromgroupresponse.md
+  - docs/models/operations/removewatcherrequest.md
+  - docs/models/operations/removewatcherresponse.md
+  - docs/models/operations/reopenprojectrequest.md
+  - docs/models/operations/reopenprojectresponse.md
+  - docs/models/operations/scope.md
+  - docs/models/operations/searchrequest.md
+  - docs/models/operations/searchresponse.md
+  - docs/models/operations/searchresponsebody.md
+  - docs/models/operations/sharing.md
+  - docs/models/operations/status.md
+  - docs/models/operations/timeentry.md
+  - docs/models/operations/titlesonly.md
+  - docs/models/operations/unarchiveprojectrequest.md
+  - docs/models/operations/unarchiveprojectresponse.md
+  - docs/models/operations/updateattachmentrequest.md
+  - docs/models/operations/updateattachmentrequestbody.md
+  - docs/models/operations/updateattachmentresponse.md
+  - docs/models/operations/updategroupgroup.md
+  - docs/models/operations/updategrouprequest.md
+  - docs/models/operations/updategrouprequestbody.md
+  - docs/models/operations/updategroupresponse.md
+  - docs/models/operations/updateissuecategoryissuecategory.md
+  - docs/models/operations/updateissuecategoryrequest.md
+  - docs/models/operations/updateissuecategoryrequestbody.md
+  - docs/models/operations/updateissuecategoryresponse.md
+  - docs/models/operations/updateissueissue.md
+  - docs/models/operations/updateissuerequest.md
+  - docs/models/operations/updateissuerequestbody.md
+  - docs/models/operations/updateissueresponse.md
+  - docs/models/operations/updatejournalrequest.md
+  - docs/models/operations/updatejournalrequestbody.md
+  - docs/models/operations/updatejournalresponse.md
+  - docs/models/operations/updatemembershipmembership.md
+  - docs/models/operations/updatemembershiprequest.md
+  - docs/models/operations/updatemembershiprequestbody.md
+  - docs/models/operations/updatemembershipresponse.md
+  - docs/models/operations/updatemyaccountmailnotification.md
+  - docs/models/operations/updatemyaccountrequest.md
+  - docs/models/operations/updatemyaccountrequestbody.md
+  - docs/models/operations/updatemyaccountresponse.md
+  - docs/models/operations/updatemyaccountuser.md
+  - docs/models/operations/updatenewsrequest.md
+  - docs/models/operations/updatenewsrequestbody.md
+  - docs/models/operations/updatenewsresponse.md
+  - docs/models/operations/updateprojectproject.md
+  - docs/models/operations/updateprojectrequest.md
+  - docs/models/operations/updateprojectrequestbody.md
+  - docs/models/operations/updateprojectresponse.md
+  - docs/models/operations/updatetimeentryrequest.md
+  - docs/models/operations/updatetimeentryrequestbody.md
+  - docs/models/operations/updatetimeentryresponse.md
+  - docs/models/operations/updatetimeentrytimeentry.md
+  - docs/models/operations/updateusermailnotification.md
+  - docs/models/operations/updateuserrequest.md
+  - docs/models/operations/updateuserrequestbody.md
+  - docs/models/operations/updateuserresponse.md
+  - docs/models/operations/updateuseruser.md
+  - docs/models/operations/updateversionrequest.md
+  - docs/models/operations/updateversionrequestbody.md
+  - docs/models/operations/updateversionresponse.md
+  - docs/models/operations/updateversionsharing.md
+  - docs/models/operations/updateversionstatus.md
+  - docs/models/operations/updateversionversion.md
+  - docs/models/operations/updatewikipagerequest.md
+  - docs/models/operations/updatewikipagerequestbody.md
+  - docs/models/operations/updatewikipageresponse.md
+  - docs/models/operations/updatewikipageresponsebody.md
+  - docs/models/operations/upload.md
+  - docs/models/operations/uploadattachmentfilerequest.md
+  - docs/models/operations/uploadattachmentfileresponse.md
+  - docs/models/operations/uploadattachmentfileresponsebody.md
+  - docs/models/operations/uploads.md
+  - docs/models/operations/user.md
+  - docs/models/operations/version.md
+  - docs/models/operations/wikipage.md
+  - docs/models/operations/wikipages.md
+  - docs/sdks/attachments/README.md
+  - docs/sdks/customfields/README.md
+  - docs/sdks/enumerations/README.md
+  - docs/sdks/files/README.md
+  - docs/sdks/goredmine/README.md
+  - docs/sdks/groups/README.md
+  - docs/sdks/issuecategories/README.md
+  - docs/sdks/issuerelations/README.md
+  - docs/sdks/issues/README.md
+  - docs/sdks/issuestatuses/README.md
+  - docs/sdks/journals/README.md
+  - docs/sdks/myaccount/README.md
+  - docs/sdks/news/README.md
+  - docs/sdks/projectmemberships/README.md
+  - docs/sdks/projects/README.md
+  - docs/sdks/queries/README.md
+  - docs/sdks/repositories/README.md
+  - docs/sdks/roles/README.md
+  - docs/sdks/search/README.md
+  - docs/sdks/timeentries/README.md
+  - docs/sdks/trackers/README.md
+  - docs/sdks/users/README.md
+  - docs/sdks/versions/README.md
+  - docs/sdks/wikipages/README.md
+  - docs/types/date.md
+  - enumerations.go
+  - files.go
+  - go.mod
+  - goredmine.go
+  - groups.go
+  - internal/hooks/hooks.go
+  - internal/utils/contenttype.go
+  - internal/utils/env.go
+  - internal/utils/form.go
+  - internal/utils/headers.go
+  - internal/utils/json.go
+  - internal/utils/pathparams.go
+  - internal/utils/queryparams.go
+  - internal/utils/requestbody.go
+  - internal/utils/retries.go
+  - internal/utils/security.go
+  - internal/utils/utils.go
+  - issuecategories.go
+  - issuerelations.go
+  - issues.go
+  - issuestatuses.go
+  - journals.go
+  - models/apierrors/apierror.go
+  - models/operations/options.go
+  - myaccount.go
+  - news.go
+  - projectmemberships.go
+  - projects.go
+  - queries.go
+  - repositories.go
+  - retry/config.go
+  - roles.go
+  - search.go
+  - timeentries.go
+  - trackers.go
+  - types/bigint.go
+  - types/date.go
+  - types/datetime.go
+  - types/decimal.go
+  - types/pointers.go
+  - users.go
+  - versions.go
+  - wikipages.go
+examples:
+  getIssues:
+    speakeasy-default-get-issues:
+      parameters:
+        path:
+          format: "xml"
+        query:
+          sort: "id:desc"
+          cf_x: {"cf_0": "string"}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"issues": [{"id": 458726, "project": {"id": 914136, "name": "<value>"}, "tracker": {"id": 912369, "name": "<value>"}, "status": {"id": 752276, "name": "<value>", "is_closed": true}, "priority": {"id": 342977, "name": "<value>"}, "author": {"id": 754235, "name": "<value>"}, "subject": "<value>", "description": "above urgently quintuple for mixture jubilantly analogy", "start_date": "<value>", "due_date": "<value>", "done_ratio": 922217, "is_private": false, "estimated_hours": 8542.08, "total_estimated_hours": 3538.03, "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2023-11-30T22:00:21.774Z", "updated_on": "2025-01-07T17:48:32.516Z", "closed_on": "2023-01-04T14:12:07.806Z"}, {"id": 729026, "project": {"id": 416813, "name": "<value>"}, "tracker": {"id": 944356, "name": "<value>"}, "status": {"id": 988410, "name": "<value>", "is_closed": true}, "priority": {"id": 586582, "name": "<value>"}, "author": {"id": 456163, "name": "<value>"}, "subject": "<value>", "description": "inexperienced phooey gruesome neatly pish zowie bah successfully majestically pfft", "start_date": "<value>", "due_date": "<value>", "done_ratio": 572395, "is_private": false, "estimated_hours": 3485.37, "total_estimated_hours": 2560.54, "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2024-06-22T19:28:13.191Z", "updated_on": "2023-07-05T03:18:48.364Z", "closed_on": "2025-07-02T17:33:26.117Z"}]}
+  createIssue:
+    speakeasy-default-create-issue:
+      parameters:
+        path:
+          format: "json"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"issue": {"project_id": 46402, "subject": "<value>", "custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "201":
+          application/json: {"issue": {"id": 594217, "project": {"id": 449299, "name": "<value>"}, "tracker": {"id": 975575, "name": "<value>"}, "status": {"id": 197663, "name": "<value>", "is_closed": false}, "priority": {"id": 796153, "name": "<value>"}, "author": {"id": 370994, "name": "<value>"}, "subject": "<value>", "description": "cannon beyond motivate gut", "start_date": "<value>", "due_date": "<value>", "done_ratio": 519989, "is_private": true, "estimated_hours": 6084.95, "total_estimated_hours": 5971.36, "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2025-07-28T18:37:02.819Z", "updated_on": "2025-01-10T01:37:51.209Z", "closed_on": "2023-12-04T12:02:12.261Z"}}
+  getIssue:
+    speakeasy-default-get-issue:
+      parameters:
+        path:
+          format: "xml"
+          issue_id: 310882
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"issue": {"id": 286491, "project": {"id": 652368, "name": "<value>"}, "tracker": {"id": 335288, "name": "<value>"}, "status": {"id": 746675, "name": "<value>", "is_closed": true}, "priority": {"id": 612932, "name": "<value>"}, "author": {"id": 993793, "name": "<value>"}, "subject": "<value>", "description": "qua translation heartache sashay splurge flawless", "start_date": "<value>", "due_date": "<value>", "done_ratio": 764759, "is_private": true, "estimated_hours": 1481.02, "total_estimated_hours": 5348.71, "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2023-01-15T16:49:49.776Z", "updated_on": "2024-02-18T13:30:42.630Z", "closed_on": "2024-10-28T11:04:39.985Z"}}
+  updateIssue:
+    speakeasy-default-update-issue:
+      parameters:
+        path:
+          format: "xml"
+          issue_id: 733216
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"issue": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+  deleteIssue:
+    speakeasy-default-delete-issue:
+      parameters:
+        path:
+          format: "xml"
+          issue_id: 338722
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  addWatcher:
+    speakeasy-default-add-watcher:
+      parameters:
+        path:
+          format: "json"
+          issue_id: 831564
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  removeWatcher:
+    speakeasy-default-remove-watcher:
+      parameters:
+        path:
+          format: "xml"
+          issue_id: 542647
+          user_id: 434528
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getProjects:
+    speakeasy-default-get-projects:
+      parameters:
+        path:
+          format: "json"
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"projects": [{"id": 114101, "name": "<value>", "identifier": "<value>", "description": "because after pfft", "status": 325545, "is_public": true, "inherit_members": false, "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2023-04-12T14:18:17.353Z", "updated_on": "2024-08-17T17:40:49.390Z"}]}
+  createProject:
+    speakeasy-default-create-project:
+      parameters:
+        path:
+          format: "xml"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"project": {"name": "<value>", "identifier": "<value>", "custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "201":
+          application/json: {"project": {"id": 774932, "name": "<value>", "identifier": "<value>", "description": "wordy insignificant underneath deliberately male hydrolyze", "status": 671344, "is_public": false, "inherit_members": true, "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2024-07-27T10:28:50.451Z", "updated_on": "2023-11-12T19:14:45.012Z"}}
+        "422":
+          application/json: {"errors": []}
+  getProject:
+    speakeasy-default-get-project:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 417180
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"project": {"id": 971707, "name": "<value>", "identifier": "<value>", "description": "ghost label diligently gee vastly switchboard", "status": 468233, "is_public": false, "inherit_members": true, "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2024-11-14T20:33:57.847Z", "updated_on": "2024-11-06T12:05:00.162Z"}}
+  updateProject:
+    speakeasy-default-update-project:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 304087
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"project": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+  deleteProject:
+    speakeasy-default-delete-project:
+      parameters:
+        path:
+          format: "json"
+          project_id: 695561
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  archiveProject:
+    speakeasy-default-archive-project:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 620152
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  unarchiveProject:
+    speakeasy-default-unarchive-project:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 565838
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  closeProject:
+    speakeasy-default-close-project:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 14663
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  reopenProject:
+    speakeasy-default-reopen-project:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 227032
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getMemberships:
+    speakeasy-default-get-memberships:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 35144
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"memberships": [{"id": 310273, "project": {"id": 497615, "name": "<value>"}, "roles": [{"id": 768503, "name": "<value>"}]}]}
+  createMembership:
+    speakeasy-default-create-membership:
+      parameters:
+        path:
+          format: "json"
+          project_id: 825309
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "201":
+          application/json: {"membership": {"id": 560223, "project": {"id": 614231, "name": "<value>"}, "roles": [{"id": 556921, "name": "<value>"}, {"id": 233899, "name": "<value>"}, {"id": 508108, "name": "<value>"}]}}
+  getMembership:
+    speakeasy-default-get-membership:
+      parameters:
+        path:
+          format: "xml"
+          membership_id: 551384
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"membership": {"id": 426882, "project": {"id": 330781, "name": "<value>"}, "roles": [{"id": 946446, "name": "<value>"}, {"id": 344497, "name": "<value>"}]}}
+  updateMembership:
+    speakeasy-default-update-membership:
+      parameters:
+        path:
+          format: "json"
+          membership_id: 404505
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "422":
+          application/json: {"errors": ["<value>"]}
+  deleteMembership:
+    speakeasy-default-delete-membership:
+      parameters:
+        path:
+          format: "json"
+          membership_id: 165422
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getUsers:
+    speakeasy-default-get-users:
+      parameters:
+        path:
+          format: "json"
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"users": [{"id": 894967, "login": "Nicholas28", "admin": false, "firstname": "Willard", "lastname": "Wisozk", "mail": "<value>", "created_on": "2024-03-01T03:12:53.758Z", "updated_on": "2025-11-19T22:59:29.057Z", "last_login_on": "2024-06-17T01:21:58.741Z", "passwd_changed_on": "2023-04-04T00:43:08.488Z", "twofa_scheme": {}, "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}]}
+  createUser:
+    speakeasy-default-create-user:
+      parameters:
+        path:
+          format: "xml"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"user": {"login": "Jimmy12", "firstname": "Domenico", "lastname": "Cormier", "mail": "<value>", "custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "201":
+          application/json: {"user": {"id": 563451, "login": "Kariane.Frami55", "admin": false, "firstname": "Clare", "lastname": "Blanda", "mail": "<value>", "created_on": "2023-04-17T04:55:32.790Z", "updated_on": "2023-09-26T22:23:38.323Z", "last_login_on": "2024-07-25T14:18:01.521Z", "passwd_changed_on": "2025-08-25T19:44:09.461Z", "twofa_scheme": {}, "api_key": "<value>", "status": 899857, "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
+        "422":
+          application/json: {"errors": ["<value>"]}
+  getUser:
+    speakeasy-default-get-user:
+      parameters:
+        path:
+          format: "xml"
+          user_id: 161855
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"user": {"id": 892678, "login": "Tianna_Prohaska", "admin": true, "firstname": "Morton", "lastname": "Pfeffer", "mail": "<value>", "created_on": "2023-08-25T01:08:50.230Z", "updated_on": "2025-06-23T11:02:50.754Z", "last_login_on": "2025-09-13T01:31:48.431Z", "passwd_changed_on": "2025-07-01T11:52:31.631Z", "twofa_scheme": {}, "api_key": "<value>", "status": 218196, "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
+  updateUser:
+    speakeasy-default-update-user:
+      parameters:
+        path:
+          format: "json"
+          user_id: 713914
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"user": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "422":
+          application/json: {"errors": ["<value>"]}
+  deleteUser:
+    speakeasy-default-delete-user:
+      parameters:
+        path:
+          format: "json"
+          user_id: 335223
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getCurrentUser:
+    speakeasy-default-get-current-user:
+      parameters:
+        path:
+          format: "xml"
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"user": {"id": 131853, "login": "Jarvis_OConnell19", "admin": false, "firstname": "Brown", "lastname": "Nikolaus", "mail": "<value>", "created_on": "2025-04-13T02:39:59.656Z", "updated_on": "2024-09-21T22:27:43.187Z", "last_login_on": "2023-09-19T02:07:09.767Z", "passwd_changed_on": "2024-07-22T10:51:28.180Z", "twofa_scheme": {}, "api_key": "<value>", "status": 416599, "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
+  getTimeEntries:
+    speakeasy-default-get-time-entries:
+      parameters:
+        path:
+          format: "xml"
+        query:
+          sort: "spent_on:desc"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"time_entries": [{"id": 971975, "user": {"id": 243507, "name": "<value>"}, "activity": {"id": 170959, "name": "<value>"}, "hours": 1023.65, "comments": "mostly joshingly ha palate if cycle lounge eek circa hence yippee zowie", "spent_on": "2023-11-21", "created_on": "2023-02-25T08:30:49.177Z", "updated_on": "2024-08-03T07:21:42.220Z", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}, {"id": 229814, "user": {"id": 765535, "name": "<value>"}, "activity": {"id": 300871, "name": "<value>"}, "hours": 5655.12, "comments": "motor shush eggplant however unless helpful phooey truly foretell fooey consequently transparency", "spent_on": "2025-08-07", "created_on": "2025-10-23T06:45:43.214Z", "updated_on": "2025-11-30T10:19:51.404Z", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}]}
+  createTimeEntry:
+    speakeasy-default-create-time-entry:
+      parameters:
+        path:
+          format: "json"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"time_entry": {"hours": 6204, "custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "201":
+          application/json: {"time_entry": {"id": 850286, "user": {"id": 732305, "name": "<value>"}, "activity": {"id": 326736, "name": "<value>"}, "hours": 8458.21, "comments": "airline blah though widow rust gadzooks airman next amid likewise trim godfather instead what meaningfully phew magnificent likewise gadzooks aw", "spent_on": "2023-09-08", "created_on": "2024-10-28T09:38:10.821Z", "updated_on": "2024-08-13T04:02:55.857Z", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
+        "422":
+          application/json: {"errors": ["<value>", "<value>", "<value>"]}
+  getTimeEntry:
+    speakeasy-default-get-time-entry:
+      parameters:
+        path:
+          format: "xml"
+          time_entry_id: 835091
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"time_entry": {"id": 774810, "user": {"id": 415659, "name": "<value>"}, "activity": {"id": 272777, "name": "<value>"}, "hours": 3979.43, "comments": "although boldly ultimately fearless meh pushy lighthearted comfortable popularize", "spent_on": "2024-12-16", "created_on": "2024-06-24T05:05:32.563Z", "updated_on": "2024-09-09T08:53:21.784Z", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
+  updateTimeEntry:
+    speakeasy-default-update-time-entry:
+      parameters:
+        path:
+          format: "xml"
+          time_entry_id: 264460
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"time_entry": {"hours": 2836.68, "custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "422":
+          application/json: {"errors": ["<value>", "<value>", "<value>"]}
+  deleteTimeEntry:
+    speakeasy-default-delete-time-entry:
+      parameters:
+        path:
+          format: "json"
+          time_entry_id: 721643
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getNewsList:
+    speakeasy-default-get-news-list:
+      parameters:
+        path:
+          format: "json"
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"news": [{"id": 372086, "project": {"id": 80521, "name": "<value>"}, "author": {"id": 325013, "name": "<value>"}, "title": "<value>", "description": "phew vacantly huzzah", "created_on": "2024-12-28T06:21:29.557Z"}]}
+  getNews:
+    speakeasy-default-get-news:
+      parameters:
+        path:
+          format: "json"
+          news_id: 929355
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"news": {"id": 499987, "project": {"id": 499243, "name": "<value>"}, "author": {"id": 616249, "name": "<value>"}, "title": "<value>", "description": "nor sheathe webbed spark overvalue declaration apt morning boo", "created_on": "2024-02-13T00:15:59.871Z"}}
+  updateNews:
+    speakeasy-default-update-news:
+      parameters:
+        path:
+          format: "xml"
+          news_id: 95958
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  deleteNews:
+    speakeasy-default-delete-news:
+      parameters:
+        path:
+          format: "xml"
+          news_id: 149388
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getNewsListByProject:
+    speakeasy-default-get-news-list-by-project:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 632908
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"news": [{"id": 174329, "project": {"id": 774349, "name": "<value>"}, "author": {"id": 151312, "name": "<value>"}, "title": "<value>", "description": "phooey amongst regarding only", "created_on": "2024-02-15T12:38:35.415Z"}, {"id": 353982, "project": {"id": 566921, "name": "<value>"}, "author": {"id": 448089, "name": "<value>"}, "title": "<value>", "description": "consequently why lava overcharge insidious beep wherever howl", "created_on": "2024-10-17T01:48:44.988Z"}, {"id": 759974, "project": {"id": 735093, "name": "<value>"}, "author": {"id": 17045, "name": "<value>"}, "title": "<value>", "description": "around camouflage pleasure censor yummy porter", "created_on": "2024-10-24T10:56:16.743Z"}]}
+  createNews:
+    speakeasy-default-create-news:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 281027
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getIssueRelations:
+    speakeasy-default-get-issue-relations:
+      parameters:
+        path:
+          format: "xml"
+          issue_id: 466676
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"relations": [{"id": 930766, "issue_id": 122242, "issue_to_id": 886879, "relation_type": "<value>", "delay": 15709}, {"id": 248308, "issue_id": 325849, "issue_to_id": 631611, "relation_type": "<value>", "delay": 236711}, {"id": 598639, "issue_id": 712771, "issue_to_id": 486540, "relation_type": "<value>", "delay": 527900}]}
+  createIssueRelation:
+    speakeasy-default-create-issue-relation:
+      parameters:
+        path:
+          format: "xml"
+          issue_id: 929406
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "201":
+          application/json: {"relation": {"id": 89943, "issue_id": 58826, "issue_to_id": 446099, "relation_type": "<value>", "delay": 808899}}
+        "422":
+          application/json: {"errors": ["<value>", "<value>"]}
+  getIssueRelation:
+    speakeasy-default-get-issue-relation:
+      parameters:
+        path:
+          format: "json"
+          issue_relation_id: 427544
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"relation": {"id": 699710, "issue_id": 35641, "issue_to_id": 661469, "relation_type": "<value>", "delay": 120226}}
+  deleteIssueRelation:
+    speakeasy-default-delete-issue-relation:
+      parameters:
+        path:
+          format: "xml"
+          issue_relation_id: 441215
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "422":
+          application/json: {"errors": []}
+  getVersionsByProject:
+    speakeasy-default-get-versions-by-project:
+      parameters:
+        path:
+          format: "json"
+          project_id: 131775
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"versions": []}
+  createVersion:
+    speakeasy-default-create-version:
+      parameters:
+        path:
+          format: "json"
+          project_id: 331583
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"version": {"name": "<value>", "custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "201":
+          application/json: {"version": {"id": 48244, "project": {"id": 29640, "name": "<value>"}, "name": "<value>", "description": "beneath drat longingly knottily whereas atop if polyester", "status": "locked", "due_date": "2025-01-08", "sharing": "system", "wiki_page_title": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2025-07-09T05:37:32.447Z", "updated_on": "2024-04-24T02:31:15.645Z"}}
+        "422":
+          application/json: {"errors": ["<value>", "<value>"]}
+  getVersions:
+    speakeasy-default-get-versions:
+      parameters:
+        path:
+          format: "json"
+          version_id: 158895
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"version": {"id": 426696, "project": {"id": 401066, "name": "<value>"}, "name": "<value>", "description": "so sheepishly parsnip overspend daintily drat bog longingly when indeed", "status": "closed", "due_date": "2023-05-24", "sharing": "none", "wiki_page_title": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}], "created_on": "2025-04-22T11:58:44.442Z", "updated_on": "2025-07-22T20:27:43.149Z"}}
+  updateVersion:
+    speakeasy-default-update-version:
+      parameters:
+        path:
+          format: "json"
+          version_id: 55046
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"version": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "422":
+          application/json: {"errors": ["<value>"]}
+  deleteVersion:
+    speakeasy-default-delete-version:
+      parameters:
+        path:
+          format: "xml"
+          version_id: 964250
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "422":
+          application/json: {"errors": []}
+  getWikiPages:
+    speakeasy-default-get-wiki-pages:
+      parameters:
+        path:
+          format: "json"
+          project_id: 221236
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"wiki_pages": [{"title": 116954, "version": 85799, "created_on": "2025-05-16T07:40:15.513Z", "updated_on": "2024-04-10T03:20:03.410Z"}]}
+  getWikiPage:
+    speakeasy-default-get-wiki-page:
+      parameters:
+        path:
+          format: "json"
+          project_id: 584534
+          wiki_page_title: "<value>"
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"wiki_page": {"title": "<value>", "text": "<value>", "version": 106247, "author": {"id": 864305, "name": "<value>"}, "comments": "wildly how greedily smooth knottily scamper eek bossy publicize shark ugh worth soliloquy neatly but harp er between who", "created_on": "2023-02-09T09:09:44.995Z", "updated_on": "2023-03-10T19:04:34.676Z"}}
+  updateWikiPage:
+    speakeasy-default-update-wiki-page:
+      parameters:
+        path:
+          format: "json"
+          project_id: 44462
+          wiki_page_title: "<value>"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "201":
+          application/json: {"wiki_page": {"title": "<value>", "text": "<value>", "version": 465734, "author": {"id": 28725, "name": "<value>"}, "comments": "oh inasmuch kookily near so typeface haul whenever converse huzzah as merrily notwithstanding fooey or per matter dandelion", "created_on": "2025-05-31T04:51:56.580Z", "updated_on": "2023-03-19T12:07:44.237Z"}}
+        "409":
+          application/json: {"errors": ["<value>", "<value>"]}
+  deleteWikiPage:
+    speakeasy-default-delete-wiki-page:
+      parameters:
+        path:
+          format: "json"
+          project_id: 16238
+          wiki_page_title: "<value>"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getWikiPageByVersion:
+    speakeasy-default-get-wiki-page-by-version:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 876217
+          wiki_page_title: "<value>"
+          version_id: 975705
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"wiki_page": {"title": "<value>", "text": "<value>", "version": 115863, "author": {"id": 387813, "name": "<value>"}, "comments": "glum wicked shy within after stealthily geez bah tattered oh for times tired scuffle impassioned violently blah", "created_on": "2025-08-25T04:02:08.351Z", "updated_on": "2025-07-10T12:03:38.153Z"}}
+  getQueries:
+    speakeasy-default-get-queries:
+      parameters:
+        path:
+          format: "xml"
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"queries": []}
+  getAttachment:
+    speakeasy-default-get-attachment:
+      parameters:
+        path:
+          format: "xml"
+          attachment_id: 4607.28
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"attachment": {"id": 309865, "filename": "example.file", "filesize": 950505, "content_type": "<value>", "description": "milestone accountability and or judicious zowie", "content_url": "https://grounded-redesign.net", "author": {"id": 211521, "name": "<value>"}, "created_on": "<value>"}}
+  updateAttachment:
+    speakeasy-default-update-attachment:
+      parameters:
+        path:
+          format: "xml"
+          attachment_id: 2979.79
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  deleteAttachment:
+    speakeasy-default-delete-attachment:
+      parameters:
+        path:
+          format: "json"
+          attachment_id: 6973.38
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  downloadAttachmentFile:
+    speakeasy-default-download-attachment-file:
+      parameters:
+        path:
+          attachment_id: 7175.81
+          filename: "example.file"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          '*/*': "x-file: example.file"
+  downloadThumbnail:
+    speakeasy-default-download-thumbnail:
+      parameters:
+        path:
+          attachment_id: 3780.42
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          image/png: "x-file: example.file"
+  uploadAttachmentFile:
+    speakeasy-default-upload-attachment-file:
+      parameters:
+        path:
+          format: "xml"
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "201":
+          application/json: {"upload": {"id": 200594, "token": "<value>"}}
+        "406":
+          application/json: {"errors": ["<value>", "<value>"]}
+  getIssueStatuses:
+    speakeasy-default-get-issue-statuses:
+      parameters:
+        path:
+          format: "xml"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"issue_statuses": [{"id": 875224, "name": "<value>", "is_closed": true}]}
+  getTrackers:
+    speakeasy-default-get-trackers:
+      parameters:
+        path:
+          format: "json"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"trackers": [{}]}
+  getIssueCategories:
+    speakeasy-default-get-issue-categories:
+      parameters:
+        path:
+          format: "json"
+          project_id: 823814
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"issue_categories": [{"id": 97999, "project": {"id": 189345, "name": "<value>"}, "name": "<value>"}]}
+  createIssueCategory:
+    speakeasy-default-create-issue-category:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 714556
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "201":
+          application/json: {"issue_category": {"id": 452683, "project": {"id": 712206, "name": "<value>"}, "name": "<value>"}}
+        "422":
+          application/json: {"errors": ["<value>", "<value>"]}
+  getIssueCategory:
+    speakeasy-default-get-issue-category:
+      parameters:
+        path:
+          format: "json"
+          issue_category_id: 735932
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"issue_category": {"id": 787170, "project": {"id": 789293, "name": "<value>"}, "name": "<value>"}}
+  updateIssueCategory:
+    speakeasy-default-update-issue-category:
+      parameters:
+        path:
+          format: "json"
+          issue_category_id: 774678
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "422":
+          application/json: {"errors": ["<value>", "<value>", "<value>"]}
+  deleteIssueCategory:
+    speakeasy-default-delete-issue-category:
+      parameters:
+        path:
+          format: "json"
+          issue_category_id: 147277
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getIssuePriorities:
+    speakeasy-default-get-issue-priorities:
+      parameters:
+        path:
+          format: "json"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"issue_priorities": []}
+  getTimeEntryActivities:
+    speakeasy-default-get-time-entry-activities:
+      parameters:
+        path:
+          format: "xml"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"time_entry_activities": []}
+  getDocumentCategories:
+    speakeasy-default-get-document-categories:
+      parameters:
+        path:
+          format: "xml"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"document_categories": []}
+  getRoles:
+    speakeasy-default-get-roles:
+      parameters:
+        path:
+          format: "json"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"roles": [{"id": 269962, "name": "<value>"}]}
+  getRole:
+    speakeasy-default-get-role:
+      parameters:
+        path:
+          format: "xml"
+          role_id: 113599
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"role": {"id": 916383, "name": "<value>", "assignable": true, "time_entries_visibility": "<value>", "users_visibility": "<value>", "permissions": ["<value>"]}}
+  getGroups:
+    speakeasy-default-get-groups:
+      parameters:
+        path:
+          format: "json"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"groups": [{"id": 756679, "name": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}, {"id": 683882, "name": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}]}
+  createGroup:
+    speakeasy-default-create-group:
+      parameters:
+        path:
+          format: "json"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"group": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "201":
+          application/json: {"group": {"id": 835377, "name": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
+        "422":
+          application/json: {"errors": ["<value>", "<value>", "<value>"]}
+  getGroup:
+    speakeasy-default-get-group:
+      parameters:
+        path:
+          format: "xml"
+          group_id: 797868
+        query: {}
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"group": {"id": 526160, "name": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
+  updateGroup:
+    speakeasy-default-update-group:
+      parameters:
+        path:
+          format: "json"
+          group_id: 750192
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"group": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+  deleteGroup:
+    speakeasy-default-delete-group:
+      parameters:
+        path:
+          format: "json"
+          group_id: 114822
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  addUserToGroup:
+    speakeasy-default-add-user-to-group:
+      parameters:
+        path:
+          format: "json"
+          group_id: 699024
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  removeUserFromGroup:
+    speakeasy-default-remove-user-from-group:
+      parameters:
+        path:
+          format: "xml"
+          group_id: 982330
+          user_id: 948975
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getCustomFields:
+    speakeasy-default-get-custom-fields:
+      parameters:
+        path:
+          format: "xml"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"custom_fields": [{}]}
+  search:
+    speakeasy-default-search:
+      parameters:
+        path:
+          format: "json"
+        query:
+          q: "<value>"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"results": [{"id": 189430, "title": "<value>", "type": "<value>", "url": "https://antique-descent.name/", "description": "reboot nice immense slather concerning what until", "datetime": "2025-07-09T19:54:43.386Z"}]}
+  getFiles:
+    speakeasy-default-get-files:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 716799
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"files": [{"id": 842979, "filename": "example.file", "filesize": 484046, "content_type": "<value>", "description": "inside blah although incidentally beyond", "content_url": "https://untidy-tentacle.info", "author": {"id": 478355, "name": "<value>"}, "created_on": "2023-05-28T19:24:13.297Z", "digest": "<value>", "downloads": 192888}, {"id": 892822, "filename": "example.file", "filesize": 919474, "content_type": "<value>", "description": "tennis justly the merit unbalance daily meanwhile positively bobble wherever", "content_url": "https://light-parade.com", "author": {"id": 700935, "name": "<value>"}, "created_on": "2024-10-12T05:55:54.698Z", "digest": "<value>", "downloads": 111227}]}
+  createFile:
+    speakeasy-default-create-file:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 35242
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  getMyAccount:
+    speakeasy-default-get-my-account:
+      parameters:
+        path:
+          format: "xml"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      responses:
+        "200":
+          application/json: {"user": {"id": 411401, "login": "Emely.Erdman", "admin": true, "firstname": "Myrtie", "lastname": "Hegmann", "mail": "<value>", "created_on": "2023-10-07T20:50:50.944Z", "last_login_on": "2024-06-09T18:55:08.020Z", "api_key": "<value>", "custom_fields": [{"id": 0, "name": "string", "value": "string"}]}}
+  updateMyAccount:
+    speakeasy-default-update-my-account:
+      parameters:
+        path:
+          format: "json"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+      requestBody:
+        application/json: {"user": {"custom_fields": [{"id": 0, "value": "string"}], "custom_field_values": {"0": "string"}}}
+      responses:
+        "422":
+          application/json: {"errors": ["<value>"]}
+  updateJournal:
+    speakeasy-default-update-journal:
+      parameters:
+        path:
+          format: "json"
+          journal_id: 169354
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  addRelatedIssue:
+    speakeasy-default-add-related-issue:
+      parameters:
+        path:
+          format: "xml"
+          project_id: 147183
+          repository_id: 568457
+          revision: "<value>"
+        header:
+          X-Redmine-Switch-User: "jsmith"
+  removeRelatedIssue:
+    speakeasy-default-remove-related-issue:
+      parameters:
+        path:
+          format: "json"
+          project_id: 685212
+          repository_id: 130988
+          revision: "<value>"
+          issue_id: 536011
+        header:
+          X-Redmine-Switch-User: "jsmith"
+examplesVersion: 1.0.0
+generatedTests: {}

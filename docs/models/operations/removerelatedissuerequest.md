@@ -1,0 +1,13 @@
+# RemoveRelatedIssueRequest
+
+
+## Fields
+
+| Field                                                  | Type                                                   | Required                                               | Description                                            | Example                                                |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `Format`                                               | [components.Format](../../models/components/format.md) | :heavy_check_mark:                                     | N/A                                                    |                                                        |
+| `ProjectID`                                            | *int64*                                                | :heavy_check_mark:                                     | N/A                                                    |                                                        |
+| `RepositoryID`                                         | *int64*                                                | :heavy_check_mark:                                     | N/A                                                    |                                                        |
+| `Revision`                                             | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |                                                        |
+| `IssueID`                                              | *int64*                                                | :heavy_check_mark:                                     | N/A                                                    |                                                        |
+| `XRedmineSwitchUser`                                   | **string*                                              | :heavy_minus_sign:                                     | N/A                                                    | jsmith                                                 |
